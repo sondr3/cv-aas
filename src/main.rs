@@ -1,42 +1,38 @@
 use actix_web::{middleware, web, App, Error, HttpResponse, HttpServer};
-use juniper::graphiql::graphiql_source;
-use juniper::http::GraphQLRequest;
-use juniper::{FieldResult, GraphQLEnum, GraphQLInputObject, GraphQLObject, RootNode};
-use std::io;
-use std::sync::Arc;
+use juniper::{
+    graphiql::graphiql_source, http::GraphQLRequest, EmptyMutation, FieldResult, GraphQLEnum,
+    GraphQLInputObject, GraphQLObject, RootNode,
+};
+use serde::Deserialize;
+use std::{io, sync::Arc};
 
-#[derive(GraphQLObject)]
-#[graphql(description = "About a person")]
-struct Person {
-    id: i32,
+#[derive(Debug, Deserialize, GraphQLObject)]
+#[graphql(description = "About me")]
+struct Me {
     name: String,
     age: i32,
-    description: String,
+    about: String,
+}
+
+impl Me {
+    fn new() -> Self {
+        return serde_dhall::from_file("common.dhall").parse().unwrap();
+    }
 }
 
 pub struct QueryRoot;
 
 #[juniper::object]
 impl QueryRoot {
-    fn person(id: i32) -> FieldResult<Person> {
-        Ok(Person {
-            id: id,
-            name: "Sondre Nilsen".to_string(),
-            age: 28,
-            description: "Hello, world!".to_string(),
-        })
+    fn me() -> FieldResult<Me> {
+        Ok(Me::new())
     }
 }
 
-pub struct MutationRoot;
-
-#[juniper::object]
-impl MutationRoot {}
-
-pub type Schema = RootNode<'static, QueryRoot, MutationRoot>;
+pub type Schema = RootNode<'static, QueryRoot, EmptyMutation<()>>;
 
 pub fn create_schema() -> Schema {
-    Schema::new(QueryRoot {}, MutationRoot {})
+    Schema::new(QueryRoot {}, EmptyMutation::<()>::new())
 }
 
 async fn graphiql() -> HttpResponse {
@@ -62,7 +58,7 @@ async fn graphql(
 
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
-    std::env::set_var("RUST_LOG", "actix_web=info");
+    std::env::set_var("RUST_LOG", "actix_web=debug");
     env_logger::init();
 
     // Create Juniper schema
@@ -76,7 +72,7 @@ async fn main() -> io::Result<()> {
             .service(web::resource("/graphql").route(web::post().to(graphql)))
             .service(web::resource("/graphiql").route(web::get().to(graphiql)))
     })
-    .bind("127.0.0.1:8080")?
+    .bind("0.0.0.0:8080")?
     .run()
     .await
 }
