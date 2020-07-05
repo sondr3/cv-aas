@@ -1,10 +1,26 @@
 use actix_web::{middleware, web, App, Error, HttpResponse, HttpServer};
 use juniper::{
     graphiql::graphiql_source, http::GraphQLRequest, EmptyMutation, FieldResult, GraphQLEnum,
-    GraphQLInputObject, GraphQLObject, RootNode,
+    GraphQLObject, RootNode,
 };
 use serde::Deserialize;
 use std::{io, sync::Arc};
+use thiserror::Error;
+
+#[derive(Debug, Deserialize, Error)]
+enum Errors {
+    #[error("Language {0} is not valid")]
+    InvalidLanguage(String),
+    #[error("Could not parse {0}")]
+    ParseError(String),
+}
+
+#[derive(Debug, GraphQLEnum)]
+#[graphql(name = "Languages", description = "Languages my CV exist in")]
+enum Language {
+    Norwegian,
+    English,
+}
 
 #[derive(Debug, Deserialize, GraphQLObject)]
 #[graphql(description = "About me")]
@@ -15,17 +31,30 @@ struct Me {
 }
 
 impl Me {
-    fn new() -> Self {
-        return serde_dhall::from_file("common.dhall").parse().unwrap();
+    fn new(language: &Language) -> Result<Self, Errors> {
+        return match language {
+            Language::Norwegian => Ok(read_language_configuration("norwegian")?),
+            Language::English => Ok(read_language_configuration("english")?),
+        };
     }
+}
+
+fn read_language_configuration(language: &str) -> Result<Me, Errors> {
+    return match serde_dhall::from_file(&format!("{}.dhall", language)).parse() {
+        Ok(file) => Ok(file),
+        Err(..) => Err(Errors::ParseError(format!("{}.dhall", language))),
+    };
 }
 
 pub struct QueryRoot;
 
 #[juniper::object]
 impl QueryRoot {
-    fn me() -> FieldResult<Me> {
-        Ok(Me::new())
+    fn me(language: Language) -> FieldResult<Me> {
+        match Me::new(&language) {
+            Ok(me) => Ok(me),
+            Err(e) => Err(e)?,
+        }
     }
 }
 
