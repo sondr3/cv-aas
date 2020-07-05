@@ -32,18 +32,18 @@ struct Me {
 
 impl Me {
     fn new(language: &Language) -> Result<Self, Errors> {
-        return match language {
-            Language::Norwegian => Ok(read_language_configuration("norwegian")?),
-            Language::English => Ok(read_language_configuration("english")?),
-        };
+        match language {
+            Language::Norwegian => read_language_configuration("norwegian"),
+            Language::English => read_language_configuration("english"),
+        }
     }
 }
 
 fn read_language_configuration(language: &str) -> Result<Me, Errors> {
-    return match serde_dhall::from_file(&format!("{}.dhall", language)).parse() {
+    match serde_dhall::from_file(&format!("{}.dhall", language)).parse() {
         Ok(file) => Ok(file),
         Err(..) => Err(Errors::ParseError(format!("{}.dhall", language))),
-    };
+    }
 }
 
 pub struct QueryRoot;
@@ -53,7 +53,7 @@ impl QueryRoot {
     fn me(language: Language) -> FieldResult<Me> {
         match Me::new(&language) {
             Ok(me) => Ok(me),
-            Err(e) => Err(e)?,
+            Err(e) => Err(e.into()),
         }
     }
 }
@@ -92,6 +92,8 @@ async fn main() -> io::Result<()> {
 
     // Create Juniper schema
     let schema = std::sync::Arc::new(create_schema());
+
+    println!("Starting server on http://0.0.0.0:8080");
 
     // Start http server
     HttpServer::new(move || {
