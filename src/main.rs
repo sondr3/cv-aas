@@ -1,7 +1,7 @@
 use actix_web::{middleware, web, App, Error, HttpResponse, HttpServer};
 use juniper::{
-    graphiql::graphiql_source, http::GraphQLRequest, EmptyMutation, FieldResult, GraphQLEnum,
-    GraphQLObject, RootNode,
+    graphiql::graphiql_source, http::GraphQLRequest, FieldResult, GraphQLEnum, GraphQLObject,
+    RootNode,
 };
 use serde::Deserialize;
 use std::{io, sync::Arc};
@@ -31,7 +31,7 @@ struct Social {
     link: String,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject)]
+#[derive(Debug, Deserialize, GraphQLObject, Clone)]
 #[graphql(description = "About me")]
 struct Me {
     name: String,
@@ -40,7 +40,7 @@ struct Me {
 }
 
 impl Me {
-    fn new(language: &Language) -> Result<Self, Errors> {
+    fn new(language: Language) -> Result<Self, Errors> {
         match language {
             Language::Norwegian => read_language_configuration("norwegian"),
             Language::English => read_language_configuration("english"),
@@ -61,31 +61,49 @@ fn read_language_configuration(language: &str) -> Result<Me, Errors> {
     }
 }
 
-pub struct QueryRoot;
+struct QueryRoot;
 
-#[juniper::object]
+#[juniper::object(Context = Context)]
 impl QueryRoot {
-    fn me(language: Language) -> FieldResult<Me> {
-        match Me::new(&language) {
-            Ok(me) => Ok(me),
-            Err(e) => Err(e.into()),
-        }
+    fn me(language: Language, context: &Context) -> FieldResult<Me> {
+        Ok(match language {
+            Language::English => context.english.clone(),
+            Language::Norwegian => context.norwegian.clone(),
+        })
     }
 
-    fn social_media(name: String) -> FieldResult<Social> {
-        let me = Me::new(&Language::English)?;
-        match me.social_media(&name) {
-            Some(social) => Ok(social.clone()),
-            None => Err(Errors::NotFound(name).into()),
+    fn social_media(name: String, language: Language, context: &Context) -> FieldResult<Social> {
+        match language {
+            Language::English => match context.english.social_media(&name) {
+                Some(social) => Ok(social.clone()),
+                None => Err(Errors::NotFound(name).into()),
+            },
+            Language::Norwegian => match context.norwegian.social_media(&name) {
+                Some(social) => Ok(social.clone()),
+                None => Err(Errors::NotFound(name).into()),
+            },
         }
     }
 }
 
-pub type Schema = RootNode<'static, QueryRoot, EmptyMutation<()>>;
+struct MutationRoot;
 
-pub fn create_schema() -> Schema {
-    Schema::new(QueryRoot {}, EmptyMutation::<()>::new())
+#[juniper::object(Context = Context)]
+impl MutationRoot {}
+
+type Schema = RootNode<'static, QueryRoot, MutationRoot>;
+
+fn create_schema() -> Schema {
+    Schema::new(QueryRoot {}, MutationRoot {})
 }
+
+#[derive(Debug, Clone)]
+struct Context {
+    english: Me,
+    norwegian: Me,
+}
+
+impl juniper::Context for Context {}
 
 async fn graphiql() -> HttpResponse {
     let html = graphiql_source("http://0.0.0.0:8080/graphql");
@@ -95,17 +113,16 @@ async fn graphiql() -> HttpResponse {
 }
 
 async fn graphql(
-    st: web::Data<Arc<Schema>>,
+    context: web::Data<Context>,
+    schema: web::Data<Arc<Schema>>,
     data: web::Json<GraphQLRequest>,
 ) -> Result<HttpResponse, Error> {
-    let user = web::block(move || {
-        let res = data.execute(&st, &());
-        Ok::<_, serde_json::error::Error>(serde_json::to_string(&res)?)
-    })
-    .await?;
+    let res = data.execute(&schema, &context);
+    let json = serde_json::to_string(&res).map_err(Error::from)?;
+
     Ok(HttpResponse::Ok()
         .content_type("application/json")
-        .body(user))
+        .body(json))
 }
 
 #[actix_rt::main]
@@ -115,6 +132,10 @@ async fn main() -> io::Result<()> {
 
     // Create Juniper schema
     let schema = std::sync::Arc::new(create_schema());
+    let context = Context {
+        english: Me::new(Language::English).unwrap(),
+        norwegian: Me::new(Language::Norwegian).unwrap(),
+    };
 
     println!("Starting server on http://0.0.0.0:8080");
 
@@ -122,9 +143,10 @@ async fn main() -> io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .data(schema.clone())
+            .data(context.clone())
             .wrap(middleware::Logger::default())
             .service(web::resource("/graphql").route(web::post().to(graphql)))
-            .service(web::resource("/graphiql").route(web::get().to(graphiql)))
+            .service(web::resource("/").route(web::get().to(graphiql)))
     })
     .bind("0.0.0.0:8080")?
     .run()
