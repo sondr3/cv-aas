@@ -1,6 +1,10 @@
+let SocialMedia
+    : Type
+    = < LinkedIn | GitHub | Website | Email | Phone >
+
 let Social
     : Type
-    = { title : Text, link : Text }
+    = { kind : SocialMedia, link : Text }
 
 let Me
     : Type
@@ -10,7 +14,12 @@ let me
     : Me
     = { name = "Sondre Nilsen"
       , about = "Hello, world!"
-      , socials = [ { title = "Website", link = "https://www.eons.io" } ]
+      , socials =
+        [ { kind = SocialMedia.Website, link = "https://www.eons.io" }
+        , { kind = SocialMedia.LinkedIn
+          , link = "https://www.linkedin.com/in/sondr3/"
+          }
+        ]
       }
 
 in  me

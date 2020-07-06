@@ -24,10 +24,22 @@ enum Language {
     English,
 }
 
+#[derive(Debug, Deserialize, GraphQLEnum, Clone, PartialEq)]
+#[graphql(description = "Social media I am on")]
+enum SocialMedia {
+    #[graphql(name = "LINKEDIN")]
+    LinkedIn,
+    #[graphql(name = "GITHUB")]
+    GitHub,
+    Website,
+    Email,
+    Phone,
+}
+
 #[derive(Debug, Deserialize, GraphQLObject, Clone)]
 #[graphql(description = "Social media")]
 struct Social {
-    title: String,
+    kind: SocialMedia,
     link: String,
 }
 
@@ -47,10 +59,11 @@ impl Me {
         }
     }
 
-    fn social_media(&self, name: &str) -> Option<&Social> {
+    fn social_media(&self, kind: &SocialMedia) -> &Social {
         self.socials
             .iter()
-            .find(|e| e.title.to_lowercase().contains(&name.to_lowercase()))
+            .find(|e| e.kind == *kind)
+            .expect("This should not fail")
     }
 }
 
@@ -72,16 +85,10 @@ impl QueryRoot {
         })
     }
 
-    fn social_media(name: String, language: Language, context: &Context) -> FieldResult<Social> {
+    fn social_media(kind: SocialMedia, language: Language, context: &Context) -> &Social {
         match language {
-            Language::English => match context.english.social_media(&name) {
-                Some(social) => Ok(social.clone()),
-                None => Err(Errors::NotFound(name).into()),
-            },
-            Language::Norwegian => match context.norwegian.social_media(&name) {
-                Some(social) => Ok(social.clone()),
-                None => Err(Errors::NotFound(name).into()),
-            },
+            Language::English => context.english.social_media(&kind),
+            Language::Norwegian => context.norwegian.social_media(&kind),
         }
     }
 }
