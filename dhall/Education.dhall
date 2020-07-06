@@ -1,6 +1,6 @@
 let Education
     : Type
-    = { kind : Text
+    = { title : Text
       , university : Text
       , institute : Text
       , degree : Text

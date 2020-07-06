@@ -44,11 +44,23 @@ struct Social {
 }
 
 #[derive(Debug, Deserialize, GraphQLObject, Clone)]
+#[graphql(description = "Education")]
+struct Education {
+    title: String,
+    university: String,
+    institute: String,
+    degree: String,
+    start: i32,
+    end: i32,
+}
+
+#[derive(Debug, Deserialize, GraphQLObject, Clone)]
 #[graphql(description = "About me")]
 struct Me {
     name: String,
     about: String,
     socials: Vec<Social>,
+    education: Vec<Education>,
 }
 
 impl Me {
