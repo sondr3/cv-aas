@@ -51,8 +51,8 @@ pub struct Me {
 impl Me {
     pub fn new(language: Language) -> Result<Self, Errors> {
         match language {
-            Language::Norwegian => read_language_configuration("norwegian"),
-            Language::English => read_language_configuration("english"),
+            Language::Norwegian => read_language_configuration(&language),
+            Language::English => read_language_configuration(&language),
         }
     }
 

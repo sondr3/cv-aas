@@ -13,8 +13,3 @@ serde = { version = "1.0", features = ["derive"] }
 serde_dhall = "0.5.3"
 serde_json = "1.0"
 juniper = "0.14"
-
-[build-dependencies]
-serde = { version = "1.0", features = ["derive"] }
-serde_dhall = "0.5.3"
-serde_json = "1.0"

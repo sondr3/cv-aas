@@ -1,0 +1,32 @@
+{
+  "about": "Hello, world!",
+  "education": [
+    {
+      "degree": "Bachelorgrad",
+      "end": 2020,
+      "institute": "Institutt for informatikk",
+      "start": 2017,
+      "title": "Informatikk: Datateknologi",
+      "university": "Universitetet i Bergen"
+    },
+    {
+      "degree": "Mastergrad",
+      "end": 2022,
+      "institute": "Institutt for informatikk",
+      "start": 2020,
+      "title": "Informatikk - algoritmar",
+      "university": "Universitetet i Bergen"
+    }
+  ],
+  "name": "Sondre Nilsen",
+  "socials": [
+    {
+      "kind": "Website",
+      "link": "https://www.eons.io"
+    },
+    {
+      "kind": "LinkedIn",
+      "link": "https://www.linkedin.com/in/sondr3/"
+    }
+  ]
+}

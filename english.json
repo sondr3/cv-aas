@@ -1,0 +1,32 @@
+{
+  "about": "Hello, world!",
+  "education": [
+    {
+      "degree": "Bachelor of Science",
+      "end": 2020,
+      "institute": "Department of Informatics",
+      "start": 2017,
+      "title": "Computer Technology",
+      "university": "University of Bergen"
+    },
+    {
+      "degree": "Master of Science",
+      "end": 2022,
+      "institute": "Department of Informatics",
+      "start": 2020,
+      "title": "Informatics - Algorithms",
+      "university": "University of Bergen"
+    }
+  ],
+  "name": "Sondre Nilsen",
+  "socials": [
+    {
+      "kind": "Website",
+      "link": "https://www.eons.io"
+    },
+    {
+      "kind": "LinkedIn",
+      "link": "https://www.linkedin.com/in/sondr3/"
+    }
+  ]
+}
