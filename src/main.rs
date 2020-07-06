@@ -13,6 +13,8 @@ enum Errors {
     InvalidLanguage(String),
     #[error("Could not parse {0}")]
     ParseError(String),
+    #[error("Could not find {0}")]
+    NotFound(String),
 }
 
 #[derive(Debug, GraphQLEnum)]
@@ -22,12 +24,19 @@ enum Language {
     English,
 }
 
+#[derive(Debug, Deserialize, GraphQLObject, Clone)]
+#[graphql(description = "Social media")]
+struct Social {
+    title: String,
+    link: String,
+}
+
 #[derive(Debug, Deserialize, GraphQLObject)]
 #[graphql(description = "About me")]
 struct Me {
     name: String,
-    age: i32,
     about: String,
+    socials: Vec<Social>,
 }
 
 impl Me {
@@ -36,6 +45,12 @@ impl Me {
             Language::Norwegian => read_language_configuration("norwegian"),
             Language::English => read_language_configuration("english"),
         }
+    }
+
+    fn social_media(&self, name: &str) -> Option<&Social> {
+        self.socials
+            .iter()
+            .find(|e| e.title.to_lowercase().contains(&name.to_lowercase()))
     }
 }
 
@@ -56,6 +71,14 @@ impl QueryRoot {
             Err(e) => Err(e.into()),
         }
     }
+
+    fn social_media(name: String) -> FieldResult<Social> {
+        let me = Me::new(&Language::English)?;
+        match me.social_media(&name) {
+            Some(social) => Ok(social.clone()),
+            None => Err(Errors::NotFound(name).into()),
+        }
+    }
 }
 
 pub type Schema = RootNode<'static, QueryRoot, EmptyMutation<()>>;
@@ -65,7 +88,7 @@ pub fn create_schema() -> Schema {
 }
 
 async fn graphiql() -> HttpResponse {
-    let html = graphiql_source("http://127.0.0.1:8080/graphql");
+    let html = graphiql_source("http://0.0.0.0:8080/graphql");
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
         .body(html)
