@@ -2,12 +2,15 @@ let Social = ./Social.dhall
 
 let Education = ./Education.dhall
 
+let Experience = ./Experience.dhall
+
 let Me
     : Type
     = { name : Text
       , about : Text
-      , socials : List Social
       , education : List Education
+      , experience : List Experience
+      , socials : List Social
       }
 
 in  Me

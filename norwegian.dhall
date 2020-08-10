@@ -6,6 +6,7 @@ let me
       , about = "Hello, world!"
       , socials =
         [ { kind = P.SocialMedia.Website, link = "https://www.eons.io" }
+        , { kind = P.SocialMedia.GitHub, link = "https://github.com/sondr3/" }
         , { kind = P.SocialMedia.LinkedIn
           , link = "https://www.linkedin.com/in/sondr3/"
           }
@@ -24,6 +25,15 @@ let me
           , degree = "Mastergrad"
           , start = 2020
           , end = 2022
+          }
+        ]
+      , experience =
+        [ { position = "Juniorutvikler"
+          , company = "Sbanken"
+          , location = "Bergen"
+          , start = "Jan 2019"
+          , end = None Text
+          , about = [ "Full-stack utvikling i React/JavaScript og C#/.NET" ]
           }
         ]
       }

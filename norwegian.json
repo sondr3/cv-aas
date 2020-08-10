@@ -18,11 +18,26 @@
       "university": "Universitetet i Bergen"
     }
   ],
+  "experience": [
+    {
+      "about": [
+        "Full-stack utvikling i React/JavaScript og C#/.NET"
+      ],
+      "company": "Sbanken",
+      "location": "Bergen",
+      "position": "Juniorutvikler",
+      "start": "Jan 2019"
+    }
+  ],
   "name": "Sondre Nilsen",
   "socials": [
     {
       "kind": "Website",
       "link": "https://www.eons.io"
+    },
+    {
+      "kind": "GitHub",
+      "link": "https://github.com/sondr3/"
     },
     {
       "kind": "LinkedIn",
