@@ -2,6 +2,8 @@ let P = ./dhall/package.dhall
 
 let C = ./common.dhall
 
+let headers = [ "Utdanning", "Erfaring" ]
+
 let me
     : P.Me
     = { name = "Sondre Nilsen"
@@ -34,4 +36,4 @@ let me
         ]
       }
 
-in  me
+in  { me, headers }
