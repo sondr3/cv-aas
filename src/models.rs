@@ -25,7 +25,9 @@ pub enum SocialMedia {
 #[graphql(description = "Social media")]
 pub struct Social {
     kind: SocialMedia,
+    name: String,
     link: String,
+    title: String,
 }
 
 #[derive(Debug, Deserialize, GraphQLObject, Clone)]

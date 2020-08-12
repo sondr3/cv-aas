@@ -22,13 +22,13 @@ let educationListToTex =
 let socialsToTex =
       λ(item : P.Social) →
         ''
-        \newcommand{\${item.kindName}link}{${item.link}}
-        \newcommand{\${item.kindName}text}{${item.title}}
+        \newcommand{\${item.name}Link}{${item.link}}
+        \newcommand{\${item.name}Text}{${item.title}}
         ''
 
 let socialsListToTex = Prelude.Text.concatMapSep "\n" P.Social socialsToTex
 
-let socialsHeaderToTex = λ(item : P.Social) → "{\\${item.kindName}}"
+let socialsHeaderToTex = λ(item : P.Social) → "{\\${item.name}}"
 
 let socialsHeader = Prelude.Text.concatMap P.Social socialsHeaderToTex
 
@@ -41,11 +41,11 @@ in  ''
     ${socialsListToTex me.socials}
 
     % Defines to make listing easier
-    \newcommand{\linkedin}{\linkedinicon\hspace{3pt}\href{\linkedinlink}{\linkedintext}}
-    \newcommand{\phone}{\phoneicon\hspace{3pt}{ \phonetext}}
-    \newcommand{\email}{\emailicon\hspace{3pt}\href{\emaillink}{\emailtext}}
-    \newcommand{\github}{\githubicon\hspace{3pt}\href{\githublink}{\githubtext}}
-    \newcommand{\website}{\websiteicon\hspace{3pt}\href{\websitelink}{\websitetext}}
+    \newcommand{\LinkedIn}{\linkedinicon\hspace{3pt}\href{\LinkedInLink}{\LinkedInText}}
+    \newcommand{\Phone}{\phoneicon\hspace{3pt}{ \PhoneText}}
+    \newcommand{\Email}{\emailicon\hspace{3pt}\href{\EmailLink}{\EmailText}}
+    \newcommand{\GitHub}{\githubicon\hspace{3pt}\href{\GitHubLink}{\GitHubText}}
+    \newcommand{\Website}{\websiteicon\hspace{3pt}\href{\WebsiteLink}{\WebsiteText}}
 
     \begin{document}
     \headertype${socialsHeader me.socials}{}{}{} % Set the order of items here
