@@ -1,6 +1,7 @@
 let P = ./dhall/package.dhall
 
 let socials =
+    -- TODO: Add phone/email
       [ { kind = P.SocialMedia.Website
         , kindName = "website"
         , link = "https://www.eons.io"
