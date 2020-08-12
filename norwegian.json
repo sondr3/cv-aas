@@ -33,14 +33,17 @@
   "socials": [
     {
       "kind": "Website",
+      "kindName": "website",
       "link": "https://www.eons.io"
     },
     {
       "kind": "GitHub",
+      "kindName": "github",
       "link": "https://github.com/sondr3/"
     },
     {
       "kind": "LinkedIn",
+      "kindName": "linkedin",
       "link": "https://www.linkedin.com/in/sondr3/"
     }
   ]

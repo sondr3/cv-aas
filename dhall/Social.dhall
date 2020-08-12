@@ -2,6 +2,6 @@ let SocialMedia = ./SocialMedia.dhall
 
 let Social
     : Type
-    = { kind : SocialMedia, link : Text }
+    = { kind : SocialMedia, kindName : Text, link : Text }
 
 in  Social
