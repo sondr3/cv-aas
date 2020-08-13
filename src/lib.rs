@@ -5,8 +5,8 @@ pub mod errors;
 pub mod graphql;
 pub mod models;
 
-static ENGLISH_JSON: &str = include_str!("../english.json");
-static NORWEGIAN_JSON: &str = include_str!("../norwegian.json");
+static ENGLISH_JSON: &str = include_str!("../data/english.json");
+static NORWEGIAN_JSON: &str = include_str!("../data/norwegian.json");
 
 pub fn read_language_configuration(language: &Language) -> Result<Me, Errors> {
     match language {

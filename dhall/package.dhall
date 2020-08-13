@@ -1,6 +1,6 @@
-{ Me = ./Me.dhall
-, Education = ./Education.dhall
-, Experience = ./Education.dhall
-, Social = ./Social.dhall
-, SocialMedia = ./SocialMedia.dhall
+{ Me = ./types/Me.dhall
+, Education = ./types/Education.dhall
+, Experience = ./types/Education.dhall
+, Social = ./types/Social.dhall
+, SocialMedia = ./types/SocialMedia.dhall
 }

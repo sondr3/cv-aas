@@ -1,6 +1,6 @@
 let Prelude = https://prelude.dhall-lang.org/package.dhall
 
-let P = ./dhall/package.dhall
+let P = ./../package.dhall
 
 let preamble = ./preamble.tex as Text
 

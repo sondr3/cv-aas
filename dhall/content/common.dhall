@@ -1,4 +1,4 @@
-let P = ./dhall/package.dhall
+let P = ./../package.dhall
 
 let socials =
     -- TODO: Add phone/email
