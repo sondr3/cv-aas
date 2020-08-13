@@ -4,7 +4,13 @@ let P = ./dhall/package.dhall
 
 let preamble = ./preamble.tex as Text
 
-let me = ./english.dhall
+let english = ./english.dhall
+
+let me = english.me
+
+let language = english.headers
+
+let lines = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
 
 let educationToTex =
       λ(item : P.Education) →
@@ -16,8 +22,7 @@ let educationToTex =
         \resumeEntryEnd{}
         ''
 
-let educationListToTex =
-      Prelude.Text.concatMapSep "\n" P.Education educationToTex
+let educationListToTex = lines P.Education educationToTex
 
 let socialsToTex =
       λ(item : P.Social) →
@@ -26,11 +31,18 @@ let socialsToTex =
         \newcommand{\${item.name}Text}{${item.title}}
         ''
 
-let socialsListToTex = Prelude.Text.concatMapSep "\n" P.Social socialsToTex
+let socialsListToTex = lines P.Social socialsToTex
 
 let socialsHeaderToTex = λ(item : P.Social) → "{\\${item.name}}"
 
 let socialsHeader = Prelude.Text.concatMap P.Social socialsHeaderToTex
+
+let languageSection =
+      λ(index : Natural) →
+        Prelude.Optional.default
+          Text
+          ""
+          (Prelude.List.index index Text language)
 
 in  ''
     ${preamble}
@@ -39,20 +51,12 @@ in  ''
     \newcommand{\subtitle}{${me.about}}
 
     ${socialsListToTex me.socials}
-
-    % Defines to make listing easier
-    \newcommand{\LinkedIn}{\linkedinicon\hspace{3pt}\href{\LinkedInLink}{\LinkedInText}}
-    \newcommand{\Phone}{\phoneicon\hspace{3pt}{ \PhoneText}}
-    \newcommand{\Email}{\emailicon\hspace{3pt}\href{\EmailLink}{\EmailText}}
-    \newcommand{\GitHub}{\githubicon\hspace{3pt}\href{\GitHubLink}{\GitHubText}}
-    \newcommand{\Website}{\websiteicon\hspace{3pt}\href{\WebsiteLink}{\WebsiteText}}
-
     \begin{document}
     \headertype${socialsHeader me.socials}{}{}{} % Set the order of items here
     \vspace{-10pt} % Set a negative value to push the body up, and the opposite
 
-    \section{\faGraduationCap}{Utdanning}
+    \section{\faGraduationCap}{${languageSection 0}}
     ${educationListToTex me.education}
 
     \end{document}
-        ''
+    ''
