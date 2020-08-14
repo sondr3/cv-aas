@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - master
+    tags:
+      - "v*.*.*"
 
 jobs:
   formatting:
@@ -74,3 +76,107 @@ jobs:
         with:
           command: check
           args: --workspace
+
+  test:
+    name: Test Suite
+    needs: [check]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache cargo registry
+        uses: actions/cache@v1
+        with:
+          path: ~/.cargo/registry
+          key: linux-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache cargo index
+        uses: actions/cache@v1
+        with:
+          path: ~/.cargo/git
+          key: linux-cargo-index-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache cargo build
+        uses: actions/cache@v1
+        with:
+          path: target
+          key: linux-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+  github_build:
+    if: startsWith(github.ref, 'refs/tags/v')
+    name: Build release binaries
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - x86_64-unknown-linux-musl
+        include:
+          - target: x86_64-unknown-linux-musl
+            os: ubuntu-latest
+            name: cv-aas-x86_64-unknown-linux-musl.tar.gz
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          target: ${{ matrix.target }}
+
+      - name: Install musl tools
+        run: sudo apt-get install -y musl-tools libssl-dev
+
+      - name: Build target
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --target ${{ matrix.target }}
+
+      - name: Prepare build artifacts
+        run: |
+          cd target/${{ matrix.target }}/release
+          strip cv-aas
+          tar czvf ../../../${{ matrix.name }} cv-aas
+          cd -
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cv-aas-x86_64-unknown-linux-musl.tar.gz
+          path: cv-aas-x86_64-unknown-linux-musl.tar.gz
+
+  github_release_binary:
+    if: startsWith(github.ref, 'refs/tags/v')
+    name: Create GitHub Release
+    needs: github_build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download Linux MUSL artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: cv-aas-x86_64-unknown-linux-musl.tar.gz
+          path: .
+
+      - name: Print directory
+        run: ls -R
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            cv-aas-x86_64-unknown-linux-musl.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
