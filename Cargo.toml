@@ -5,6 +5,7 @@ authors = ["Sondre Nilsen <nilsen.sondre@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+dotenv = "0.15.0"
 thiserror = "1.0.20"
 actix-web = "2.0.0"
 actix-rt = "1.1.1"
