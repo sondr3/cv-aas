@@ -130,6 +130,18 @@ let me
           , time = 2019
           }
         ]
+      , projects =
+        [ { name = "git-ignore"
+          , technologies = [ "Rust", "Git" ]
+          , about =
+              "Quickly and easily list and fetch .gitignore templates from gitignore.io, works on Windows, Linux and macOS."
+          }
+        , { name = "git-anger-management"
+          , technologies = [ "Rust", "Git" ]
+          , about =
+              "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool solves that problem."
+          }
+        ]
       }
 
 in  { me, headers }

@@ -127,6 +127,18 @@ let me
           , time = 2019
           }
         ]
+      , projects =
+        [ { name = "git-ignore"
+          , technologies = [ "Rust", "Git" ]
+          , about =
+              "Hent og list tilgjengelige maler for .gitignore fra APIet til gitignore.io. Alle maler blir cachet lokalt og programmet fungerer på Windows, macOS og Linux."
+          }
+        , { name = "git-anger-management"
+          , technologies = [ "Rust", "Git" ]
+          , about =
+              "Har du noensinne lurt på hvor sinna du eller dine kolleger er i sine commitmeldinger? Dette programmet teller og viser banneordene og forfatteren deres."
+          }
+        ]
       }
 
 in  { me, headers }

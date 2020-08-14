@@ -6,6 +6,8 @@ let Experience = ./Experience.dhall
 
 let Volunteer = ./Volunteer.dhall
 
+let Project = ./Project.dhall
+
 let Me
     : Type
     = { name : Text
@@ -14,6 +16,7 @@ let Me
       , experience : List Experience
       , extracurricular : List Experience
       , volunteering : List Volunteer
+      , projects : List Project
       , socials : List Social
       }
 

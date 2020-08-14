@@ -62,6 +62,14 @@ pub struct Volunteer {
 }
 
 #[derive(Debug, Deserialize, GraphQLObject, Clone)]
+#[graphql(description = "Projects I've made/worked on")]
+pub struct Project {
+    name: String,
+    technologies: Vec<String>,
+    about: String,
+}
+
+#[derive(Debug, Deserialize, GraphQLObject, Clone)]
 #[graphql(description = "About me")]
 pub struct Me {
     name: String,
@@ -71,6 +79,7 @@ pub struct Me {
     experience: Vec<Experience>,
     extracurricular: Vec<Experience>,
     volunteering: Vec<Volunteer>,
+    projects: Vec<Project>,
 }
 
 impl Me {
