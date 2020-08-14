@@ -21,12 +21,45 @@
   "experience": [
     {
       "about": [
+        "Full-stack development on AWS with Kotlin/GraphQL and React/TypeScript"
+      ],
+      "company": "Capra Consulting",
+      "end": "Aug 2020",
+      "location": "Oslo",
+      "position": "Summer intern",
+      "start": "Jun 2020"
+    },
+    {
+      "about": [
+        "Part time job as a junior developer where I work with both frontend and backend",
         "Full-stack development in React/JavaScript and C#/.NET"
       ],
       "company": "Sbanken",
       "location": "Bergen",
       "position": "Junior developer",
       "start": "Jan 2019"
+    },
+    {
+      "about": [
+        "Held the exam crash course for both Tekna and NITO, and reviewed the weekly exercises",
+        "Helped the students with their weekly exercises, mandatory assignments and general question about programming and informatics"
+      ],
+      "company": "Departement of Informatics",
+      "end": "Dec 2018",
+      "location": "University of Bergen",
+      "position": "Teaching assistant",
+      "start": "Jun 2018"
+    },
+    {
+      "about": [
+        "Developed a portal and webapplication in Python 3 and Django for the students taking INF100 that enabled them to work on, submit and automatically grade assignments.",
+        "Had about 500 users, ran on Google Cloud Platform with Kubernetes"
+      ],
+      "company": "Departement of Informatics",
+      "end": "Aug 2018",
+      "location": "University of Bergen",
+      "position": "Developer",
+      "start": "Jun 2018"
     }
   ],
   "name": "Sondre Nilsen",

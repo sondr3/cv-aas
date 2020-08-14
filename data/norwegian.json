@@ -21,12 +21,44 @@
   "experience": [
     {
       "about": [
+        "Full-stack utvikling på AWS med Kotlin/GraphQL og React/TypeScript"
+      ],
+      "company": "Capra Consulting",
+      "end": "Aug 2020",
+      "location": "Oslo",
+      "position": "Sommerjobb",
+      "start": "Jun 2020"
+    },
+    {
+      "about": [
         "Full-stack utvikling i React/JavaScript og C#/.NET"
       ],
       "company": "Sbanken",
       "location": "Bergen",
       "position": "Juniorutvikler",
       "start": "Jan 2019"
+    },
+    {
+      "about": [
+        "Holdt kræsjkurs for Tekna og NITO og gjennomgang av ukesoppgaver.",
+        "Hjalp studenter med ukesoppgaver, obligatoriske innleveringer og generelle spørsmål om programmering og informatikk."
+      ],
+      "company": "Institutt for informatikk",
+      "end": "Dec 2018",
+      "location": "Universitetet i Bergen",
+      "position": "Teaching assistant",
+      "start": "Jun 2018"
+    },
+    {
+      "about": [
+        "Utviklet en portal og webapplikasjon i Python 3 og Django for studentene som tar INF100 hvor man kan gjøre, levere og få oppgavene automatisk rettet.",
+        "Hadde omkring 500 brukere, kjørte på Google Cloud Platform med Kubernetes."
+      ],
+      "company": "Institutt for informatikk",
+      "end": "Aug 2018",
+      "location": "Universitetet i Bergen",
+      "position": "Utvikler",
+      "start": "Jun 2018"
     }
   ],
   "name": "Sondre Nilsen",
