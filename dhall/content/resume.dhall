@@ -63,6 +63,17 @@ let socialsHeaderToTex = λ(item : P.Social) → "{\\${item.name}}"
 
 let socialsHeader = Prelude.Text.concatMap P.Social socialsHeaderToTex
 
+let volunteerToTex =
+      λ(item : P.Volunteer) →
+        ''
+        \resumeEntryStart{}
+          \resumeEntryTSDL{${item.company}}{${Natural/show
+                                                item.time}}{${item.position}}{${item.location}}
+        \resumeEntryEnd{}
+        ''
+
+let volunteerListToTex = lines P.Volunteer volunteerToTex
+
 let languageSection =
       λ(index : Natural) →
         Prelude.Text.default (Prelude.List.index index Text language)
@@ -86,6 +97,9 @@ in  ''
 
     \section{\faChild}{${languageSection 2}}
     ${experienceListToTex me.extracurricular}
+
+    \section{\faHandsHelping}{${languageSection 3}}
+    ${volunteerListToTex me.volunteering}
 
     \end{document}
     ''

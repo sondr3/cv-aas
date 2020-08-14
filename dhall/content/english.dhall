@@ -2,7 +2,7 @@ let P = ./../package.dhall
 
 let C = ./common.dhall
 
-let headers = [ "Education", "Experience", "Extracurricular" ]
+let headers = [ "Education", "Experience", "Extracurricular", "Volunteering" ]
 
 let me
     : P.Me
@@ -116,6 +116,18 @@ let me
             [ "Arranged an event for students where 12 companies came and shared their knowledge"
             , "Updated and developed the website written in React/JavaScript and hosted with GitHub Pages"
             ]
+          }
+        ]
+      , volunteering =
+        [ { position = "Volunteer"
+          , company = "JavaZone"
+          , location = "Oslo"
+          , time = 2019
+          }
+        , { position = "Volunteer"
+          , company = "Booster"
+          , location = "Bergen"
+          , time = 2019
           }
         ]
       }

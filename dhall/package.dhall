@@ -3,4 +3,5 @@
 , Experience = ./types/Experience.dhall
 , Social = ./types/Social.dhall
 , SocialMedia = ./types/SocialMedia.dhall
+, Volunteer = ./types/Volunteer.dhall
 }
