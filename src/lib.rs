@@ -9,6 +9,9 @@ pub mod models;
 static ENGLISH_JSON: &str = include_str!("../data/english.json");
 static NORWEGIAN_JSON: &str = include_str!("../data/norwegian.json");
 
+pub static ENGLISH_RESUME: &[u8] = include_bytes!("../data/english.pdf");
+pub static NORWEGIAN_RESUME: &[u8] = include_bytes!("../data/norwegian.pdf");
+
 pub fn get_url() -> String {
     env::var("URL").map_or("127.0.0.1:8080".to_string(), |s| s)
 }

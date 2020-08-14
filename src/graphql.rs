@@ -1,3 +1,4 @@
+use crate::get_full_url;
 use crate::models::{Language, Me, Social, SocialMedia};
 use actix_web::{web, Error, HttpResponse};
 use juniper::{graphiql::graphiql_source, http::GraphQLRequest, FieldResult, RootNode};
@@ -18,6 +19,13 @@ impl QueryRoot {
         match language {
             Language::English => context.english.social_media(&kind),
             Language::Norwegian => context.norwegian.social_media(&kind),
+        }
+    }
+
+    fn resume(language: Language) -> String {
+        match language {
+            Language::English => format!("{}/english", get_full_url()),
+            Language::Norwegian => format!("{}/norwegian", get_full_url()),
         }
     }
 }
@@ -42,7 +50,7 @@ pub struct Context {
 impl juniper::Context for Context {}
 
 async fn graphiql() -> HttpResponse {
-    let html = graphiql_source("http://0.0.0.0:8080/graphql");
+    let html = graphiql_source(&format!("{}/graphql", get_full_url()));
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
         .body(html)
