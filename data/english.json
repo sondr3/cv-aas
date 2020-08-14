@@ -32,7 +32,7 @@
     {
       "about": [
         "Part time job as a junior developer where I work with both frontend and backend",
-        "Full-stack development in React/JavaScript and C#/.NET"
+        "Full-stack development in React/JavaScript and CSharp/.NET"
       ],
       "company": "Sbanken",
       "location": "Bergen",
@@ -44,7 +44,7 @@
         "Held the exam crash course for both Tekna and NITO, and reviewed the weekly exercises",
         "Helped the students with their weekly exercises, mandatory assignments and general question about programming and informatics"
       ],
-      "company": "Departement of Informatics",
+      "company": "Department of Informatics",
       "end": "Dec 2018",
       "location": "University of Bergen",
       "position": "Teaching assistant",
@@ -55,7 +55,7 @@
         "Developed a portal and webapplication in Python 3 and Django for the students taking INF100 that enabled them to work on, submit and automatically grade assignments.",
         "Had about 500 users, ran on Google Cloud Platform with Kubernetes"
       ],
-      "company": "Departement of Informatics",
+      "company": "Department of Informatics",
       "end": "Aug 2018",
       "location": "University of Bergen",
       "position": "Developer",

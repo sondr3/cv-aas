@@ -52,7 +52,7 @@ let me
           , location = "Bergen"
           , start = "Jan 2019"
           , end = None Text
-          , about = [ "Full-stack utvikling i React/JavaScript og C#/.NET" ]
+          , about = [ "Full-stack utvikling i React/JavaScript og CSharp/.NET" ]
           }
         , { position = "Teaching assistant"
           , company = "Institutt for informatikk"

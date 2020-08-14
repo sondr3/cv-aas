@@ -54,11 +54,11 @@ let me
           , end = None Text
           , about =
             [ "Part time job as a junior developer where I work with both frontend and backend"
-            , "Full-stack development in React/JavaScript and C#/.NET"
+            , "Full-stack development in React/JavaScript and CSharp/.NET"
             ]
           }
         , { position = "Teaching assistant"
-          , company = "Departement of Informatics"
+          , company = "Department of Informatics"
           , location = "University of Bergen"
           , start = "Jun 2018"
           , end = Some "Dec 2018"
@@ -68,7 +68,7 @@ let me
             ]
           }
         , { position = "Developer"
-          , company = "Departement of Informatics"
+          , company = "Department of Informatics"
           , location = "University of Bergen"
           , start = "Jun 2018"
           , end = Some "Aug 2018"
