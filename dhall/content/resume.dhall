@@ -4,12 +4,6 @@ let P = ./../package.dhall
 
 let preamble = ./preamble.tex as Text
 
-let english = ./english.dhall
-
-let me = english.me
-
-let language = english.headers
-
 let comma = Prelude.Text.concatSep ", "
 
 let lines = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
@@ -69,8 +63,10 @@ let volunteerToTex =
       λ(item : P.Volunteer) →
         ''
         \resumeEntryStart{}
-          \resumeEntryTSDL{${item.company}}{${Natural/show
-                                                item.time}}{${item.position}}{${item.location}}
+          \resumeEntryTSDL{${item.company}}
+                          {${Natural/show item.time}}
+                          {${item.position}}
+                          {${item.location}}
         \resumeEntryEnd{}
         ''
 
@@ -90,40 +86,49 @@ let projectListToTex = lines P.Project projectToTex
 
 let languageSection =
       λ(index : Natural) →
+      λ(language : List Text) →
         Prelude.Text.default (Prelude.List.index index Text language)
 
-in  ''
-    ${preamble}
+let resume =
+      λ(me : P.Me) →
+      λ(language : List Text) →
+        ''
+        ${preamble}
 
-    \newcommand{\fullname}{${me.name}}
-    \newcommand{\subtitle}{${me.about}}
+        \newcommand{\fullname}{${me.name}}
+        \newcommand{\subtitle}{${me.about}}
 
-    ${socialsListToTex me.socials}
-    \begin{document}
-    \headertype${socialsHeader me.socials}{}{}{} % Set the order of items here
-    \vspace{-10pt} % Set a negative value to push the body up, and the opposite
+        ${socialsListToTex me.socials}
+        \begin{document}
+        \headertype${socialsHeader me.socials}{}{}{} 
+        \vspace{-10pt} 
 
-    \section{\faGraduationCap}{${languageSection 0}}
-    ${educationListToTex me.education}
+        \section{\faGraduationCap}{${languageSection 0 language}}
+        ${educationListToTex me.education}
 
-    \section{\faChartPie}{${languageSection 1}}
-    ${experienceListToTex me.experience}
+        \section{\faChartPie}{${languageSection 1 language}}
+        ${experienceListToTex me.experience}
 
-    \section{\faChild}{${languageSection 2}}
-    ${experienceListToTex me.extracurricular}
+        \section{\faChild}{${languageSection 2 language}}
+        ${experienceListToTex me.extracurricular}
 
-    \section{\faHandsHelping}{${languageSection 3}}
-    ${volunteerListToTex me.volunteering}
+        \section{\faHandsHelping}{${languageSection 3 language}}
+        ${volunteerListToTex me.volunteering}
 
-    \section{\faFlask}{${languageSection 4}}
-    ${projectListToTex me.projects}
+        \section{\faFlask}{${languageSection 4 language}}
+        ${projectListToTex me.projects}
 
-    \section{\faCogs}{${languageSection 5}}
-    \resumeEntryStart{}
-      \resumeEntryS{${languageSection 6}}{${comma me.skills.languages}}
-      \resumeEntryS{${languageSection 7}}{${comma me.skills.technologies}}
-      \resumeEntryS{${languageSection 8}}{${comma me.skills.personal}}
-    \resumeEntryEnd{}
+        \section{\faCogs}{${languageSection 5 language}}
+        \resumeEntryStart{}
+          \resumeEntryS{${languageSection 6 language}}
+                       {${comma me.skills.languages}}
+          \resumeEntryS{${languageSection 7 language}}
+                       {${comma me.skills.technologies}}
+          \resumeEntryS{${languageSection 8 language}}
+                       {${comma me.skills.personal}}
+        \resumeEntryEnd{}
 
-    \end{document}
-    ''
+        \end{document}
+        ''
+
+in  resume
