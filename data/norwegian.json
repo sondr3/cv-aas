@@ -136,5 +136,19 @@
       "name": "LinkedIn",
       "title": "sondr3"
     }
+  ],
+  "volunteering": [
+    {
+      "company": "JavaZone",
+      "location": "Oslo",
+      "position": "Frivillig",
+      "time": 2019
+    },
+    {
+      "company": "Booster",
+      "location": "Bergen",
+      "position": "Frivillig",
+      "time": 2019
+    }
   ]
 }

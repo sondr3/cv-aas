@@ -137,5 +137,19 @@
       "name": "LinkedIn",
       "title": "sondr3"
     }
+  ],
+  "volunteering": [
+    {
+      "company": "JavaZone",
+      "location": "Oslo",
+      "position": "Volunteer",
+      "time": 2019
+    },
+    {
+      "company": "Booster",
+      "location": "Bergen",
+      "position": "Volunteer",
+      "time": 2019
+    }
   ]
 }
