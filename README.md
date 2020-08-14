@@ -17,7 +17,6 @@
 
 **Table of Contents**
 
-- [-](#-)
 - [Installation](#installation)
 - [How?](#how)
 - [License](#license)
