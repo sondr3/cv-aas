@@ -12,6 +12,32 @@ let language = english.headers
 
 let lines = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
 
+let emptyField =
+      λ(item : Optional Text) →
+        if    Prelude.Optional.null Text item
+        then  ""
+        else  Prelude.Text.spaces 1 ++ Prelude.Optional.default Text "" item
+
+let toResumeItem = λ(item : Text) → "\\resumeItem{${item}}"
+
+let resumeItems = λ(content : List Text) → lines Text toResumeItem content
+
+let experienceToTex =
+      λ(item : P.Experience) →
+        ''
+        \resumeEntryStart{}
+          \resumeEntryTSDL{${item.company}}
+                          {${item.start} ---${emptyField item.end}}
+                          {${item.position}}
+                          {${item.location}}
+            \resumeItemListStart{}
+              ${resumeItems item.about}
+            \resumeItemListEnd{}
+          \resumeEntryEnd{}
+        ''
+
+let experienceListToTex = lines P.Experience experienceToTex
+
 let educationToTex =
       λ(item : P.Education) →
         ''
@@ -39,10 +65,7 @@ let socialsHeader = Prelude.Text.concatMap P.Social socialsHeaderToTex
 
 let languageSection =
       λ(index : Natural) →
-        Prelude.Optional.default
-          Text
-          ""
-          (Prelude.List.index index Text language)
+        Prelude.Text.default (Prelude.List.index index Text language)
 
 in  ''
     ${preamble}
@@ -57,6 +80,9 @@ in  ''
 
     \section{\faGraduationCap}{${languageSection 0}}
     ${educationListToTex me.education}
+
+    \section{\faChartPie}{${languageSection 1}}
+    ${experienceListToTex me.experience}
 
     \end{document}
     ''
