@@ -4,4 +4,5 @@
 , Social = ./types/Social.dhall
 , SocialMedia = ./types/SocialMedia.dhall
 , Volunteer = ./types/Volunteer.dhall
+, Project = ./types/Project.dhall
 }

@@ -2,7 +2,17 @@ let P = ./../package.dhall
 
 let C = ./common.dhall
 
-let headers = [ "Education", "Experience", "Extracurricular", "Volunteering" ]
+let headers =
+      [ "Education"
+      , "Experience"
+      , "Extracurricular"
+      , "Volunteering"
+      , "Projects"
+      , "Skills"
+      , "Languages"
+      , "Technologies"
+      , "Personal"
+      ]
 
 let me
     : P.Me
@@ -142,6 +152,16 @@ let me
               "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool solves that problem."
           }
         ]
+      , skills =
+            C.skills
+          ⫽ { personal =
+              [ "pianist"
+              , "board game enthusiast"
+              , "semi enthusiastic jogger"
+              , "certified diver"
+              , "sticker collector"
+              ]
+            }
       }
 
 in  { me, headers }

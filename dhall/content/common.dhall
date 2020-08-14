@@ -19,4 +19,28 @@ let socials =
         }
       ]
 
-in  { socials }
+let languages =
+      [ "Rust"
+      , "Kotlin"
+      , "TypeScript/JavaScript"
+      , "Python"
+      , "SQL"
+      , "Java"
+      , "Haskell"
+      , "C\\#"
+      ]
+
+let technologies =
+      [ "React"
+      , "CSS"
+      , "HTML"
+      , "styled-components"
+      , "Docker"
+      , "Linux"
+      , "Git"
+      , "DevOps"
+      ]
+
+let skills = { languages, technologies }
+
+in  { socials, skills }

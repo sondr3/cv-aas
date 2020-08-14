@@ -2,7 +2,17 @@ let P = ./../package.dhall
 
 let C = ./common.dhall
 
-let headers = [ "Utdanning", "Erfaring", "Verv", "Frivillig" ]
+let headers =
+      [ "Utdanning"
+      , "Erfaring"
+      , "Verv"
+      , "Frivillig"
+      , "Prosjekter"
+      , "Ferdigheter"
+      , "Språk"
+      , "Teknologier"
+      , "Personlig"
+      ]
 
 let me
     : P.Me
@@ -139,6 +149,16 @@ let me
               "Har du noensinne lurt på hvor sinna du eller dine kolleger er i sine commitmeldinger? Dette programmet teller og viser banneordene og forfatteren deres."
           }
         ]
+      , skills =
+            C.skills
+          ⫽ { personal =
+              [ "Pianist"
+              , "brettspillentusiast"
+              , "semi-entusiastisk jogger"
+              , "sertifisert dykker"
+              , "stickersamler"
+              ]
+            }
       }
 
 in  { me, headers }

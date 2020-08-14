@@ -10,6 +10,8 @@ let me = english.me
 
 let language = english.headers
 
+let comma = Prelude.Text.concatSep ", "
+
 let lines = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
 
 let emptyField =
@@ -74,6 +76,18 @@ let volunteerToTex =
 
 let volunteerListToTex = lines P.Volunteer volunteerToTex
 
+let projectToTex =
+      λ(item : P.Project) →
+        ''
+        \resumeEntryStart{}
+          \resumeEntryP{${item.name}}
+                       {${comma item.technologies}}
+                       {${item.about}}
+        \resumeEntryEnd{}
+        ''
+
+let projectListToTex = lines P.Project projectToTex
+
 let languageSection =
       λ(index : Natural) →
         Prelude.Text.default (Prelude.List.index index Text language)
@@ -100,6 +114,16 @@ in  ''
 
     \section{\faHandsHelping}{${languageSection 3}}
     ${volunteerListToTex me.volunteering}
+
+    \section{\faFlask}{${languageSection 4}}
+    ${projectListToTex me.projects}
+
+    \section{\faCogs}{${languageSection 5}}
+    \resumeEntryStart{}
+      \resumeEntryS{${languageSection 6}}{${comma me.skills.languages}}
+      \resumeEntryS{${languageSection 7}}{${comma me.skills.technologies}}
+      \resumeEntryS{${languageSection 8}}{${comma me.skills.personal}}
+    \resumeEntryEnd{}
 
     \end{document}
     ''

@@ -136,6 +136,35 @@
       ]
     }
   ],
+  "skills": {
+    "languages": [
+      "Rust",
+      "Kotlin",
+      "TypeScript/JavaScript",
+      "Python",
+      "SQL",
+      "Java",
+      "Haskell",
+      "C\\#"
+    ],
+    "personal": [
+      "pianist",
+      "board game enthusiast",
+      "semi enthusiastic jogger",
+      "certified diver",
+      "sticker collector"
+    ],
+    "technologies": [
+      "React",
+      "CSS",
+      "HTML",
+      "styled-components",
+      "Docker",
+      "Linux",
+      "Git",
+      "DevOps"
+    ]
+  },
   "socials": [
     {
       "kind": "Website",
