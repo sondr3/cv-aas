@@ -70,7 +70,7 @@ pub fn register(config: &mut web::ServiceConfig) {
 
     config
         .data(schema.clone())
-        .data(context.clone())
+        .data(context)
         .route("/", web::get().to(graphiql))
         .route("/graphql", web::post().to(graphql));
 }
