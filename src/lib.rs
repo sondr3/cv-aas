@@ -3,6 +3,7 @@ use crate::models::{Language, Me};
 use std::env;
 
 pub mod errors;
+pub mod graphiql;
 pub mod graphql;
 pub mod models;
 

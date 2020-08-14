@@ -1,15 +1,21 @@
 use crate::get_full_url;
+use crate::graphiql::graphiql_source;
 use crate::models::{Language, Me, Social, SocialMedia};
 use actix_web::{web, Error, HttpResponse};
-use juniper::{
-    graphiql::graphiql_source, http::GraphQLRequest, EmptyMutation, FieldResult, RootNode,
-};
+use juniper::{http::GraphQLRequest, EmptyMutation, FieldResult, RootNode};
 use std::sync::Arc;
 
 pub struct Queries;
 
 #[juniper::object(Context = Context)]
 impl Queries {
+    fn hello(language: Language) -> String {
+        match language {
+            Language::English => "Hello! Welcome to my CV-as-a-service!".to_string(),
+            Language::Norwegian => "Hei! Velkommen til min CV-as-a-service!".to_string(),
+        }
+    }
+
     fn me(language: Language, context: &Context) -> FieldResult<Me> {
         Ok(match language {
             Language::English => context.english.clone(),
