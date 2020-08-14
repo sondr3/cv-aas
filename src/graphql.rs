@@ -1,13 +1,15 @@
 use crate::get_full_url;
 use crate::models::{Language, Me, Social, SocialMedia};
 use actix_web::{web, Error, HttpResponse};
-use juniper::{graphiql::graphiql_source, http::GraphQLRequest, FieldResult, RootNode};
+use juniper::{
+    graphiql::graphiql_source, http::GraphQLRequest, EmptyMutation, FieldResult, RootNode,
+};
 use std::sync::Arc;
 
-pub struct QueryRoot;
+pub struct Queries;
 
 #[juniper::object(Context = Context)]
-impl QueryRoot {
+impl Queries {
     fn me(language: Language, context: &Context) -> FieldResult<Me> {
         Ok(match language {
             Language::English => context.english.clone(),
@@ -30,15 +32,10 @@ impl QueryRoot {
     }
 }
 
-pub struct MutationRoot;
-
-#[juniper::object(Context = Context)]
-impl MutationRoot {}
-
-pub type Schema = RootNode<'static, QueryRoot, MutationRoot>;
+pub type Schema = RootNode<'static, Queries, EmptyMutation<Context>>;
 
 pub fn create_schema() -> Schema {
-    Schema::new(QueryRoot {}, MutationRoot {})
+    Schema::new(Queries, EmptyMutation::new())
 }
 
 #[derive(Debug, Clone)]
