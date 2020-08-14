@@ -2,6 +2,8 @@ let P = ./../package.dhall
 
 let C = ./common.dhall
 
+let resume = ./resume.dhall
+
 let headers =
       [ "Education"
       , "Experience"
@@ -164,4 +166,4 @@ let me
             }
       }
 
-in  { me, headers }
+in  { me, headers, resume = resume me headers }
