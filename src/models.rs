@@ -60,6 +60,7 @@ pub struct Me {
     socials: Vec<Social>,
     education: Vec<Education>,
     experience: Vec<Experience>,
+    extracurricular: Vec<Experience>,
 }
 
 impl Me {

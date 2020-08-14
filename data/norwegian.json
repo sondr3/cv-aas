@@ -61,6 +61,61 @@
       "start": "Jun 2018"
     }
   ],
+  "extracurricular": [
+    {
+      "about": [
+        "Arrangerer en karrieredag for IT-studenter i Bergen hvor 29 bedrifter deltok",
+        "Utvikler en full-stack applikasjon for håndtering av dagen i Kotlin/GraphQL og React/TypeScript",
+        "Utvikler hovednettsiden, echokarriere.no"
+      ],
+      "company": "echo karriere",
+      "location": "Bergen",
+      "position": "Styremedlem, webmaster",
+      "start": "2019"
+    },
+    {
+      "about": [
+        "Grunnleggende styremedlem, ble leder høsten 2019",
+        "Passer på medlemmene og deres bruk av makerspacet og utstyret vårt samt holder arrangementer for studentene"
+      ],
+      "company": "echo makerspace",
+      "location": "Bergen",
+      "position": "Styremedlem, leder",
+      "start": "2018"
+    },
+    {
+      "about": [
+        "Representerte studentenes interesse i programstyret ved informatikk. Programstyret har ansvar for faglig innhold og oppbygging av studiet og for kvaliteten på studieprogrammene."
+      ],
+      "company": "echo",
+      "end": "2019",
+      "location": "Bergen",
+      "position": "Styremedlem",
+      "start": "2018"
+    },
+    {
+      "about": [
+        "Hjalp med rekruttering og å beholde studentene som studerer informatikk",
+        "Arrangerte en rekke aktiviteter for studentene; kode- og brettspillkvelder samt kræsjkurs for fag til eksamner"
+      ],
+      "company": "Gnist",
+      "end": "2020",
+      "location": "Bergen",
+      "position": "Styremedlem",
+      "start": "2018"
+    },
+    {
+      "about": [
+        "Planla og arrangerte en fagkveld for IT-studenter i Bergen hvor 12 bedrifter deltok",
+        "Oppdaterte og utviklet nettsiden som var skrevet i React/JavaScript og hostet på GitHub Pages"
+      ],
+      "company": "Fagkveld",
+      "end": "2019",
+      "location": "Bergen",
+      "position": "Styremedlem",
+      "start": "2019"
+    }
+  ],
   "name": "Sondre Nilsen",
   "socials": [
     {

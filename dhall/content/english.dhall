@@ -2,7 +2,7 @@ let P = ./../package.dhall
 
 let C = ./common.dhall
 
-let headers = [ "Education", "Experience" ]
+let headers = [ "Education", "Experience", "Extracurricular" ]
 
 let me
     : P.Me
@@ -63,6 +63,58 @@ let me
           , about =
             [ "Developed a portal and webapplication in Python 3 and Django for the students taking INF100 that enabled them to work on, submit and automatically grade assignments."
             , "Had about 500 users, ran on Google Cloud Platform with Kubernetes"
+            ]
+          }
+        ]
+      , extracurricular =
+        [ { position = "Board member, webmaster"
+          , company = "echo karriere"
+          , location = "Bergen"
+          , start = "2019"
+          , end = None Text
+          , about =
+            [ "Arranged a career fair for IT-students in Bergen with 29 visiting companies"
+            , "Developed a full-stack application for managing the fair in Kotlin/GraphQL and React/TypeScript"
+            , "Developed the main website, echokarriere.no"
+            ]
+          }
+        , { position = "Board member, leader"
+          , company = "echo makerspace"
+          , location = "Bergen"
+          , start = "2018"
+          , end = None Text
+          , about =
+            [ "Founding member, became leader in the autumn of 2019"
+            , "We manage the membership and use of the makerspace and its equipment as well as events for students"
+            ]
+          }
+        , { position = "Board member"
+          , company = "echo"
+          , location = "Bergen"
+          , start = "2018"
+          , end = Some "2019"
+          , about =
+            [ "Represented the students interests in the Programme Committee at the departement. The committee is responsible for the courses and degrees, and their quality."
+            ]
+          }
+        , { position = "Board member"
+          , company = "Gnist"
+          , location = "Bergen"
+          , start = "2018"
+          , end = Some "2020"
+          , about =
+            [ "Helped with recruitement and retaining students at the departement"
+            , "Arranged a host of activities for the students, code nights, board game nights and crash courses for subjects"
+            ]
+          }
+        , { position = "Board member"
+          , company = "Fagkveld"
+          , location = "Bergen"
+          , start = "2019"
+          , end = Some "2019"
+          , about =
+            [ "Arranged an event for students where 12 companies came and shared their knowledge"
+            , "Updated and developed the website written in React/JavaScript and hosted with GitHub Pages"
             ]
           }
         ]

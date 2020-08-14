@@ -62,6 +62,61 @@
       "start": "Jun 2018"
     }
   ],
+  "extracurricular": [
+    {
+      "about": [
+        "Arranged a career fair for IT-students in Bergen with 29 visiting companies",
+        "Developed a full-stack application for managing the fair in Kotlin/GraphQL and React/TypeScript",
+        "Developed the main website, echokarriere.no"
+      ],
+      "company": "echo karriere",
+      "location": "Bergen",
+      "position": "Board member, webmaster",
+      "start": "2019"
+    },
+    {
+      "about": [
+        "Founding member, became leader in the autumn of 2019",
+        "We manage the membership and use of the makerspace and its equipment as well as events for students"
+      ],
+      "company": "echo makerspace",
+      "location": "Bergen",
+      "position": "Board member, leader",
+      "start": "2018"
+    },
+    {
+      "about": [
+        "Represented the students interests in the Programme Committee at the departement. The committee is responsible for the courses and degrees, and their quality."
+      ],
+      "company": "echo",
+      "end": "2019",
+      "location": "Bergen",
+      "position": "Board member",
+      "start": "2018"
+    },
+    {
+      "about": [
+        "Helped with recruitement and retaining students at the departement",
+        "Arranged a host of activities for the students, code nights, board game nights and crash courses for subjects"
+      ],
+      "company": "Gnist",
+      "end": "2020",
+      "location": "Bergen",
+      "position": "Board member",
+      "start": "2018"
+    },
+    {
+      "about": [
+        "Arranged an event for students where 12 companies came and shared their knowledge",
+        "Updated and developed the website written in React/JavaScript and hosted with GitHub Pages"
+      ],
+      "company": "Fagkveld",
+      "end": "2019",
+      "location": "Bergen",
+      "position": "Board member",
+      "start": "2019"
+    }
+  ],
   "name": "Sondre Nilsen",
   "socials": [
     {

@@ -84,5 +84,8 @@ in  ''
     \section{\faChartPie}{${languageSection 1}}
     ${experienceListToTex me.experience}
 
+    \section{\faChild}{${languageSection 2}}
+    ${experienceListToTex me.extracurricular}
+
     \end{document}
     ''

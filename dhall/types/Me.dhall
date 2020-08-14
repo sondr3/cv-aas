@@ -10,6 +10,7 @@ let Me
       , about : Text
       , education : List Education
       , experience : List Experience
+      , extracurricular : List Experience
       , socials : List Social
       }
 
