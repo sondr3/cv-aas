@@ -1,6 +1,5 @@
 use actix_web::{middleware, web, App, HttpResponse, HttpServer, Result};
 use cv_aas::{get_full_url, get_url, graphql, ENGLISH_RESUME, NORWEGIAN_RESUME};
-use dotenv::dotenv;
 use std::io;
 
 async fn english_resume() -> Result<HttpResponse> {
@@ -17,7 +16,6 @@ async fn norwegian_resume() -> Result<HttpResponse> {
 
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
-    dotenv().ok();
     std::env::set_var("RUST_LOG", "actix_web=debug");
     env_logger::init();
 

@@ -121,9 +121,6 @@ jobs:
 
       - name: Build target
         uses: actions-rs/cargo@v1
-        env:
-          URL: ${{ secrets.URL }}
-          FULL_URL: ${{ secrets.FULL_URL}}
         with:
           command: build
           args: --release --target ${{ matrix.target }}

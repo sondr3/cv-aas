@@ -44,7 +44,7 @@ Don't.
 Again, don't. But if you really want to, the easiest way is to use Docker:
 
 ```sh
-$ docker build -t cv-aas .
+$ docker build --build-arg version=<VERSION> -t cv-aas .
 $ docker run -itd --restart unless-stopped -p 8080:8080 --name cv-aas cv-aas
 ```
 

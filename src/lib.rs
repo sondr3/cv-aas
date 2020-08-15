@@ -14,11 +14,17 @@ pub static ENGLISH_RESUME: &[u8] = include_bytes!("../data/english.pdf");
 pub static NORWEGIAN_RESUME: &[u8] = include_bytes!("../data/norwegian.pdf");
 
 pub fn get_url() -> String {
-    env::var("URL").map_or("127.0.0.1:8080".to_string(), |s| s)
+    match env::var("CI") {
+        Ok(_) => "0.0.0.0:8080".to_string(),
+        Err(_) => "127.0.0.1:8080".to_string(),
+    }
 }
 
 pub fn get_full_url() -> String {
-    env::var("FULL_URL").map_or("http://127.0.0.1:8080".to_string(), |s| s)
+    match env::var("CI") {
+        Ok(_) => "https://cv.eons.io".to_string(),
+        Err(_) => "127.0.0.1:8080".to_string(),
+    }
 }
 
 pub fn read_language_configuration(language: &Language) -> Result<Me, Errors> {
