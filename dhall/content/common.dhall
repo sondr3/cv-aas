@@ -10,7 +10,7 @@ let socials
         { kind = P.SocialKind.Website
         , name = "Website"
         , link = "https://www.eons.io"
-        , title = "eons.io"
+        , title = "www.eons.io"
         }
       , github =
         { kind = P.SocialKind.GitHub

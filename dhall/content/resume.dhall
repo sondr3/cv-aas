@@ -133,17 +133,17 @@ let resume =
         \tagline{${me.tagline}}
         \photo{3cm}{me}
         \socialinfo{
-        	\linkedin{${me.socials.linkedin.title}}
-        	\github{${me.socials.github.title}}\\
-        	\smartphone{${me.socials.phone.link}}
-        	\email{${me.socials.email.link}}\\
-        	\address{Norway}
-        	\infos{Nerd}
+          \begin{minipage}{1.0\linewidth}
+            \begin{tabular}{lll}
+              \linkedin{${me.socials.linkedin.title}} & \github{${me.socials.github.title}} & \website{${me.socials.website.link}}{${me.socials.website.title}} \\
+        	    \smartphone{${me.socials.phone.link}}   & \email{${me.socials.email.link}}    &
+            \end{tabular}
+          \end{minipage}
         } 
 
         \begin{document}
           \makecvheader
-          \makecvfooter{\textsc{}} %\selectlanguage{english}\today
+          \makecvfooter{\textsc{\the\year{}}}
                      {\textsc{${me.name} - CV}}
                      {\thepage}
 
