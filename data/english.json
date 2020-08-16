@@ -117,7 +117,8 @@
       "start": "2019"
     }
   ],
-  "name": "Sondre Nilsen",
+  "firstName": "Sondre",
+  "lastName": "Nilsen",
   "projects": [
     {
       "about": "Quickly and easily list and fetch .gitignore templates from gitignore.io, works on Windows, Linux and macOS.",
@@ -165,26 +166,34 @@
       "DevOps"
     ]
   },
-  "socials": [
-    {
-      "kind": "Website",
-      "link": "https://www.eons.io",
-      "name": "Website",
-      "title": "eons.io"
+  "socials": {
+    "email": {
+      "link": "hello@example.org",
+      "name": "Email",
+      "title": "Email"
     },
-    {
-      "kind": "GitHub",
+    "github": {
       "link": "https://github.com/sondr3/",
       "name": "GitHub",
       "title": "sondr3"
     },
-    {
-      "kind": "LinkedIn",
+    "linkedin": {
       "link": "https://www.linkedin.com/in/sondr3/",
       "name": "LinkedIn",
       "title": "sondr3"
+    },
+    "phone": {
+      "link": "81549300",
+      "name": "Phone",
+      "title": "Phone"
+    },
+    "website": {
+      "link": "https://www.eons.io",
+      "name": "Website",
+      "title": "eons.io"
     }
-  ],
+  },
+  "tagline": "Hello, world!",
   "volunteering": [
     {
       "company": "JavaZone",
