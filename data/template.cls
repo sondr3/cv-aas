@@ -387,26 +387,26 @@
   \end{tabular}
 }
 
-% Render a scholarshipentry in the scolarship environment
-% Usage: \scholarshipentry{<date>}{<description>}
+% Render a educationentry in the scolarship environment
+% Usage: \educationentry{<date>}{<description>}
 \newcommand\keywordsentry[2]{
   \textbf{#1} &   #2\\
 }
 
-% Define a new column type for the scholarship environment
+% Define a new column type for the education environment
 \newcolumntype{Y}{>{\raggedleft}p{\leftcolumnlength}}
 
-% Define the 'scholarship' environment
-\newenvironment{scholarship}{%
-  \begin{tabular}{Y p{\rightcolumnlength}}
+% Define the 'education' environment
+\newenvironment{education}{%
+  \begin{longtable}{ R{\leftcolumnlength} | l@{\hskip 1.8in} E }
 }{%
-  \end{tabular}
+  \end{longtable}
 }
 
-% Render a scholarshipentry in the scolarship environment
-% Usage: \scholarshipentry{<date>}{<description>}
-\newcommand\scholarshipentry[2]{
-  #1    &  #2 \\
+% Render a educationentry in the education environment
+% Usage: \educationentry{<date>}{<description>}
+\newcommand\educationentry[5]{
+  \textbf{#1---#2} & #3, #4 & #5 \\
 }
 
 % Define the 'skills' environment

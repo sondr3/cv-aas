@@ -1,23 +1,26 @@
 {
   "about": "Hello, world!",
-  "education": [
-    {
-      "degree": "Bachelorgrad",
-      "end": 2020,
-      "institute": "Institutt for informatikk",
-      "start": 2017,
-      "title": "Informatikk: Datateknologi",
-      "university": "Universitetet i Bergen"
-    },
-    {
-      "degree": "Mastergrad",
-      "end": 2022,
-      "institute": "Institutt for informatikk",
-      "start": 2020,
-      "title": "Informatikk - algoritmar",
-      "university": "Universitetet i Bergen"
-    }
-  ],
+  "education": {
+    "degrees": [
+      {
+        "degree": "Mastergrad",
+        "end": 2022,
+        "institute": "Institutt for informatikk",
+        "start": 2020,
+        "title": "Informatikk - algoritmer",
+        "university": "Universitetet i Bergen"
+      },
+      {
+        "degree": "Bachelorgrad",
+        "end": 2020,
+        "institute": "Institutt for informatikk",
+        "start": 2017,
+        "title": "Informatikk: Datateknologi",
+        "university": "Universitetet i Bergen"
+      }
+    ],
+    "university": "University of Bergen"
+  },
   "experience": [
     {
       "about": [
@@ -118,6 +121,7 @@
   ],
   "firstName": "Sondre",
   "lastName": "Nilsen",
+  "name": "SondreNilsen",
   "projects": [
     {
       "about": "Hent og list tilgjengelige maler for .gitignore fra APIet til gitignore.io. Alle maler blir cachet lokalt og programmet fungerer på Windows, macOS og Linux.",

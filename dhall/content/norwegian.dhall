@@ -25,21 +25,24 @@ let me
       , about = "Hello, world!"
       , socials = C.socials
       , education =
-        [ { title = "Informatikk: Datateknologi"
-          , university = "Universitetet i Bergen"
-          , institute = "Institutt for informatikk"
-          , degree = "Bachelorgrad"
-          , start = 2017
-          , end = 2020
-          }
-        , { title = "Informatikk - algoritmar"
-          , university = "Universitetet i Bergen"
-          , institute = "Institutt for informatikk"
-          , degree = "Mastergrad"
-          , start = 2020
-          , end = 2022
-          }
-        ]
+        { university = "Universitetet i Bergen"
+        , degrees =
+          [ { title = "Informatikk - algoritmer"
+            , university = "Universitetet i Bergen"
+            , institute = "Institutt for informatikk"
+            , degree = "Mastergrad"
+            , start = 2020
+            , end = 2022
+            }
+          , { title = "Informatikk: Datateknologi"
+            , university = "Universitetet i Bergen"
+            , institute = "Institutt for informatikk"
+            , degree = "Bachelorgrad"
+            , start = 2017
+            , end = 2020
+            }
+          ]
+        }
       , experience =
         [ { position = "Sommerjobb"
           , company = "Capra Consulting"

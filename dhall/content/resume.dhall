@@ -35,14 +35,25 @@ let experienceListToTex = lines P.Experience experienceToTex
 let educationToTex =
       λ(item : P.Education) →
         ''
-        \resumeEntryStart{}
-          \resumeEntryTSDL{${item.university}}
-          {${Natural/show item.start} --- ${Natural/show item.end}}
-          {${item.title}}{${item.institute}}
-        \resumeEntryEnd{}
+        \educationentry
+          {${Natural/show item.start}}
+          {${Natural/show item.end}}
+          {${item.degree}}
+          {${item.institute}}
+          {${item.title}} \\
         ''
 
-let educationListToTex = lines P.Education educationToTex
+let educationListToTex =
+      λ(university : Text) →
+      λ(item : List P.Education) →
+        ''
+        \begin{education}
+        \multicolumn{2}{l}{\textbf{\large ${university}}} \\
+        ${Prelude.Text.concatSep
+            "\n"
+            (Prelude.List.map P.Education Text educationToTex item)}
+        \end{education}
+        ''
 
 let socialsToTex =
       λ(item : P.Social) →
@@ -95,7 +106,7 @@ let resume =
 
         \name{${me.firstName}}{${me.lastName}}
         \tagline{${me.tagline}}
-        \photo{2.5cm}{darwiin}
+        \photo{2.5cm}{me}
         \socialinfo{
         	  \linkedin{${me.socials.linkedin.title}}
         	  \github{${me.socials.github.title}}\\
@@ -110,6 +121,11 @@ let resume =
             \makecvfooter{\textsc{}} %\selectlanguage{english}\today
                        {\textsc{${me.firstName} ${me.lastName} - CV}}
                        {\thepage}
+
+            \par{${me.about}}
+
+            \sectionTitle{${languageSection 0 language}}{\faGraduationCap}
+            ${educationListToTex me.education.university me.education.degrees}
 
         \end{document}
         ''
