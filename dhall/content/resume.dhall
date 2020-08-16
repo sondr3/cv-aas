@@ -2,8 +2,6 @@ let Prelude = https://prelude.dhall-lang.org/package.dhall
 
 let P = ./../package.dhall
 
-let preamble = ./preamble.tex as Text
-
 let comma = Prelude.Text.concatSep ", "
 
 let lines = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
@@ -93,40 +91,25 @@ let resume =
       λ(me : P.Me) →
       λ(language : List Text) →
         ''
-        ${preamble}
+        \documentclass[alternative,10pt,compact]{template}
 
-        \newcommand{\fullname}{${me.name}}
-        \newcommand{\subtitle}{${me.about}}
+        \name{${me.firstName}}{${me.lastName}}
+        \tagline{${me.tagline}}
+        \photo{2.5cm}{darwiin}
+        \socialinfo{
+        	  \linkedin{${me.socials.linkedin.title}}
+        	  \github{${me.socials.github.title}}\\
+        	  \smartphone{${me.socials.phone.link}}
+        	  \email{${me.socials.email.link}}\\
+        	  \address{Norway}
+        	  \infos{Nerd}
+        } 
 
-        ${socialsListToTex me.socials}
         \begin{document}
-        \headertype${socialsHeader me.socials}{}{}{} 
-        \vspace{-10pt} 
-
-        \section{\faGraduationCap}{${languageSection 0 language}}
-        ${educationListToTex me.education}
-
-        \section{\faChartPie}{${languageSection 1 language}}
-        ${experienceListToTex me.experience}
-
-        \section{\faChild}{${languageSection 2 language}}
-        ${experienceListToTex me.extracurricular}
-
-        \section{\faHandsHelping}{${languageSection 3 language}}
-        ${volunteerListToTex me.volunteering}
-
-        \section{\faFlask}{${languageSection 4 language}}
-        ${projectListToTex me.projects}
-
-        \section{\faCogs}{${languageSection 5 language}}
-        \resumeEntryStart{}
-          \resumeEntryS{${languageSection 6 language}}
-                       {${comma me.skills.languages}}
-          \resumeEntryS{${languageSection 7 language}}
-                       {${comma me.skills.technologies}}
-          \resumeEntryS{${languageSection 8 language}}
-                       {${comma me.skills.personal}}
-        \resumeEntryEnd{}
+            \makecvheader
+            \makecvfooter{\textsc{}} %\selectlanguage{english}\today
+                       {\textsc{${me.firstName} ${me.lastName} - CV}}
+                       {\thepage}
 
         \end{document}
         ''
