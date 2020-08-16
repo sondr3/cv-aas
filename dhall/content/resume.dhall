@@ -12,27 +12,38 @@ let emptyField =
       λ(item : Optional Text) →
         if    Prelude.Optional.null Text item
         then  ""
-        else  Prelude.Text.spaces 1 ++ Prelude.Optional.default Text "" item
+        else  Prelude.Optional.default Text "" item
 
-let toResumeItem = λ(item : Text) → "\\resumeItem{${item}}"
+let toResumeItem = λ(item : Text) → "\\item {${item}}"
 
-let resumeItems = λ(content : List Text) → linesMap Text toResumeItem content
+let resumeItems =
+      λ(content : List Text) →
+        ''
+        \begin{itemize}
+        ${linesMap Text toResumeItem content}
+        \end{itemize}
+        ''
 
 let experienceToTex =
       λ(item : P.Experience) →
         ''
-        \resumeEntryStart{}
-          \resumeEntryTSDL{${item.company}}
-                          {${item.start} ---${emptyField item.end}}
-                          {${item.position}}
-                          {${item.location}}
-            \resumeItemListStart{}
-              ${resumeItems item.about}
-            \resumeItemListEnd{}
-          \resumeEntryEnd{}
+        \experience
+        {${item.start}}
+        {${item.position}}
+        {${item.company}}
+        {${item.location}}
+        {${emptyField item.end}}
+        {${resumeItems item.about}}
+        {}
         ''
 
-let experienceListToTex = linesMap P.Experience experienceToTex
+let experienceListToTex =
+      λ(item : List P.Experience) →
+        ''
+        \begin{experiences}
+        ${lines (Prelude.List.map P.Experience Text experienceToTex item)}
+        \end{experiences}
+        ''
 
 let educationToTex =
       λ(item : P.Education) →
@@ -108,24 +119,27 @@ let resume =
         \tagline{${me.tagline}}
         \photo{2.5cm}{me}
         \socialinfo{
-        	  \linkedin{${me.socials.linkedin.title}}
-        	  \github{${me.socials.github.title}}\\
-        	  \smartphone{${me.socials.phone.link}}
-        	  \email{${me.socials.email.link}}\\
-        	  \address{Norway}
-        	  \infos{Nerd}
+        	\linkedin{${me.socials.linkedin.title}}
+        	\github{${me.socials.github.title}}\\
+        	\smartphone{${me.socials.phone.link}}
+        	\email{${me.socials.email.link}}\\
+        	\address{Norway}
+        	\infos{Nerd}
         } 
 
         \begin{document}
-            \makecvheader
-            \makecvfooter{\textsc{}} %\selectlanguage{english}\today
-                       {\textsc{${me.name} - CV}}
-                       {\thepage}
+          \makecvheader
+          \makecvfooter{\textsc{}} %\selectlanguage{english}\today
+                     {\textsc{${me.name} - CV}}
+                     {\thepage}
 
-            \par{${me.about}}
+          \par{${me.about}}
 
-            \sectionTitle{${languageSection 0 language}}{\faGraduationCap}
-            ${educationListToTex me.education.university me.education.degrees}
+          \sectionTitle{${languageSection 0 language}}{\faGraduationCap}
+          ${educationListToTex me.education.university me.education.degrees}
+
+          \sectionTitle{${languageSection 1 language}}{\faSuitcase}
+          ${experienceListToTex me.experience}
 
         \end{document}
         ''
