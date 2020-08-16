@@ -12,7 +12,8 @@ let Project = ./Project.dhall
 
 let Me
     : Type
-    = { firstName : Text
+    = { name : Text
+      , firstName : Text
       , lastName : Text
       , tagline : Text
       , about : Text
