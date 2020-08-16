@@ -17,8 +17,9 @@ dhall text <<< '(./dhall/content/norwegian.dhall).resume' > ./data/norwegian.tex
 echo "Finished Norwegian!"
 
 echo "Rendering to PDF"
-lualatex -pdf --output-directory=./data -interaction=nonstopmode ./data/english.tex
-lualatex -pdf --output-directory=./data -interaction=nonstopmode ./data/norwegian.tex
+cd ./data
+lualatex -pdf -interaction=nonstopmode english.tex
+lualatex -pdf -interaction=nonstopmode norwegian.tex
 echo "Finished rendering"
 
 echo "Finished updating..."
