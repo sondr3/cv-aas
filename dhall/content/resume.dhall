@@ -109,17 +109,38 @@ let volunteeringToTex =
         \end{volunteering}
         ''
 
+let projectGithub =
+      λ(item : P.Social) →
+        "\\sociallink{\\githubSymbol}{${item.link}}{${item.title}}"
+
+let projectWebsite =
+      λ(item : Optional P.Social) →
+        Prelude.Optional.fold
+          P.Social
+          item
+          Text
+          ( λ(x : P.Social) →
+              "\\sociallink{\\faExternalLink*}{${x.link}}{${x.title}}"
+          )
+          ""
+
 let projectToTex =
       λ(item : P.Project) →
         ''
-        \resumeEntryStart{}
-          \resumeEntryP{${item.name}}
-                       {${comma item.technologies}}
-                       {${item.about}}
-        \resumeEntryEnd{}
+        \project
+          {${item.name}}
+          {${comma item.technologies}}
+          {${projectGithub item.github} ${projectWebsite item.website}}
+          {${item.about}}
         ''
 
-let projectListToTex = linesMap P.Project projectToTex
+let projectListToTex =
+      λ(item : List P.Project) →
+        ''
+        \begin{projects}
+        ${lines (Prelude.List.map P.Project Text projectToTex item)}
+        \end{projects}
+        ''
 
 let languageSection =
       λ(index : Natural) →
@@ -163,6 +184,9 @@ let resume =
 
           \sectionTitle{${languageSection 3 language}}{\faHandsHelping}
           ${experienceListToTex me.volunteering}
+
+          \sectionTitle{${languageSection 4 language}}{\faFlask}
+          ${projectListToTex me.projects}
         \end{document}
         ''
 

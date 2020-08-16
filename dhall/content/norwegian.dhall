@@ -170,11 +170,25 @@ let me
           , technologies = [ "Rust", "Git" ]
           , about =
               "Hent og list tilgjengelige maler for .gitignore fra APIet til gitignore.io. Alle maler blir cachet lokalt og programmet fungerer på Windows, macOS og Linux."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/git-ignore"
+            , title = "sondr3/git-ignore"
+            }
+          , website = None P.Social
           }
         , { name = "git-anger-management"
           , technologies = [ "Rust", "Git" ]
           , about =
               "Har du noensinne lurt på hvor sinna du eller dine kolleger er i sine commitmeldinger? Dette programmet teller og viser banneordene og forfatteren deres."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/git-anger-management"
+            , title = "sondr3/git-anger-management"
+            }
+          , website = None P.Social
           }
         ]
       , skills =

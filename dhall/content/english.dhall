@@ -173,11 +173,25 @@ let me
           , technologies = [ "Rust", "Git" ]
           , about =
               "Quickly and easily list and fetch .gitignore templates from gitignore.io, works on Windows, Linux and macOS."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/git-ignore"
+            , title = "sondr3/git-ignore"
+            }
+          , website = None P.Social
           }
         , { name = "git-anger-management"
           , technologies = [ "Rust", "Git" ]
           , about =
               "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool solves that problem."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/git-anger-management"
+            , title = "sondr3/git-anger-management"
+            }
+          , website = None P.Social
           }
         ]
       , skills =

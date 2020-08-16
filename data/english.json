@@ -163,6 +163,12 @@
   "projects": [
     {
       "about": "Quickly and easily list and fetch .gitignore templates from gitignore.io, works on Windows, Linux and macOS.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/sondr3/git-ignore",
+        "name": "GitHub",
+        "title": "sondr3/git-ignore"
+      },
       "name": "git-ignore",
       "technologies": [
         "Rust",
@@ -171,6 +177,12 @@
     },
     {
       "about": "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool solves that problem.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/sondr3/git-anger-management",
+        "name": "GitHub",
+        "title": "sondr3/git-anger-management"
+      },
       "name": "git-anger-management",
       "technologies": [
         "Rust",

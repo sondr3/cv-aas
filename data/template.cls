@@ -507,12 +507,11 @@
 %   {<link1> <link2>}
 %   {<Project description>}
 %   {<techno1>,<techno2>}
-\newcommand\project[5]{
+\newcommand\project[4]{
   \begin{minipage}[t]{\dimexpr(\linewidth) - 1.5em}
-    \textbf{\textsc{#1}} \hfill \textsc{#2}\smallskip\\
+    \textbf{\textsc{#1}} \hfill {\footnotesize{\foreach \n in {#2}{\cvtag{\n}}}} \smallskip\\
     #3\\
     #4\smallskip\\
-    \footnotesize{\foreach \n in {#5}{\cvtag{\n}}}\\
   \end{minipage}
   \\*
 }
