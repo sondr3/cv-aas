@@ -18,7 +18,9 @@ let headers =
 
 let me
     : P.Me
-    = { name = "Sondre Nilsen"
+    = { firstName = C.name.firstName
+      , lastName = C.name.lastName
+      , tagline = "Hello, world!"
       , about = "Hello, world!"
       , socials = C.socials
       , education =

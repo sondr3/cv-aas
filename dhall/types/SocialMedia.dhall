@@ -1,5 +1,12 @@
+let Social = ./Social.dhall
+
 let SocialMedia
     : Type
-    = < LinkedIn | GitHub | Website | Email | Phone >
+    = { linkedin : Social
+      , github : Social
+      , website : Social
+      , email : Social
+      , phone : Social
+      }
 
 in  SocialMedia

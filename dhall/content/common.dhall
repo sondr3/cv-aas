@@ -1,23 +1,26 @@
 let P = ./../package.dhall
 
-let socials =
-    -- TODO: Add phone/email
-      [ { kind = P.SocialMedia.Website
-        , name = "Website"
-        , link = "https://www.eons.io"
-        , title = "eons.io"
-        }
-      , { kind = P.SocialMedia.GitHub
-        , name = "GitHub"
+let name = { firstName = "Sondre", lastName = "Nilsen" }
+
+let socials
+    : P.SocialMedia
+    =
+      -- TODO: Add phone/email from environment variables
+      { website =
+        { name = "Website", link = "https://www.eons.io", title = "eons.io" }
+      , github =
+        { name = "GitHub"
         , link = "https://github.com/sondr3/"
         , title = "sondr3"
         }
-      , { kind = P.SocialMedia.LinkedIn
-        , name = "LinkedIn"
+      , linkedin =
+        { name = "LinkedIn"
         , link = "https://www.linkedin.com/in/sondr3/"
         , title = "sondr3"
         }
-      ]
+      , email = { name = "Email", link = "hello@example.org", title = "Email" }
+      , phone = { name = "Phone", link = "81549300", title = "Phone" }
+      }
 
 let languages =
       [ "Rust"
@@ -43,4 +46,4 @@ let technologies =
 
 let skills = { languages, technologies }
 
-in  { socials, skills }
+in  { name, socials, skills }
