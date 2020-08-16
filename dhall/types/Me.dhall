@@ -20,7 +20,7 @@ let Me
       , education : List Education
       , experience : List Experience
       , extracurricular : List Experience
-      , volunteering : List Volunteer
+      , volunteering : List Experience
       , projects : List Project
       , socials : SocialMedia
       , skills :

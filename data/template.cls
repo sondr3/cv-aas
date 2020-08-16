@@ -393,7 +393,7 @@
 }
 
 % Define a new column type for the education environment
-\newcolumntype{Y}{>{\raggedleft}p{\leftcolumnlength}}
+\newcolumntype{Y}{>{\raggedleft}p{2cm}}
 
 % Define the 'education' environment
 \newenvironment{education}{%
@@ -406,6 +406,19 @@
 % Usage: \educationentry{<date>}{<description>}
 \newcommand\educationentry[5]{
   \textbf{#1---#2} & #3, #4 & #5 \\
+}
+
+% Define the 'volunteering' environment
+\newenvironment{volunteering}{%
+  \begin{tabular}{Y | l l E}
+}{%
+  \end{tabular}
+}
+
+% Render a volunteeringentry in the scolarship environment
+% Usage: \volunteeringentry{<date>}{<description>}
+\newcommand\volunteeringentry[4]{
+  \textbf{#1} & #2 & #3 & #4  \\
 }
 
 % Define the 'skills' environment
@@ -425,7 +438,7 @@
 
 % Define the 'experiences' environment
 \newenvironment{experiences}{%
-  \begin{longtable}{R{\leftcolumnlength}|E}
+  \begin{longtable}{R{2cm}|E}
 }{%
   \end{longtable}
 }
@@ -444,6 +457,13 @@
   					         #6
                    \end{minipage}										\\*
                  & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}} 	\\
+  }
+
+\newcommand\simpleexperience[7]{
+  \textbf{#1}    & \textbf{#2, \textsc{#3}, #4}   								\\*
+  \textbf{#5}    & \begin{minipage}[t]{\rightcolumnlength}
+                      #6
+                    \end{minipage}		\\*
   }
 
 % Render a consultant experience in the experiences environment

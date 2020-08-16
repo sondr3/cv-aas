@@ -6,6 +6,7 @@ let Experience
       , start : Text
       , end : Optional Text
       , about : List Text
+      , technologies : List Text
       }
 
 in  Experience

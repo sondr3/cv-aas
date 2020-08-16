@@ -11,7 +11,7 @@ let linesMap = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
 let emptyField =
       λ(item : Optional Text) →
         if    Prelude.Optional.null Text item
-        then  ""
+        then  "---"
         else  Prelude.Optional.default Text "" item
 
 let toResumeItem = λ(item : Text) → "\\item {${item}}"
@@ -24,17 +24,24 @@ let resumeItems =
         \end{itemize}
         ''
 
+let experienceEnvironment
+    : ∀(a : Type) → List a → Text
+    = λ(a : Type) →
+      λ(xs : List a) →
+        if Prelude.List.null a xs then "\\simpleexperience" else "\\experience"
+
 let experienceToTex =
       λ(item : P.Experience) →
         ''
-        \experience
+        ${experienceEnvironment Text item.technologies}
         {${item.start}}
         {${item.position}}
         {${item.company}}
         {${item.location}}
         {${emptyField item.end}}
         {${resumeItems item.about}}
-        {}
+        {${comma item.technologies}}
+        \emptySeparator
         ''
 
 let experienceListToTex =
@@ -51,9 +58,9 @@ let degreeToTex =
         \educationentry
           {${Natural/show item.start}}
           {${Natural/show item.end}}
-          {${item.degree}}
           {${item.institute}}
-          {${item.title}} \\
+          {${item.degree}}
+          {${item.title}}
         ''
 
 let universityToTex =
@@ -85,17 +92,22 @@ let socialsHeaderToTex = λ(item : P.Social) → "{\\${item.name}}"
 let socialsHeader = Prelude.Text.concatMap P.Social socialsHeaderToTex
 
 let volunteerToTex =
-      λ(item : P.Volunteer) →
+      λ(item : P.Experience) →
         ''
-        \resumeEntryStart{}
-          \resumeEntryTSDL{${item.company}}
-                          {${Natural/show item.time}}
-                          {${item.position}}
-                          {${item.location}}
-        \resumeEntryEnd{}
+        \volunteeringentry
+          {${item.start}}
+          {${item.company}}
+          {${item.location}}
+          {${item.position}}
         ''
 
-let volunteerListToTex = linesMap P.Volunteer volunteerToTex
+let volunteeringToTex =
+      λ(item : List P.Experience) →
+        ''
+        \begin{volunteering}
+        ${lines (Prelude.List.map P.Experience Text volunteerToTex item)}
+        \end{volunteering}
+        ''
 
 let projectToTex =
       λ(item : P.Project) →
@@ -122,7 +134,7 @@ let resume =
 
         \name{${me.firstName}}{${me.lastName}}
         \tagline{${me.tagline}}
-        \photo{2.5cm}{me}
+        \photo{3cm}{me}
         \socialinfo{
         	\linkedin{${me.socials.linkedin.title}}
         	\github{${me.socials.github.title}}\\
@@ -146,6 +158,11 @@ let resume =
           \sectionTitle{${languageSection 1 language}}{\faSuitcase}
           ${experienceListToTex me.experience}
 
+          \sectionTitle{${languageSection 2 language}}{\faScroll}
+          ${experienceListToTex me.extracurricular}
+
+          \sectionTitle{${languageSection 3 language}}{\faHandsHelping}
+          ${experienceListToTex me.volunteering}
         \end{document}
         ''
 

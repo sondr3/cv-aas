@@ -32,7 +32,14 @@
       "end": "Aug 2020",
       "location": "Oslo",
       "position": "Summer intern",
-      "start": "Jun 2020"
+      "start": "Jun 2020",
+      "technologies": [
+        "AWS",
+        "Kotlin",
+        "GraphQL",
+        "React",
+        "TypeScript"
+      ]
     },
     {
       "about": [
@@ -42,7 +49,13 @@
       "company": "Sbanken",
       "location": "Bergen",
       "position": "Junior developer",
-      "start": "Jan 2019"
+      "start": "Jan 2019",
+      "technologies": [
+        "React",
+        "JavaScript",
+        "CSharp",
+        ".Net"
+      ]
     },
     {
       "about": [
@@ -53,7 +66,10 @@
       "end": "Dec 2018",
       "location": "University of Bergen",
       "position": "Teaching assistant",
-      "start": "Jun 2018"
+      "start": "Jun 2018",
+      "technologies": [
+        "Python"
+      ]
     },
     {
       "about": [
@@ -64,7 +80,12 @@
       "end": "Aug 2018",
       "location": "University of Bergen",
       "position": "Developer",
-      "start": "Jun 2018"
+      "start": "Jun 2018",
+      "technologies": [
+        "Python",
+        "Django",
+        "Google Cloud Playform"
+      ]
     }
   ],
   "extracurricular": [
@@ -77,7 +98,13 @@
       "company": "echo karriere",
       "location": "Bergen",
       "position": "Board member, webmaster",
-      "start": "2019"
+      "start": "2019",
+      "technologies": [
+        "Kotlin",
+        "GraphQL",
+        "React",
+        "TypeScript"
+      ]
     },
     {
       "about": [
@@ -87,7 +114,8 @@
       "company": "echo makerspace",
       "location": "Bergen",
       "position": "Board member, leader",
-      "start": "2018"
+      "start": "2018",
+      "technologies": []
     },
     {
       "about": [
@@ -97,7 +125,8 @@
       "end": "2019",
       "location": "Bergen",
       "position": "Board member",
-      "start": "2018"
+      "start": "2018",
+      "technologies": []
     },
     {
       "about": [
@@ -108,7 +137,8 @@
       "end": "2020",
       "location": "Bergen",
       "position": "Board member",
-      "start": "2018"
+      "start": "2018",
+      "technologies": []
     },
     {
       "about": [
@@ -119,7 +149,12 @@
       "end": "2019",
       "location": "Bergen",
       "position": "Board member",
-      "start": "2019"
+      "start": "2019",
+      "technologies": [
+        "React",
+        "JavaScript",
+        "GitHub Pages"
+      ]
     }
   ],
   "firstName": "Sondre",
@@ -207,16 +242,26 @@
   "tagline": "Hello, world!",
   "volunteering": [
     {
+      "about": [
+        "Helped make sure the event ran smooth"
+      ],
       "company": "JavaZone",
+      "end": "",
       "location": "Oslo",
       "position": "Volunteer",
-      "time": 2019
+      "start": "2019",
+      "technologies": []
     },
     {
+      "about": [
+        "Helped make sure the event ran smooth"
+      ],
       "company": "Booster",
+      "end": "",
       "location": "Bergen",
       "position": "Volunteer",
-      "time": 2019
+      "start": "2019",
+      "technologies": []
     }
   ]
 }

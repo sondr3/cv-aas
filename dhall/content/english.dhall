@@ -1,8 +1,12 @@
+let Prelude = https://prelude.dhall-lang.org/package.dhall
+
 let P = ./../package.dhall
 
 let C = ./common.dhall
 
 let resume = ./resume.dhall
+
+let language = "english"
 
 let headers =
       [ "Education"
@@ -53,6 +57,7 @@ let me
           , about =
             [ "Full-stack development on AWS with Kotlin/GraphQL and React/TypeScript"
             ]
+          , technologies = [ "AWS", "Kotlin", "GraphQL", "React", "TypeScript" ]
           }
         , { position = "Junior developer"
           , company = "Sbanken"
@@ -63,6 +68,7 @@ let me
             [ "Part time job as a junior developer where I work with both frontend and backend"
             , "Full-stack development in React/JavaScript and CSharp/.NET"
             ]
+          , technologies = [ "React", "JavaScript", "CSharp", ".Net" ]
           }
         , { position = "Teaching assistant"
           , company = "Department of Informatics"
@@ -73,6 +79,7 @@ let me
             [ "Held the exam crash course for both Tekna and NITO, and reviewed the weekly exercises"
             , "Helped the students with their weekly exercises, mandatory assignments and general question about programming and informatics"
             ]
+          , technologies = [ "Python" ]
           }
         , { position = "Developer"
           , company = "Department of Informatics"
@@ -83,6 +90,7 @@ let me
             [ "Developed a portal and webapplication in Python 3 and Django for the students taking INF100 that enabled them to work on, submit and automatically grade assignments."
             , "Had about 500 users, ran on Google Cloud Platform with Kubernetes"
             ]
+          , technologies = [ "Python", "Django", "Google Cloud Playform" ]
           }
         ]
       , extracurricular =
@@ -96,6 +104,7 @@ let me
             , "Developed a full-stack application for managing the fair in Kotlin/GraphQL and React/TypeScript"
             , "Developed the main website, echokarriere.no"
             ]
+          , technologies = [ "Kotlin", "GraphQL", "React", "TypeScript" ]
           }
         , { position = "Board member, leader"
           , company = "echo makerspace"
@@ -106,6 +115,7 @@ let me
             [ "Founding member, became leader in the autumn of 2019"
             , "We manage the membership and use of the makerspace and its equipment as well as events for students"
             ]
+          , technologies = Prelude.List.empty Text
           }
         , { position = "Board member"
           , company = "echo"
@@ -115,6 +125,7 @@ let me
           , about =
             [ "Represented the students interests in the Programme Committee at the departement. The committee is responsible for the courses and degrees, and their quality."
             ]
+          , technologies = Prelude.List.empty Text
           }
         , { position = "Board member"
           , company = "Gnist"
@@ -125,6 +136,7 @@ let me
             [ "Helped with recruitement and retaining students at the departement"
             , "Arranged a host of activities for the students, code nights, board game nights and crash courses for subjects"
             ]
+          , technologies = Prelude.List.empty Text
           }
         , { position = "Board member"
           , company = "Fagkveld"
@@ -135,18 +147,25 @@ let me
             [ "Arranged an event for students where 12 companies came and shared their knowledge"
             , "Updated and developed the website written in React/JavaScript and hosted with GitHub Pages"
             ]
+          , technologies = [ "React", "JavaScript", "GitHub Pages" ]
           }
         ]
       , volunteering =
         [ { position = "Volunteer"
           , company = "JavaZone"
           , location = "Oslo"
-          , time = 2019
+          , start = "2019"
+          , end = Some ""
+          , about = [ "Helped make sure the event ran smooth" ]
+          , technologies = Prelude.List.empty Text
           }
         , { position = "Volunteer"
           , company = "Booster"
           , location = "Bergen"
-          , time = 2019
+          , start = "2019"
+          , end = Some ""
+          , about = [ "Helped make sure the event ran smooth" ]
+          , technologies = Prelude.List.empty Text
           }
         ]
       , projects =
@@ -173,4 +192,4 @@ let me
             }
       }
 
-in  { me, headers, resume = resume me headers }
+in  { me, language, headers, resume = resume me headers }
