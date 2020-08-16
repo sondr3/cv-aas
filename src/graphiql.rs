@@ -33,7 +33,6 @@ pub fn graphiql_source(endpoint: &str) -> String {
       src="https://unpkg.com/graphiql/graphiql.min.js"
       type="application/javascript"
     ></script>
-    <script src="/renderExample.js" type="application/javascript"></script>
     <script>
       function graphQLFetcher(graphQLParams) {{
         return fetch(

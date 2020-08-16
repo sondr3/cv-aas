@@ -22,7 +22,7 @@ pub fn get_url() -> String {
 pub fn get_full_url() -> String {
     match option_env!("CI") {
         Some(_) => "https://cv.eons.io".to_string(),
-        None => "127.0.0.1:8080".to_string(),
+        None => "http://127.0.0.1:8080".to_string(),
     }
 }
 

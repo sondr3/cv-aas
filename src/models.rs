@@ -22,6 +22,16 @@ pub enum SocialMedia {
 }
 
 #[derive(Debug, Deserialize, GraphQLObject, Clone)]
+#[graphql(description = "Social media information")]
+pub struct Socials {
+    website: Social,
+    email: Social,
+    phone: Social,
+    linkedin: Social,
+    github: Social,
+}
+
+#[derive(Debug, Deserialize, GraphQLObject, Clone)]
 #[graphql(description = "Social media")]
 pub struct Social {
     kind: SocialMedia,
@@ -33,6 +43,13 @@ pub struct Social {
 #[derive(Debug, Deserialize, GraphQLObject, Clone)]
 #[graphql(description = "Education")]
 pub struct Education {
+    university: String,
+    degrees: Vec<Degree>,
+}
+
+#[derive(Debug, Deserialize, GraphQLObject, Clone)]
+#[graphql(description = "Degree")]
+pub struct Degree {
     title: String,
     university: String,
     institute: String,
@@ -82,7 +99,7 @@ pub struct Skills {
 pub struct Me {
     name: String,
     about: String,
-    socials: Vec<Social>,
+    socials: Socials,
     education: Vec<Education>,
     experience: Vec<Experience>,
     extracurricular: Vec<Experience>,
@@ -100,9 +117,12 @@ impl Me {
     }
 
     pub fn social_media(&self, kind: &SocialMedia) -> &Social {
-        self.socials
-            .iter()
-            .find(|e| e.kind == *kind)
-            .expect("This should not fail")
+        match kind {
+            SocialMedia::LinkedIn => &self.socials.linkedin,
+            SocialMedia::GitHub => &self.socials.github,
+            SocialMedia::Website => &self.socials.website,
+            SocialMedia::Email => &self.socials.email,
+            SocialMedia::Phone => &self.socials.phone,
+        }
     }
 }

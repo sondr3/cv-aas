@@ -23,11 +23,8 @@ impl Queries {
         })
     }
 
-    fn social_media(kind: SocialMedia, language: Language, context: &Context) -> &Social {
-        match language {
-            Language::English => context.english.social_media(&kind),
-            Language::Norwegian => context.norwegian.social_media(&kind),
-        }
+    fn social_media(kind: SocialMedia, context: &Context) -> &Social {
+        context.english.social_media(&kind)
     }
 
     fn resume(language: Language) -> String {

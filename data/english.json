@@ -1,26 +1,28 @@
 {
   "about": "Hello, world!",
-  "education": {
-    "degrees": [
-      {
-        "degree": "Master of Science",
-        "end": 2022,
-        "institute": "Department of Informatics",
-        "start": 2020,
-        "title": "Informatics - Algorithms",
-        "university": "University of Bergen"
-      },
-      {
-        "degree": "Bachelor of Science",
-        "end": 2020,
-        "institute": "Department of Informatics",
-        "start": 2017,
-        "title": "Computer Technology",
-        "university": "University of Bergen"
-      }
-    ],
-    "university": "University of Bergen"
-  },
+  "education": [
+    {
+      "degrees": [
+        {
+          "degree": "Master of Science",
+          "end": 2022,
+          "institute": "Department of Informatics",
+          "start": 2020,
+          "title": "Informatics - Algorithms",
+          "university": "University of Bergen"
+        },
+        {
+          "degree": "Bachelor of Science",
+          "end": 2020,
+          "institute": "Department of Informatics",
+          "start": 2017,
+          "title": "Computer Technology",
+          "university": "University of Bergen"
+        }
+      ],
+      "university": "University of Bergen"
+    }
+  ],
   "experience": [
     {
       "about": [
@@ -172,26 +174,31 @@
   },
   "socials": {
     "email": {
+      "kind": "Email",
       "link": "hello@example.org",
       "name": "Email",
       "title": "Email"
     },
     "github": {
+      "kind": "GitHub",
       "link": "https://github.com/sondr3/",
       "name": "GitHub",
       "title": "sondr3"
     },
     "linkedin": {
+      "kind": "LinkedIn",
       "link": "https://www.linkedin.com/in/sondr3/",
       "name": "LinkedIn",
       "title": "sondr3"
     },
     "phone": {
+      "kind": "Phone",
       "link": "81549300",
       "name": "Phone",
       "title": "Phone"
     },
     "website": {
+      "kind": "Website",
       "link": "https://www.eons.io",
       "name": "Website",
       "title": "eons.io"

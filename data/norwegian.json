@@ -1,26 +1,28 @@
 {
   "about": "Hello, world!",
-  "education": {
-    "degrees": [
-      {
-        "degree": "Mastergrad",
-        "end": 2022,
-        "institute": "Institutt for informatikk",
-        "start": 2020,
-        "title": "Informatikk - algoritmer",
-        "university": "Universitetet i Bergen"
-      },
-      {
-        "degree": "Bachelorgrad",
-        "end": 2020,
-        "institute": "Institutt for informatikk",
-        "start": 2017,
-        "title": "Informatikk: Datateknologi",
-        "university": "Universitetet i Bergen"
-      }
-    ],
-    "university": "Universitetet i Bergen"
-  },
+  "education": [
+    {
+      "degrees": [
+        {
+          "degree": "Mastergrad",
+          "end": 2022,
+          "institute": "Institutt for informatikk",
+          "start": 2020,
+          "title": "Informatikk - algoritmer",
+          "university": "Universitetet i Bergen"
+        },
+        {
+          "degree": "Bachelorgrad",
+          "end": 2020,
+          "institute": "Institutt for informatikk",
+          "start": 2017,
+          "title": "Informatikk: Datateknologi",
+          "university": "Universitetet i Bergen"
+        }
+      ],
+      "university": "Universitetet i Bergen"
+    }
+  ],
   "experience": [
     {
       "about": [
@@ -171,26 +173,31 @@
   },
   "socials": {
     "email": {
+      "kind": "Email",
       "link": "hello@example.org",
       "name": "Email",
       "title": "Email"
     },
     "github": {
+      "kind": "GitHub",
       "link": "https://github.com/sondr3/",
       "name": "GitHub",
       "title": "sondr3"
     },
     "linkedin": {
+      "kind": "LinkedIn",
       "link": "https://www.linkedin.com/in/sondr3/",
       "name": "LinkedIn",
       "title": "sondr3"
     },
     "phone": {
+      "kind": "Phone",
       "link": "81549300",
       "name": "Phone",
       "title": "Phone"
     },
     "website": {
+      "kind": "Website",
       "link": "https://www.eons.io",
       "name": "Website",
       "title": "eons.io"
