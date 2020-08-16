@@ -19,7 +19,7 @@
         "university": "Universitetet i Bergen"
       }
     ],
-    "university": "University of Bergen"
+    "university": "Universitetet i Bergen"
   },
   "experience": [
     {
@@ -121,7 +121,7 @@
   ],
   "firstName": "Sondre",
   "lastName": "Nilsen",
-  "name": "SondreNilsen",
+  "name": "Sondre Nilsen",
   "projects": [
     {
       "about": "Hent og list tilgjengelige maler for .gitignore fra APIet til gitignore.io. Alle maler blir cachet lokalt og programmet fungerer på Windows, macOS og Linux.",

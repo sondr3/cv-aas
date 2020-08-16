@@ -85,7 +85,6 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{ifthen}
 
-
 \DeclareUnicodeCharacter{00E9}{\'{e}}
 % Define default accent colors
 \definecolor{basecolor}{HTML}{000066}       %BLUE
@@ -398,7 +397,7 @@
 
 % Define the 'education' environment
 \newenvironment{education}{%
-  \begin{longtable}{ R{\leftcolumnlength} | l@{\hskip 1.8in} E }
+  \begin{longtable}[l]{ Y | l E }
 }{%
   \end{longtable}
 }

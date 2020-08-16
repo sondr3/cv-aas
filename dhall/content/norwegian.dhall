@@ -18,7 +18,7 @@ let headers =
 
 let me
     : P.Me
-    = { name = C.name.firstName ++ C.name.lastName
+    = { name = C.name.firstName ++ " " ++ C.name.lastName
       , firstName = C.name.firstName
       , lastName = C.name.lastName
       , tagline = "Hello, world!"

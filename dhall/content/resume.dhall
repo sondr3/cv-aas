@@ -4,7 +4,9 @@ let P = ./../package.dhall
 
 let comma = Prelude.Text.concatSep ", "
 
-let lines = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
+let lines = Prelude.Text.concatSep "\n"
+
+let linesMap = λ(type : Type) → Prelude.Text.concatMapSep "\n" type
 
 let emptyField =
       λ(item : Optional Text) →
@@ -14,7 +16,7 @@ let emptyField =
 
 let toResumeItem = λ(item : Text) → "\\resumeItem{${item}}"
 
-let resumeItems = λ(content : List Text) → lines Text toResumeItem content
+let resumeItems = λ(content : List Text) → linesMap Text toResumeItem content
 
 let experienceToTex =
       λ(item : P.Experience) →
@@ -30,7 +32,7 @@ let experienceToTex =
           \resumeEntryEnd{}
         ''
 
-let experienceListToTex = lines P.Experience experienceToTex
+let experienceListToTex = linesMap P.Experience experienceToTex
 
 let educationToTex =
       λ(item : P.Education) →
@@ -49,9 +51,7 @@ let educationListToTex =
         ''
         \begin{education}
         \multicolumn{2}{l}{\textbf{\large ${university}}} \\
-        ${Prelude.Text.concatSep
-            "\n"
-            (Prelude.List.map P.Education Text educationToTex item)}
+        ${lines (Prelude.List.map P.Education Text educationToTex item)}
         \end{education}
         ''
 
@@ -62,7 +62,7 @@ let socialsToTex =
         \newcommand{\${item.name}Text}{${item.title}}
         ''
 
-let socialsListToTex = lines P.Social socialsToTex
+let socialsListToTex = linesMap P.Social socialsToTex
 
 let socialsHeaderToTex = λ(item : P.Social) → "{\\${item.name}}"
 
@@ -79,7 +79,7 @@ let volunteerToTex =
         \resumeEntryEnd{}
         ''
 
-let volunteerListToTex = lines P.Volunteer volunteerToTex
+let volunteerListToTex = linesMap P.Volunteer volunteerToTex
 
 let projectToTex =
       λ(item : P.Project) →
@@ -91,7 +91,7 @@ let projectToTex =
         \resumeEntryEnd{}
         ''
 
-let projectListToTex = lines P.Project projectToTex
+let projectListToTex = linesMap P.Project projectToTex
 
 let languageSection =
       λ(index : Natural) →
@@ -119,7 +119,7 @@ let resume =
         \begin{document}
             \makecvheader
             \makecvfooter{\textsc{}} %\selectlanguage{english}\today
-                       {\textsc{${me.firstName} ${me.lastName} - CV}}
+                       {\textsc{${me.name} - CV}}
                        {\thepage}
 
             \par{${me.about}}
