@@ -45,8 +45,8 @@ let experienceListToTex =
         \end{experiences}
         ''
 
-let educationToTex =
-      λ(item : P.Education) →
+let degreeToTex =
+      λ(item : P.Degree) →
         ''
         \educationentry
           {${Natural/show item.start}}
@@ -56,13 +56,18 @@ let educationToTex =
           {${item.title}} \\
         ''
 
-let educationListToTex =
-      λ(university : Text) →
+let universityToTex =
+      λ(item : P.Education) →
+        ''
+          \multicolumn{2}{l}{\textbf{\large ${item.university}}} \\
+          ${lines (Prelude.List.map P.Degree Text degreeToTex item.degrees)}
+        ''
+
+let toEducation =
       λ(item : List P.Education) →
         ''
         \begin{education}
-        \multicolumn{2}{l}{\textbf{\large ${university}}} \\
-        ${lines (Prelude.List.map P.Education Text educationToTex item)}
+        ${lines (Prelude.List.map P.Education Text universityToTex item)}
         \end{education}
         ''
 
@@ -136,7 +141,7 @@ let resume =
           \par{${me.about}}
 
           \sectionTitle{${languageSection 0 language}}{\faGraduationCap}
-          ${educationListToTex me.education.university me.education.degrees}
+          ${toEducation me.education}
 
           \sectionTitle{${languageSection 1 language}}{\faSuitcase}
           ${experienceListToTex me.experience}

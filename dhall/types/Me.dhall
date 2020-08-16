@@ -17,7 +17,7 @@ let Me
       , lastName : Text
       , tagline : Text
       , about : Text
-      , education : { university : Text, degrees : List Education }
+      , education : List Education
       , experience : List Experience
       , extracurricular : List Experience
       , volunteering : List Volunteer

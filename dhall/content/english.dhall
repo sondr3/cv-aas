@@ -25,24 +25,25 @@ let me
       , about = "Hello, world!"
       , socials = C.socials
       , education =
-        { university = "University of Bergen"
-        , degrees =
-          [ { title = "Informatics - Algorithms"
-            , university = "University of Bergen"
-            , institute = "Department of Informatics"
-            , degree = "Master of Science"
-            , start = 2020
-            , end = 2022
-            }
-          , { title = "Computer Technology"
-            , university = "University of Bergen"
-            , institute = "Department of Informatics"
-            , degree = "Bachelor of Science"
-            , start = 2017
-            , end = 2020
-            }
-          ]
-        }
+        [ { university = "University of Bergen"
+          , degrees =
+            [ { title = "Informatics - Algorithms"
+              , university = "University of Bergen"
+              , institute = "Department of Informatics"
+              , degree = "Master of Science"
+              , start = 2020
+              , end = 2022
+              }
+            , { title = "Computer Technology"
+              , university = "University of Bergen"
+              , institute = "Department of Informatics"
+              , degree = "Bachelor of Science"
+              , start = 2017
+              , end = 2020
+              }
+            ]
+          }
+        ]
       , experience =
         [ { position = "Summer intern"
           , company = "Capra Consulting"
