@@ -85,30 +85,6 @@ let socialsToTex =
         \newcommand{\${item.name}Text}{${item.title}}
         ''
 
-let socialsListToTex = linesMap P.Social socialsToTex
-
-let socialsHeaderToTex = λ(item : P.Social) → "{\\${item.name}}"
-
-let socialsHeader = Prelude.Text.concatMap P.Social socialsHeaderToTex
-
-let volunteerToTex =
-      λ(item : P.Experience) →
-        ''
-        \volunteeringentry
-          {${item.start}}
-          {${item.company}}
-          {${item.location}}
-          {${item.position}}
-        ''
-
-let volunteeringToTex =
-      λ(item : List P.Experience) →
-        ''
-        \begin{volunteering}
-        ${lines (Prelude.List.map P.Experience Text volunteerToTex item)}
-        \end{volunteering}
-        ''
-
 let projectGithub =
       λ(item : P.Social) →
         "\\sociallink{\\githubSymbol}{${item.link}}{${item.title}}"

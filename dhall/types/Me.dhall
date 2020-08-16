@@ -6,8 +6,6 @@ let Education = ./Education.dhall
 
 let Experience = ./Experience.dhall
 
-let Volunteer = ./Volunteer.dhall
-
 let Project = ./Project.dhall
 
 let Me
