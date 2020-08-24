@@ -327,6 +327,7 @@
     }{}
     \resumetitle{\@tagline}
   }{
+    \vspace*{-0.6in}
     \ifundef{\@photodiameter}{
       \begin{minipage}{\linewidth}
     }{

@@ -137,7 +137,9 @@ let resume =
         \photo{3cm}{me}
         \socialinfo{
           \begin{minipage}{1.0\linewidth}
-            \begin{tabular}{lll}
+            \normalsize
+            \renewcommand{\arraystretch}{1.45}
+            \begin{tabular}{@{}lll}
               \linkedin{${me.socials.linkedin.title}} & \github{${me.socials.github.title}} & \website{${me.socials.website.link}}{${me.socials.website.title}} \\
         	    \smartphone{${me.socials.phone.link}}   & \email{${me.socials.email.link}}    &
             \end{tabular}
@@ -150,6 +152,7 @@ let resume =
                      {\textsc{${me.name} - CV}}
                      {\thepage}
 
+          \vspace*{-0.2in}
           \par{${me.about}}
 
           \sectionTitle{${languageSection 0 header}}{\faGraduationCap}
