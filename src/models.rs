@@ -92,6 +92,7 @@ pub struct Skills {
 #[graphql(description = "About me")]
 pub struct Me {
     name: String,
+    tagline: String,
     about: String,
     socials: Socials,
     education: Vec<Education>,
