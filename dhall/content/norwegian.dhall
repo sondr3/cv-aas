@@ -27,14 +27,7 @@ let me
       , lastName = C.name.lastName
       , tagline = "Algoritmer @ UiB | Fullstackutvikler"
       , about =
-          ''
-            Jeg er en lidenskapelig og dreven full-stack utvikler med et stort
-            hjerte for fri og åpen kildekode og sterkt typede
-            programmeringsspråk. Masterstudent innen algoritmer ved UiB og
-            juniorutvikler hos Sbanken. Jeg er hobbyprosjektfanatiker og har
-            alltid ett for mye prosjekt gående samtidig. På fritiden koser jeg
-            meg med å løpe langt, lange kvelder med brettspill og en god øl.
-          ''
+          "Jeg er en lidenskapelig og dreven full-stack utvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Masterstudent innen algoritmer ved UiB og juniorutvikler hos Sbanken. Jeg er hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill og en god øl."
       , socials = C.socials
       , education =
         [ { university = "Universitetet i Bergen"

@@ -1,5 +1,5 @@
 {
-  "about": "I am a passionate and driven full-stack developer with a passion for\nopen-source and strongly typed programming languages. Doing my masters\nin algorithms at UiB alongside being a junior developer at Sbanken. I\nam a hobby project fanatic, there's always one to many project in my\nhead. In my spare time I enjoy long runs, long evenings playing board\ngames and a good beer.\n",
+  "about": "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a junior developer at Sbanken. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy long runs, long evenings playing board games and a good beer.",
   "education": [
     {
       "degrees": [
@@ -222,7 +222,7 @@
   "socials": {
     "email": {
       "kind": "Email",
-      "link": "nilsen.sondre@gmail.com",
+      "link": "sondre@eons.io",
       "name": "Email",
       "title": "Email"
     },
