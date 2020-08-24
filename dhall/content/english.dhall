@@ -25,7 +25,7 @@ let me
     = { name = C.name.firstName ++ " " ++ C.name.lastName
       , firstName = C.name.firstName
       , lastName = C.name.lastName
-      , tagline = "Hello, world!"
+      , tagline = "Algorithms @ UiB | Full stack developer"
       , about =
           ''
           I am a passionate and driven full-stack developer with a passion for

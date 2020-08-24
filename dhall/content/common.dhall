@@ -27,13 +27,13 @@ let socials
       , email =
         { kind = P.SocialKind.Email
         , name = "Email"
-        , link = "hello@example.org"
+        , link = env:MY_EMAIL as Text ? "hello@example.org"
         , title = "Email"
         }
       , phone =
         { kind = P.SocialKind.Phone
         , name = "Phone"
-        , link = "81549300"
+        , link = env:MY_PHONE as Text ? "81549300"
         , title = "Phone"
         }
       }
@@ -46,7 +46,7 @@ let languages =
       , "SQL"
       , "Java"
       , "Haskell"
-      , "C\\#"
+      , "CSharp"
       ]
 
 let technologies =

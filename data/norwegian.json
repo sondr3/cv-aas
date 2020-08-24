@@ -1,5 +1,5 @@
 {
-  "about": "Hello, world!",
+  "about": "  Jeg er en lidenskapelig og dreven full-stack utvikler med et stort\n  hjerte for fri og åpen kildekode og sterkt typede\n  programmeringsspråk. Masterstudent innen algoritmer ved UiB og\n  juniorutvikler hos Sbanken. Jeg er hobbyprosjektfanatiker og har\n  alltid ett for mye prosjekt gående samtidig. På fritiden koser jeg\n  meg med å løpe langt, lange kvelder med brettspill og en god øl.\n",
   "education": [
     {
       "degrees": [
@@ -199,7 +199,7 @@
       "SQL",
       "Java",
       "Haskell",
-      "C\\#"
+      "CSharp"
     ],
     "personal": [
       "Pianist",
@@ -222,7 +222,7 @@
   "socials": {
     "email": {
       "kind": "Email",
-      "link": "hello@example.org",
+      "link": "nilsen.sondre@gmail.com",
       "name": "Email",
       "title": "Email"
     },
@@ -240,7 +240,7 @@
     },
     "phone": {
       "kind": "Phone",
-      "link": "81549300",
+      "link": "95520928",
       "name": "Phone",
       "title": "Phone"
     },
@@ -251,7 +251,7 @@
       "title": "www.eons.io"
     }
   },
-  "tagline": "Hello, world!",
+  "tagline": "Algoritmer @ UiB | Fullstackutvikler",
   "volunteering": [
     {
       "about": [

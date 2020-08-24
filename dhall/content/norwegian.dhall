@@ -25,7 +25,7 @@ let me
     = { name = C.name.firstName ++ " " ++ C.name.lastName
       , firstName = C.name.firstName
       , lastName = C.name.lastName
-      , tagline = "Hello, world!"
+      , tagline = "Algoritmer @ UiB | Fullstackutvikler"
       , about =
           ''
             Jeg er en lidenskapelig og dreven full-stack utvikler med et stort
