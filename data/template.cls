@@ -66,9 +66,8 @@
 
 % Dependences
 %A Few Useful Packages
-\RequirePackage[english,french]{babel}
-\RequirePackage[utf8]{luainputenc}
-\RequirePackage{fontspec} 					                 % for loading fonts
+\RequirePackage{polyglossia}
+\RequirePackage{fontspec}
 \RequirePackage{url,parskip} 	    % other packages for formatting
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{fullpage}
@@ -85,7 +84,6 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{ifthen}
 
-\DeclareUnicodeCharacter{00E9}{\'{e}}
 % Define default accent colors
 \definecolor{basecolor}{HTML}{000066}       %BLUE
 
@@ -146,27 +144,10 @@
 % Setup Array : new column type
 \newcolumntype{R}[1]{>{\hfill}m{#1}}
 
-%Italian hyphenation for the word: ''corporations''
-\hyphenation{im-pre-se}
-
 % Setup fonts
-\defaultfontfeatures{Mapping=tex-text}
-%
-
-% Define font to use according to localFont option
-\ifundef{\@local}
-{
-  %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
-  \setmainfont{Source Sans Pro Light}[
-    BoldFont = SourceSansPro-Regular,
-    ItalicFont= Source Sans Pro Light Italic]
-}
-{
-  \setmainfont{SourceSansPro-Light}[
-    Path = fonts/,
-    BoldFont = SourceSansPro-Regular,
-    ItalicFont = SourceSansPro-LightIt]
-}
+\setmainfont{Source Sans Pro Light}[
+  BoldFont = SourceSansPro-Regular,
+  ItalicFont= Source Sans Pro Light Italic]
 
 %New length definition
 \newlength{\fulllength}

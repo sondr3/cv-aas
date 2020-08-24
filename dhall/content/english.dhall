@@ -26,7 +26,15 @@ let me
       , firstName = C.name.firstName
       , lastName = C.name.lastName
       , tagline = "Hello, world!"
-      , about = "Hello, world!"
+      , about =
+          ''
+          I am a passionate and driven full-stack developer with a passion for
+          open-source and strongly typed programming languages. Doing my masters
+          in algorithms at UiB alongside being a junior developer at Sbanken. I
+          am a hobby project fanatic, there's always one to many project in my
+          head. In my spare time I enjoy long runs, long evenings playing board
+          games and a good beer.
+          ''
       , socials = C.socials
       , education =
         [ { university = "University of Bergen"
@@ -206,4 +214,4 @@ let me
             }
       }
 
-in  { me, language, headers, resume = resume me headers }
+in  { me, language, headers, resume = resume me language headers }

@@ -120,14 +120,17 @@ let projectListToTex =
 
 let languageSection =
       λ(index : Natural) →
-      λ(language : List Text) →
-        Prelude.Text.default (Prelude.List.index index Text language)
+      λ(header : List Text) →
+        Prelude.Text.default (Prelude.List.index index Text header)
 
 let resume =
       λ(me : P.Me) →
-      λ(language : List Text) →
+      λ(language : Text) →
+      λ(header : List Text) →
         ''
         \documentclass[alternative,10pt,compact]{template}
+
+        \setdefaultlanguage{${language}}
 
         \name{${me.firstName}}{${me.lastName}}
         \tagline{${me.tagline}}
@@ -149,19 +152,19 @@ let resume =
 
           \par{${me.about}}
 
-          \sectionTitle{${languageSection 0 language}}{\faGraduationCap}
+          \sectionTitle{${languageSection 0 header}}{\faGraduationCap}
           ${toEducation me.education}
 
-          \sectionTitle{${languageSection 1 language}}{\faSuitcase}
+          \sectionTitle{${languageSection 1 header}}{\faSuitcase}
           ${experienceListToTex me.experience}
 
-          \sectionTitle{${languageSection 2 language}}{\faScroll}
+          \sectionTitle{${languageSection 2 header}}{\faScroll}
           ${experienceListToTex me.extracurricular}
 
-          \sectionTitle{${languageSection 3 language}}{\faHandsHelping}
+          \sectionTitle{${languageSection 3 header}}{\faHandsHelping}
           ${experienceListToTex me.volunteering}
 
-          \sectionTitle{${languageSection 4 language}}{\faFlask}
+          \sectionTitle{${languageSection 4 header}}{\faFlask}
           ${projectListToTex me.projects}
         \end{document}
         ''
