@@ -1,5 +1,3 @@
-let Prelude = https://prelude.dhall-lang.org/package.dhall
-
 let SocialMedia = ./SocialMedia.dhall
 
 let Education = ./Education.dhall
@@ -24,6 +22,7 @@ let Me
       , skills :
           { languages : List Text
           , technologies : List Text
+          , workflow : List Text
           , personal : List Text
           }
       }

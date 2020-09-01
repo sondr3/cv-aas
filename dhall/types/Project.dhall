@@ -7,6 +7,7 @@ let Project
       , about : Text
       , github : Social
       , website : Optional Social
+      , website2 : Optional Social
       }
 
 in  Project

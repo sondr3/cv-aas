@@ -78,6 +78,7 @@ pub struct Project {
     about: String,
     github: Social,
     website: Option<Social>,
+    website2: Option<Social>,
 }
 
 #[derive(Debug, Deserialize, GraphQLObject, Clone)]
@@ -85,6 +86,7 @@ pub struct Project {
 pub struct Skills {
     languages: Vec<String>,
     technologies: Vec<String>,
+    workflow: Vec<String>,
     personal: Vec<String>,
 }
 
