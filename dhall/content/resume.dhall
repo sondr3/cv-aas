@@ -106,7 +106,9 @@ let projectToTex =
         \project
           {${item.name}}
           {${comma item.technologies}}
-          {${projectGithub item.github} ${projectWebsite item.website}}
+          {${projectGithub item.github} 
+           ${projectWebsite item.website} ${projectWebsite item.website2}
+          }
           {${item.about}}
         ''
 
@@ -116,6 +118,15 @@ let projectListToTex =
         \begin{projects}
         ${lines (Prelude.List.map P.Project Text projectToTex item)}
         \end{projects}
+        ''
+
+let skillItemsToTex = λ(item : List Text) → Prelude.Text.concatSep ", " item
+
+let skillToTex =
+      λ(title : Text) →
+      λ(item : List Text) →
+        ''
+        \keywordsentry{${title}}{${skillItemsToTex item}}
         ''
 
 let languageSection =
@@ -152,7 +163,7 @@ let resume =
                      {\textsc{${me.name} - CV}}
                      {\thepage}
 
-          \vspace*{-0.2in}
+          \vspace*{-0.3in}
           \par{${me.about}}
 
           \sectionTitle{${languageSection 0 header}}{\faGraduationCap}
@@ -169,6 +180,14 @@ let resume =
 
           \sectionTitle{${languageSection 4 header}}{\faFlask}
           ${projectListToTex me.projects}
+
+          \sectionTitle{${languageSection 5 header}}{\faTasks}
+          \begin{keywords}
+          ${skillToTex (languageSection 6 header) me.skills.languages}
+          ${skillToTex (languageSection 7 header) me.skills.technologies}
+          ${skillToTex (languageSection 8 header) me.skills.workflow}
+          ${skillToTex (languageSection 9 header) me.skills.personal}
+          \end{keywords}
         \end{document}
         ''
 
