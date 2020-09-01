@@ -58,8 +58,13 @@ let technologies =
       , "Linux"
       , "Git"
       , "DevOps"
+      , "GraphQL"
+      , "REST"
       ]
 
-let skills = { languages, technologies }
+let workflow =
+      [ "Domain driven design", "Agile", "Kanban", "GitHub Actions", "CI/CD" ]
+
+let skills = { languages, technologies, workflow }
 
 in  { name, socials, skills }

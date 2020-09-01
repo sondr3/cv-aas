@@ -17,6 +17,7 @@ let headers =
       , "Skills"
       , "Languages"
       , "Technologies"
+      , "Workflow"
       , "Personal"
       ]
 
@@ -27,7 +28,7 @@ let me
       , lastName = C.name.lastName
       , tagline = "Algorithms @ UiB | Full stack developer"
       , about =
-          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a junior developer at Sbanken. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy long runs, long evenings playing board games and a good beer."
+          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a junior developer at Sbanken. I am a hobby project fanatic, there's always one to many project in my head. I care about the student environment at informatics and I'm active in a host of student run organizations and projects. In my spare time I enjoy long runs, long evenings playing board games and a good beer."
       , socials = C.socials
       , education =
         [ { university = "University of Bergen"
@@ -56,9 +57,20 @@ let me
           , start = "Jun 2020"
           , end = Some "Aug 2020"
           , about =
-            [ "Full-stack development on AWS with Kotlin/GraphQL and React/TypeScript"
+            [ "Developed an e-learning platform for medicine students at UiO"
+            , "Full-stack development with domain driven design and trunk based development"
             ]
-          , technologies = [ "AWS", "Kotlin", "GraphQL", "React", "TypeScript" ]
+          , technologies =
+            [ "AWS"
+            , "Kotlin"
+            , "http4k"
+            , "GraphQL"
+            , "PostgreSQL"
+            , "React"
+            , "TypeScript"
+            , "Docker"
+            , "Domain driven design"
+            ]
           }
         , { position = "Junior developer"
           , company = "Sbanken"
@@ -66,10 +78,11 @@ let me
           , start = "Jan 2019"
           , end = None Text
           , about =
-            [ "Part time job as a junior developer where I work with both frontend and backend"
-            , "Full-stack development in React/JavaScript and CSharp/.NET"
+            [ "I work on the landing page for the mobile app on both Android and iOS"
+            , "Develop and maintenance of REST API's in .NET that is used by several React applications"
             ]
-          , technologies = [ "React", "JavaScript", "CSharp", ".Net" ]
+          , technologies =
+            [ "CSharp", "REST", "React", "TypeScript", "JavaScript" ]
           }
         , { position = "Teaching assistant"
           , company = "Department of Informatics"
@@ -77,7 +90,7 @@ let me
           , start = "Jun 2018"
           , end = Some "Dec 2018"
           , about =
-            [ "Held the exam crash course for both Tekna and NITO, and reviewed the weekly exercises"
+            [ "Held the exam crash course for both Tekna and NITO, and lectures where I reviewed weekly exercises"
             , "Helped the students with their weekly exercises, mandatory assignments and general question about programming and informatics"
             ]
           , technologies = [ "Python" ]
@@ -88,8 +101,8 @@ let me
           , start = "Jun 2018"
           , end = Some "Aug 2018"
           , about =
-            [ "Developed a portal and webapplication in Python 3 and Django for the students taking INF100 that enabled them to work on, submit and automatically grade assignments."
-            , "Had about 500 users, ran on Google Cloud Platform with Kubernetes"
+            [ "Developed a portal and webapplication for the students taking INF100 that enabled them to work on, submit and get automatically graded assignments"
+            , "Had ~500 users and ran on Google Cloud Platform with Kubernetes"
             ]
           , technologies = [ "Python", "Django", "Google Cloud Playform" ]
           }
@@ -101,11 +114,19 @@ let me
           , start = "2019"
           , end = None Text
           , about =
-            [ "Arranged a career fair for IT-students in Bergen with 29 visiting companies"
-            , "Developed a full-stack application for managing the fair in Kotlin/GraphQL and React/TypeScript"
-            , "Developed the main website, echokarriere.no"
+            [ "echo karriere is a student organization that runs the career fair for IT-students in Bergen"
+            , "Project lead for the development group where I lead 6+ students in developing our solutions"
+            , "Developing a full-stack solution for managing the career fair and our website"
             ]
-          , technologies = [ "Kotlin", "GraphQL", "React", "TypeScript" ]
+          , technologies =
+            [ "Kotlin"
+            , "Ktor"
+            , "GraphQL"
+            , "PostgreSQL"
+            , "React"
+            , "TypeScript"
+            , "Docker"
+            ]
           }
         , { position = "Board member, leader"
           , company = "echo makerspace"
@@ -113,8 +134,8 @@ let me
           , start = "2018"
           , end = None Text
           , about =
-            [ "Founding member, became leader in the autumn of 2019"
-            , "We manage the membership and use of the makerspace and its equipment as well as events for students"
+            [ "Founding member through my engagement in echo, became leader in the autumn of 2019"
+            , "I make sure we have the equipment we need, that new members are well taken care of and that our events run smoothly"
             ]
           , technologies = Prelude.List.empty Text
           }
@@ -124,7 +145,7 @@ let me
           , start = "2018"
           , end = Some "2019"
           , about =
-            [ "Represented the students interests in the Programme Committee at the departement. The committee is responsible for the courses and degrees, and their quality."
+            [ "Represented the students interests in the Programme Committee at the departement. The committee is responsible for the courses and degrees and their quality"
             ]
           , technologies = Prelude.List.empty Text
           }
@@ -134,8 +155,8 @@ let me
           , start = "2018"
           , end = Some "2020"
           , about =
-            [ "Helped with recruitement and retaining students at the departement"
-            , "Arranged a host of activities for the students, code nights, board game nights and crash courses for subjects"
+            [ "Arranged 'Informatikkdagen' where all high schoolers in Bergen with an interest for informatics was invited"
+            , "Arranged activities for the students, code nights, board game nights and crash courses for subjects"
             ]
           , technologies = Prelude.List.empty Text
           }
@@ -157,7 +178,10 @@ let me
           , location = "Oslo"
           , start = "2019"
           , end = Some ""
-          , about = [ "Helped make sure the event ran smooth" ]
+          , about =
+            [ "Helped speakers get ready, counted attendees and cleaned between talks"
+            , "Sat in the information desk where I helped attendees with all their questions"
+            ]
           , technologies = Prelude.List.empty Text
           }
         , { position = "Volunteer"
@@ -165,15 +189,49 @@ let me
           , location = "Bergen"
           , start = "2019"
           , end = Some ""
-          , about = [ "Helped make sure the event ran smooth" ]
+          , about =
+            [ "Helped with assembling and disassembling workshops and talks"
+            , "Helped participants at Booster Kid with programming and Arduino"
+            ]
           , technologies = Prelude.List.empty Text
           }
         ]
       , projects =
-        [ { name = "git-ignore"
-          , technologies = [ "Rust", "Git" ]
+        [ { name = "echo karriere"
+          , technologies =
+            [ "Kotlin"
+            , "Ktor"
+            , "GraphQL"
+            , "PostgreSQL"
+            , "React"
+            , "TypeScript"
+            , "Docker"
+            ]
           , about =
-              "Quickly and easily list and fetch .gitignore templates from gitignore.io, works on Windows, Linux and macOS."
+              "GitHub organization for echo karriere where our website, full-stack solution and documentation lives."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/echo-karriere"
+            , title = "echo-karriere"
+            }
+          , website = Some
+            { kind = P.SocialKind.Website
+            , name = "echo karriere"
+            , link = "https://www.echokarriere.no/"
+            , title = "echo karriere"
+            }
+          , website2 = Some
+            { kind = P.SocialKind.Website
+            , name = "echo karriere"
+            , link = "https://docs.echokarriere.no/"
+            , title = "echo karriere docs"
+            }
+          }
+        , { name = "git-ignore"
+          , technologies = [ "Rust", "Git", "GitHub Actions" ]
+          , about =
+              "Fetch and list templates for .gitignore from the API for gitignore.io. Alle templates are cached locally and the program works on both Windows, macOS and Linux. It is automatically build and released on GitHub."
           , github =
             { kind = P.SocialKind.GitHub
             , name = "GitHub"
@@ -181,11 +239,12 @@ let me
             , title = "sondr3/git-ignore"
             }
           , website = None P.Social
+          , website2 = None P.Social
           }
         , { name = "git-anger-management"
-          , technologies = [ "Rust", "Git" ]
+          , technologies = [ "Rust", "Git", "GitHub Actions" ]
           , about =
-              "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool solves that problem."
+              "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool counts the number of curses and their authors. It is also automatically built and released on GitHub."
           , github =
             { kind = P.SocialKind.GitHub
             , name = "GitHub"
@@ -193,11 +252,118 @@ let me
             , title = "sondr3/git-anger-management"
             }
           , website = None P.Social
+          , website2 = None P.Social
+          }
+        , { name = "Eons.IO"
+          , technologies =
+            [ "Gatsby", "React", "TypeScript", "(S)CSS-modules", "Netlify" ]
+          , about =
+              "My website and personal playground for frontend technology that is automagically deployed on Netlify."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/web"
+            , title = "sondr3/web"
+            }
+          , website = Some
+            { kind = P.SocialKind.Website
+            , name = "Website"
+            , link = "https://www.eons.io/"
+            , title = "eons.io"
+            }
+          , website2 = None P.Social
+          }
+        , { name = "Frontendkonfigurasjon"
+          , technologies =
+            [ "ESLint", "Prettier", "Renovate", "Stylelint", "TypeScript" ]
+          , about =
+              "Monorepo with automatic publishing of packages for configuring populare frontend tools like ESLint and Prettier."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/frontend-config"
+            , title = "sondr3/frontend-config"
+            }
+          , website = Some
+            { kind = P.SocialKind.Website
+            , name = "npm"
+            , link = "https://www.npmjs.com/~sondr3"
+            , title = "npmjs/sondr3"
+            }
+          , website2 = None P.Social
+          }
+        , { name = "CV-aaS"
+          , technologies =
+            [ "Rust", "GraphQL", "Dhall", "LaTeX", "Docker", "GitHub Actions" ]
+          , about =
+              "My CV-as-a-Service with its own GraphQL API that also generates this CV in both english and norwegian."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/cv-aas"
+            , title = "sondr3/cv-aas"
+            }
+          , website = Some
+            { kind = P.SocialKind.Website
+            , name = "Website"
+            , link = "https://cv.eons.io/"
+            , title = "cv.eons.io"
+            }
+          , website2 = None P.Social
+          }
+        , { name = "Lesesalen"
+          , technologies =
+            [ "TypeScript"
+            , "React"
+            , "Gatsby"
+            , "styled-components"
+            , "Discord"
+            , "Docker"
+            ]
+          , about =
+              "GitHub organization for student by student at informatics, UiB. We have gathered and built two websites as well as a Discord bot for the server I started for the informatics students."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/lesesalen"
+            , title = "lesesalen"
+            }
+          , website = Some
+            { kind = P.SocialKind.Website
+            , name = "Website"
+            , link = "https://gummiand.no/"
+            , title = "gummiand.no"
+            }
+          , website2 = Some
+            { kind = P.SocialKind.Website
+            , name = "Website"
+            , link = "https://lesesalen.com/"
+            , title = "lesesalen.com"
+            }
+          }
+        , { name = "Fagutforsker"
+          , technologies = [ "JavaScript", "Python", "D3.js", "Scrapy" ]
+          , about =
+              "A friend and I wondered if it was possible to build a graph between courses and their dependencies/recommendations, this is the result."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/sondr3/course-explorer"
+            , title = "sondr3/course-explorer"
+            }
+          , website = Some
+            { kind = P.SocialKind.Website
+            , name = "Website"
+            , link = "https://sondr3.github.io/course-explorer/"
+            , title = "sondr3.github.io/course-explorer/"
+            }
+          , website2 = None P.Social
           }
         ]
       , skills =
             C.skills
-          ⫽ { personal =
+          ⫽ { workflow = C.skills.workflow # [ "project management" ]
+            , personal =
               [ "pianist"
               , "board game enthusiast"
               , "semi enthusiastic jogger"

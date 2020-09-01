@@ -1,5 +1,5 @@
 {
-  "about": "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a junior developer at Sbanken. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy long runs, long evenings playing board games and a good beer.",
+  "about": "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a junior developer at Sbanken. I am a hobby project fanatic, there's always one to many project in my head. I care about the student environment at informatics and I'm active in a host of student run organizations and projects. In my spare time I enjoy long runs, long evenings playing board games and a good beer.",
   "education": [
     {
       "degrees": [
@@ -26,7 +26,8 @@
   "experience": [
     {
       "about": [
-        "Full-stack development on AWS with Kotlin/GraphQL and React/TypeScript"
+        "Developed an e-learning platform for medicine students at UiO",
+        "Full-stack development with domain driven design and trunk based development"
       ],
       "company": "Capra Consulting",
       "end": "Aug 2020",
@@ -36,30 +37,35 @@
       "technologies": [
         "AWS",
         "Kotlin",
+        "http4k",
         "GraphQL",
+        "PostgreSQL",
         "React",
-        "TypeScript"
+        "TypeScript",
+        "Docker",
+        "Domain driven design"
       ]
     },
     {
       "about": [
-        "Part time job as a junior developer where I work with both frontend and backend",
-        "Full-stack development in React/JavaScript and CSharp/.NET"
+        "I work on the landing page for the mobile app on both Android and iOS",
+        "Develop and maintenance of REST API's in .NET that is used by several React applications"
       ],
       "company": "Sbanken",
       "location": "Bergen",
       "position": "Junior developer",
       "start": "Jan 2019",
       "technologies": [
-        "React",
-        "JavaScript",
         "CSharp",
-        ".Net"
+        "REST",
+        "React",
+        "TypeScript",
+        "JavaScript"
       ]
     },
     {
       "about": [
-        "Held the exam crash course for both Tekna and NITO, and reviewed the weekly exercises",
+        "Held the exam crash course for both Tekna and NITO, and lectures where I reviewed weekly exercises",
         "Helped the students with their weekly exercises, mandatory assignments and general question about programming and informatics"
       ],
       "company": "Department of Informatics",
@@ -73,8 +79,8 @@
     },
     {
       "about": [
-        "Developed a portal and webapplication in Python 3 and Django for the students taking INF100 that enabled them to work on, submit and automatically grade assignments.",
-        "Had about 500 users, ran on Google Cloud Platform with Kubernetes"
+        "Developed a portal and webapplication for the students taking INF100 that enabled them to work on, submit and get automatically graded assignments",
+        "Had ~500 users and ran on Google Cloud Platform with Kubernetes"
       ],
       "company": "Department of Informatics",
       "end": "Aug 2018",
@@ -91,9 +97,9 @@
   "extracurricular": [
     {
       "about": [
-        "Arranged a career fair for IT-students in Bergen with 29 visiting companies",
-        "Developed a full-stack application for managing the fair in Kotlin/GraphQL and React/TypeScript",
-        "Developed the main website, echokarriere.no"
+        "echo karriere is a student organization that runs the career fair for IT-students in Bergen",
+        "Project lead for the development group where I lead 6+ students in developing our solutions",
+        "Developing a full-stack solution for managing the career fair and our website"
       ],
       "company": "echo karriere",
       "location": "Bergen",
@@ -101,15 +107,18 @@
       "start": "2019",
       "technologies": [
         "Kotlin",
+        "Ktor",
         "GraphQL",
+        "PostgreSQL",
         "React",
-        "TypeScript"
+        "TypeScript",
+        "Docker"
       ]
     },
     {
       "about": [
-        "Founding member, became leader in the autumn of 2019",
-        "We manage the membership and use of the makerspace and its equipment as well as events for students"
+        "Founding member through my engagement in echo, became leader in the autumn of 2019",
+        "I make sure we have the equipment we need, that new members are well taken care of and that our events run smoothly"
       ],
       "company": "echo makerspace",
       "location": "Bergen",
@@ -119,7 +128,7 @@
     },
     {
       "about": [
-        "Represented the students interests in the Programme Committee at the departement. The committee is responsible for the courses and degrees, and their quality."
+        "Represented the students interests in the Programme Committee at the departement. The committee is responsible for the courses and degrees and their quality"
       ],
       "company": "echo",
       "end": "2019",
@@ -130,8 +139,8 @@
     },
     {
       "about": [
-        "Helped with recruitement and retaining students at the departement",
-        "Arranged a host of activities for the students, code nights, board game nights and crash courses for subjects"
+        "Arranged 'Informatikkdagen' where all high schoolers in Bergen with an interest for informatics was invited",
+        "Arranged activities for the students, code nights, board game nights and crash courses for subjects"
       ],
       "company": "Gnist",
       "end": "2020",
@@ -162,7 +171,38 @@
   "name": "Sondre Nilsen",
   "projects": [
     {
-      "about": "Quickly and easily list and fetch .gitignore templates from gitignore.io, works on Windows, Linux and macOS.",
+      "about": "GitHub organization for echo karriere where our website, full-stack solution and documentation lives.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/echo-karriere",
+        "name": "GitHub",
+        "title": "echo-karriere"
+      },
+      "name": "echo karriere",
+      "technologies": [
+        "Kotlin",
+        "Ktor",
+        "GraphQL",
+        "PostgreSQL",
+        "React",
+        "TypeScript",
+        "Docker"
+      ],
+      "website": {
+        "kind": "Website",
+        "link": "https://www.echokarriere.no/",
+        "name": "echo karriere",
+        "title": "echo karriere"
+      },
+      "website2": {
+        "kind": "Website",
+        "link": "https://docs.echokarriere.no/",
+        "name": "echo karriere",
+        "title": "echo karriere docs"
+      }
+    },
+    {
+      "about": "Fetch and list templates for .gitignore from the API for gitignore.io. Alle templates are cached locally and the program works on both Windows, macOS and Linux. It is automatically build and released on GitHub.",
       "github": {
         "kind": "GitHub",
         "link": "https://github.com/sondr3/git-ignore",
@@ -172,11 +212,12 @@
       "name": "git-ignore",
       "technologies": [
         "Rust",
-        "Git"
+        "Git",
+        "GitHub Actions"
       ]
     },
     {
-      "about": "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool solves that problem.",
+      "about": "Have you ever wondered just how angry your co-workers and/or you are? Or just how naughty the commit log for a project is? This tool counts the number of curses and their authors. It is also automatically built and released on GitHub.",
       "github": {
         "kind": "GitHub",
         "link": "https://github.com/sondr3/git-anger-management",
@@ -186,8 +227,131 @@
       "name": "git-anger-management",
       "technologies": [
         "Rust",
-        "Git"
+        "Git",
+        "GitHub Actions"
       ]
+    },
+    {
+      "about": "My website and personal playground for frontend technology that is automagically deployed on Netlify.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/sondr3/web",
+        "name": "GitHub",
+        "title": "sondr3/web"
+      },
+      "name": "Eons.IO",
+      "technologies": [
+        "Gatsby",
+        "React",
+        "TypeScript",
+        "(S)CSS-modules",
+        "Netlify"
+      ],
+      "website": {
+        "kind": "Website",
+        "link": "https://www.eons.io/",
+        "name": "Website",
+        "title": "eons.io"
+      }
+    },
+    {
+      "about": "Monorepo with automatic publishing of packages for configuring populare frontend tools like ESLint and Prettier.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/sondr3/frontend-config",
+        "name": "GitHub",
+        "title": "sondr3/frontend-config"
+      },
+      "name": "Frontendkonfigurasjon",
+      "technologies": [
+        "ESLint",
+        "Prettier",
+        "Renovate",
+        "Stylelint",
+        "TypeScript"
+      ],
+      "website": {
+        "kind": "Website",
+        "link": "https://www.npmjs.com/~sondr3",
+        "name": "npm",
+        "title": "npmjs/sondr3"
+      }
+    },
+    {
+      "about": "My CV-as-a-Service with its own GraphQL API that also generates this CV in both english and norwegian.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/sondr3/cv-aas",
+        "name": "GitHub",
+        "title": "sondr3/cv-aas"
+      },
+      "name": "CV-aaS",
+      "technologies": [
+        "Rust",
+        "GraphQL",
+        "Dhall",
+        "LaTeX",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "website": {
+        "kind": "Website",
+        "link": "https://cv.eons.io/",
+        "name": "Website",
+        "title": "cv.eons.io"
+      }
+    },
+    {
+      "about": "GitHub organization for student by student at informatics, UiB. We have gathered and built two websites as well as a Discord bot for the server I started for the informatics students.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/lesesalen",
+        "name": "GitHub",
+        "title": "lesesalen"
+      },
+      "name": "Lesesalen",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "Gatsby",
+        "styled-components",
+        "Discord",
+        "Docker"
+      ],
+      "website": {
+        "kind": "Website",
+        "link": "https://gummiand.no/",
+        "name": "Website",
+        "title": "gummiand.no"
+      },
+      "website2": {
+        "kind": "Website",
+        "link": "https://lesesalen.com/",
+        "name": "Website",
+        "title": "lesesalen.com"
+      }
+    },
+    {
+      "about": "A friend and I wondered if it was possible to build a graph between courses and their dependencies/recommendations, this is the result.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/sondr3/course-explorer",
+        "name": "GitHub",
+        "title": "sondr3/course-explorer"
+      },
+      "name": "Fagutforsker",
+      "technologies": [
+        "JavaScript",
+        "Python",
+        "D3.js",
+        "Scrapy"
+      ],
+      "website": {
+        "kind": "Website",
+        "link": "https://sondr3.github.io/course-explorer/",
+        "name": "Website",
+        "title": "sondr3.github.io/course-explorer/"
+      }
     }
   ],
   "skills": {
@@ -216,7 +380,17 @@
       "Docker",
       "Linux",
       "Git",
-      "DevOps"
+      "DevOps",
+      "GraphQL",
+      "REST"
+    ],
+    "workflow": [
+      "Domain driven design",
+      "Agile",
+      "Kanban",
+      "GitHub Actions",
+      "CI/CD",
+      "project management"
     ]
   },
   "socials": {
@@ -255,7 +429,8 @@
   "volunteering": [
     {
       "about": [
-        "Helped make sure the event ran smooth"
+        "Helped speakers get ready, counted attendees and cleaned between talks",
+        "Sat in the information desk where I helped attendees with all their questions"
       ],
       "company": "JavaZone",
       "end": "",
@@ -266,7 +441,8 @@
     },
     {
       "about": [
-        "Helped make sure the event ran smooth"
+        "Helped with assembling and disassembling workshops and talks",
+        "Helped participants at Booster Kid with programming and Arduino"
       ],
       "company": "Booster",
       "end": "",
