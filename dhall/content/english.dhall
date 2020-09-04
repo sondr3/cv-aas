@@ -321,7 +321,7 @@ let me
             , "Docker"
             ]
           , about =
-              "GitHub organization for student by student at informatics, UiB. We have gathered and built two websites as well as a Discord bot for the server I started for the informatics students."
+              "GitHub organization for students by students at informatics, UiB. We have gathered and built two websites as well as a Discord bot for the server I started for the informatics students."
           , github =
             { kind = P.SocialKind.GitHub
             , name = "GitHub"
