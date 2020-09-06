@@ -28,7 +28,7 @@ let me
       , lastName = C.name.lastName
       , tagline = "Algoritmer @ UiB | Fullstackutvikler"
       , about =
-          "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Masterstudent innen algoritmer ved UiB og juniorutvikler hos Sbanken. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. Jeg brenner for studentmiljøet på informatikk og er svært aktiv i verv og studentprosjekter. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill og en god øl."
+          "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Masterstudent innen algoritmer ved UiB og deltidsutvikler hos Sbanken. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. Jeg brenner for studentmiljøet på informatikk og er svært aktiv i verv og studentprosjekter. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill og en god øl."
       , socials = C.socials
       , education =
         [ { university = "Universitetet i Bergen"
@@ -72,7 +72,7 @@ let me
             , "Domain driven design"
             ]
           }
-        , { position = "Juniorutvikler"
+        , { position = "Utvikler, deltid"
           , company = "Sbanken"
           , location = "Bergen"
           , start = "Jan 2019"
