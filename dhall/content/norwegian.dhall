@@ -359,6 +359,19 @@ let me
             }
           , website2 = None P.Social
           }
+        , { name = "MOCCA Operational Controller for Coffee Availability"
+          , technologies = [ "JavaScript", "React", "Python", "Arduino", "IoT" ]
+          , about =
+              "'Er det kaffe igjen?' er et veldig vanlig spørsmål for en student, en kamerat og jeg lagde en IoT-platform med kamera, temperatur- og strømsensor for å svare på spørsmålet om hvor mye og hvor fersk kaffen er."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/inf219-mocca"
+            , title = "inf219-mocca"
+            }
+          , website = None P.Social
+          , website2 = None P.Social
+          }
         ]
       , skills =
             C.skills

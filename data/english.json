@@ -352,6 +352,23 @@
         "name": "Website",
         "title": "sondr3.github.io/course-explorer/"
       }
+    },
+    {
+      "about": "'Is there any coffe left?' is the most common question for a student, a question a friend and I set out to answer once and for all. MOCCA is an IoT platform with a camera, temperature and power sensor that can tell you how much and how fresh the coffee is.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/inf219-mocca",
+        "name": "GitHub",
+        "title": "inf219-mocca"
+      },
+      "name": "MOCCA Operational Controller for Coffee Availability",
+      "technologies": [
+        "JavaScript",
+        "React",
+        "Python",
+        "Arduino",
+        "IoT"
+      ]
     }
   ],
   "skills": {

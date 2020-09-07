@@ -359,6 +359,19 @@ let me
             }
           , website2 = None P.Social
           }
+        , { name = "MOCCA Operational Controller for Coffee Availability"
+          , technologies = [ "JavaScript", "React", "Python", "Arduino", "IoT" ]
+          , about =
+              "'Is there any coffe left?' is the most common question for a student, a question a friend and I set out to answer once and for all. MOCCA is an IoT platform with a camera, temperature and power sensor that can tell you how much and how fresh the coffee is."
+          , github =
+            { kind = P.SocialKind.GitHub
+            , name = "GitHub"
+            , link = "https://github.com/inf219-mocca"
+            , title = "inf219-mocca"
+            }
+          , website = None P.Social
+          , website2 = None P.Social
+          }
         ]
       , skills =
             C.skills

@@ -352,6 +352,23 @@
         "name": "Website",
         "title": "sondr3.github.io/course-explorer/"
       }
+    },
+    {
+      "about": "'Er det kaffe igjen?' er et veldig vanlig spørsmål for en student, en kamerat og jeg lagde en IoT-platform med kamera, temperatur- og strømsensor for å svare på spørsmålet om hvor mye og hvor fersk kaffen er.",
+      "github": {
+        "kind": "GitHub",
+        "link": "https://github.com/inf219-mocca",
+        "name": "GitHub",
+        "title": "inf219-mocca"
+      },
+      "name": "MOCCA Operational Controller for Coffee Availability",
+      "technologies": [
+        "JavaScript",
+        "React",
+        "Python",
+        "Arduino",
+        "IoT"
+      ]
     }
   ],
   "skills": {
