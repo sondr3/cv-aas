@@ -2,7 +2,7 @@
 authors = ["Sondre Nilsen <nilsen.sondre@gmail.com>"]
 edition = "2018"
 name = "cv-aas"
-version = "0.3.0"
+version = "0.3.1"
 
 [dependencies]
 actix-rt = "1.1.1"
