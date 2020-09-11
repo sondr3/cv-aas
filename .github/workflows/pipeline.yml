@@ -177,4 +177,5 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd cv-aas
+            git pull
             ./deploy.sh

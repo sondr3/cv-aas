@@ -2,9 +2,6 @@
 
 echo "Redeploying CV-aaS!"
 
-echo "Pulling origin"
-git pull
-
 echo "Getting version"
 version=$(awk -F'[ ="]+' '$1 == "version" { print $2 }' Cargo.toml)
 
