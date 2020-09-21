@@ -1,4 +1,5 @@
-let Prelude = https://prelude.dhall-lang.org/package.dhall
+let Prelude =
+      https://prelude.dhall-lang.org/package.dhall sha256:2086c6a2e7ce8ee371858036ab60d24d045969defadb4bc9d87639921ec2e028
 
 let P = ./../package.dhall
 
