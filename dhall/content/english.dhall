@@ -51,7 +51,15 @@ let me
           }
         ]
       , experience =
-        [ { position = "Summer intern"
+        [ { position = "Developer, part time"
+          , company = "IslandGarden"
+          , location = "Bergen"
+          , start = "Oct 2020"
+          , end = None Text
+          , about = [ "Full stack development using React and Firebase" ]
+          , technologies = [ "TypeScript", "React", "Firebase" ]
+          }
+        , { position = "Summer intern"
           , company = "Capra Consulting"
           , location = "Oslo"
           , start = "Jun 2020"
@@ -76,7 +84,7 @@ let me
           , company = "Sbanken"
           , location = "Bergen"
           , start = "Jan 2019"
-          , end = None Text
+          , end = Some "Oct 2020"
           , about =
             [ "I work on the landing page for the mobile app on both Android and iOS"
             , "Develop and maintenance of REST API's in .NET that is used by several React applications"
@@ -84,7 +92,7 @@ let me
           , technologies =
             [ "CSharp", "REST", "React", "TypeScript", "JavaScript" ]
           }
-        , { position = "Teaching assistant"
+        , { position = "Teaching assistant INF100"
           , company = "Department of Informatics"
           , location = "University of Bergen"
           , start = "Jun 2018"
@@ -254,25 +262,6 @@ let me
           , website = None P.Social
           , website2 = None P.Social
           }
-        , { name = "Eons.IO"
-          , technologies =
-            [ "Gatsby", "React", "TypeScript", "(S)CSS-modules", "Netlify" ]
-          , about =
-              "My website and personal playground for frontend technology that is automagically deployed on Netlify."
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/sondr3/web"
-            , title = "sondr3/web"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://www.eons.io/"
-            , title = "eons.io"
-            }
-          , website2 = None P.Social
-          }
         , { name = "Frontendkonfigurasjon"
           , technologies =
             [ "ESLint", "Prettier", "Renovate", "Stylelint", "TypeScript" ]
@@ -340,24 +329,6 @@ let me
             , link = "https://lesesalen.com/"
             , title = "lesesalen.com"
             }
-          }
-        , { name = "Fagutforsker"
-          , technologies = [ "JavaScript", "Python", "D3.js", "Scrapy" ]
-          , about =
-              "A friend and I wondered if it was possible to build a graph between courses and their dependencies/recommendations, this is the result."
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/sondr3/course-explorer"
-            , title = "sondr3/course-explorer"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://sondr3.github.io/course-explorer/"
-            , title = "sondr3.github.io/course-explorer/"
-            }
-          , website2 = None P.Social
           }
         , { name = "MOCCA Operational Controller for Coffee Availability"
           , technologies = [ "JavaScript", "React", "Python", "Arduino", "IoT" ]

@@ -51,7 +51,17 @@ let me
           }
         ]
       , experience =
-        [ { position = "Sommerjobb"
+        [ { position = "Utvikler, deltid"
+          , company = "IslandGarden"
+          , location = "Bergen"
+          , start = "Okt 2020"
+          , end = None Text
+          , about =
+            [ "Jobber med fullstackutvikling med React og Firebase på flere prosjekter"
+            ]
+          , technologies = [ "TypeScript", "React", "Firebase" ]
+          }
+        , { position = "Sommerjobb"
           , company = "Capra Consulting"
           , location = "Oslo"
           , start = "Jun 2020"
@@ -76,15 +86,15 @@ let me
           , company = "Sbanken"
           , location = "Bergen"
           , start = "Jan 2019"
-          , end = None Text
+          , end = Some "Okt 2020"
           , about =
-            [ "Jobber på landingssiden i mobilapplikasjonen på både Android og iOS"
-            , "Utvikler og vedlikeholder REST APIer i .NET som brukes av flere React webapplikasjoner"
+            [ "Jobbet på landingssiden i mobilapplikasjonen på både Android og iOS"
+            , "Utviklet og vedlikeholdt REST APIer i .NET som brukes av flere React webapplikasjoner"
             ]
           , technologies =
             [ "CSharp", "REST", "React", "TypeScript", "JavaScript" ]
           }
-        , { position = "Teaching assistant"
+        , { position = "Gruppeleder INF100"
           , company = "Institutt for informatikk"
           , location = "Universitetet i Bergen"
           , start = "Jun 2018"
@@ -254,25 +264,6 @@ let me
           , website = None P.Social
           , website2 = None P.Social
           }
-        , { name = "Eons.IO"
-          , technologies =
-            [ "Gatsby", "React", "TypeScript", "(S)CSS-modules", "Netlify" ]
-          , about =
-              "Min nettside og personlige prøvegrunn for frontendteknologi som blir automagisk distribuert på Netlify."
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/sondr3/web"
-            , title = "sondr3/web"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://www.eons.io/"
-            , title = "eons.io"
-            }
-          , website2 = None P.Social
-          }
         , { name = "Frontendkonfigurasjon"
           , technologies =
             [ "ESLint", "Prettier", "Renovate", "Stylelint", "TypeScript" ]
@@ -340,24 +331,6 @@ let me
             , link = "https://lesesalen.com/"
             , title = "lesesalen.com"
             }
-          }
-        , { name = "Fagutforsker"
-          , technologies = [ "JavaScript", "Python", "D3.js", "Scrapy" ]
-          , about =
-              "Resultatet av en diskusjon mellom en venn og meg; kunne vi visualisert avhengighetene mellom fag på UiB?"
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/sondr3/course-explorer"
-            , title = "sondr3/course-explorer"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://sondr3.github.io/course-explorer/"
-            , title = "sondr3.github.io/course-explorer/"
-            }
-          , website2 = None P.Social
           }
         , { name = "MOCCA Operational Controller for Coffee Availability"
           , technologies = [ "JavaScript", "React", "Python", "Arduino", "IoT" ]
