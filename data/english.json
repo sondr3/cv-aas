@@ -26,6 +26,20 @@
   "experience": [
     {
       "about": [
+        "Full stack development using React and Firebase"
+      ],
+      "company": "IslandGarden",
+      "location": "Bergen",
+      "position": "Developer, part time",
+      "start": "Oct 2020",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "Firebase"
+      ]
+    },
+    {
+      "about": [
         "Developed an e-learning platform for medicine students at UiO",
         "Full-stack development with domain driven design and trunk based development"
       ],
@@ -52,6 +66,7 @@
         "Develop and maintenance of REST API's in .NET that is used by several React applications"
       ],
       "company": "Sbanken",
+      "end": "Oct 2020",
       "location": "Bergen",
       "position": "Developer, part-time",
       "start": "Jan 2019",
@@ -71,7 +86,7 @@
       "company": "Department of Informatics",
       "end": "Dec 2018",
       "location": "University of Bergen",
-      "position": "Teaching assistant",
+      "position": "Teaching assistant INF100",
       "start": "Jun 2018",
       "technologies": [
         "Python"
@@ -232,29 +247,6 @@
       ]
     },
     {
-      "about": "My website and personal playground for frontend technology that is automagically deployed on Netlify.",
-      "github": {
-        "kind": "GitHub",
-        "link": "https://github.com/sondr3/web",
-        "name": "GitHub",
-        "title": "sondr3/web"
-      },
-      "name": "Eons.IO",
-      "technologies": [
-        "Gatsby",
-        "React",
-        "TypeScript",
-        "(S)CSS-modules",
-        "Netlify"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://www.eons.io/",
-        "name": "Website",
-        "title": "eons.io"
-      }
-    },
-    {
       "about": "Monorepo with automatic publishing of packages for configuring populare frontend tools like ESLint and Prettier.",
       "github": {
         "kind": "GitHub",
@@ -329,28 +321,6 @@
         "link": "https://lesesalen.com/",
         "name": "Website",
         "title": "lesesalen.com"
-      }
-    },
-    {
-      "about": "A friend and I wondered if it was possible to build a graph between courses and their dependencies/recommendations, this is the result.",
-      "github": {
-        "kind": "GitHub",
-        "link": "https://github.com/sondr3/course-explorer",
-        "name": "GitHub",
-        "title": "sondr3/course-explorer"
-      },
-      "name": "Fagutforsker",
-      "technologies": [
-        "JavaScript",
-        "Python",
-        "D3.js",
-        "Scrapy"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://sondr3.github.io/course-explorer/",
-        "name": "Website",
-        "title": "sondr3.github.io/course-explorer/"
       }
     },
     {
