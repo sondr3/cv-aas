@@ -26,6 +26,20 @@
   "experience": [
     {
       "about": [
+        "Jobber med fullstackutvikling med React og Firebase på flere prosjekter"
+      ],
+      "company": "IslandGarden",
+      "location": "Bergen",
+      "position": "Utvikler, deltid",
+      "start": "Okt 2020",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "Firebase"
+      ]
+    },
+    {
+      "about": [
         "Utviklet en e-læringsplatform for medisinstudenter ved UiO",
         "Fullstackutvikling med domain driven design og trunk based development"
       ],
@@ -48,10 +62,11 @@
     },
     {
       "about": [
-        "Jobber på landingssiden i mobilapplikasjonen på både Android og iOS",
-        "Utvikler og vedlikeholder REST APIer i .NET som brukes av flere React webapplikasjoner"
+        "Jobbet på landingssiden i mobilapplikasjonen på både Android og iOS",
+        "Utviklet og vedlikeholdt REST APIer i .NET som brukes av flere React webapplikasjoner"
       ],
       "company": "Sbanken",
+      "end": "Okt 2020",
       "location": "Bergen",
       "position": "Utvikler, deltid",
       "start": "Jan 2019",
@@ -71,7 +86,7 @@
       "company": "Institutt for informatikk",
       "end": "Dec 2018",
       "location": "Universitetet i Bergen",
-      "position": "Teaching assistant",
+      "position": "Gruppeleder INF100",
       "start": "Jun 2018",
       "technologies": [
         "Python"
@@ -232,29 +247,6 @@
       ]
     },
     {
-      "about": "Min nettside og personlige prøvegrunn for frontendteknologi som blir automagisk distribuert på Netlify.",
-      "github": {
-        "kind": "GitHub",
-        "link": "https://github.com/sondr3/web",
-        "name": "GitHub",
-        "title": "sondr3/web"
-      },
-      "name": "Eons.IO",
-      "technologies": [
-        "Gatsby",
-        "React",
-        "TypeScript",
-        "(S)CSS-modules",
-        "Netlify"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://www.eons.io/",
-        "name": "Website",
-        "title": "eons.io"
-      }
-    },
-    {
       "about": "Monorepo med automatisk publisering av pakker for konfigurering av populære frontendverktøy som ESLint og Prettier.",
       "github": {
         "kind": "GitHub",
@@ -329,28 +321,6 @@
         "link": "https://lesesalen.com/",
         "name": "Website",
         "title": "lesesalen.com"
-      }
-    },
-    {
-      "about": "Resultatet av en diskusjon mellom en venn og meg; kunne vi visualisert avhengighetene mellom fag på UiB?",
-      "github": {
-        "kind": "GitHub",
-        "link": "https://github.com/sondr3/course-explorer",
-        "name": "GitHub",
-        "title": "sondr3/course-explorer"
-      },
-      "name": "Fagutforsker",
-      "technologies": [
-        "JavaScript",
-        "Python",
-        "D3.js",
-        "Scrapy"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://sondr3.github.io/course-explorer/",
-        "name": "Website",
-        "title": "sondr3.github.io/course-explorer/"
       }
     },
     {
