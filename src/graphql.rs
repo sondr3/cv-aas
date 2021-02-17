@@ -33,12 +33,6 @@ impl Queries {
     }
 }
 
-#[derive(Debug, Clone)]
-pub struct Context {
-    english: Me,
-    norwegian: Me,
-}
-
 async fn graphiql() -> HttpResponse {
     let html = graphiql_source(&format!("{}/graphql", get_full_url()));
     HttpResponse::Ok()
@@ -54,14 +48,8 @@ async fn graphql(schema: web::Data<CVSchema>, req: Request) -> Response {
 
 pub fn register(config: &mut web::ServiceConfig) {
     let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
-    let context = Context {
-        english: Me::new(Language::English).unwrap(),
-        norwegian: Me::new(Language::Norwegian).unwrap(),
-    };
-
     config
         .data(schema.clone())
-        .data(context)
         .route("/", web::get().to(graphiql))
         .route("/graphql", web::post().to(graphql));
 }
