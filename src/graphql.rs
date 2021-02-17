@@ -49,7 +49,7 @@ async fn graphql(schema: web::Data<CVSchema>, req: Request) -> Response {
 pub fn register(config: &mut web::ServiceConfig) {
     let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
     config
-        .data(schema.clone())
+        .data(schema)
         .route("/", web::get().to(graphiql))
         .route("/graphql", web::post().to(graphql));
 }
