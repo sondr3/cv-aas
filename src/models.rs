@@ -1,16 +1,17 @@
 use crate::{errors::Errors, read_language_configuration};
-use juniper::{GraphQLEnum, GraphQLObject};
+use async_graphql::*;
 use serde::Deserialize;
 
-#[derive(Debug, GraphQLEnum)]
-#[graphql(name = "Languages", description = "Languages my CV exist in")]
+#[derive(Debug, Enum, Eq, PartialEq, Description, Clone, Copy)]
+#[graphql(name = "Languages")]
+/// Languages my CV exist in
 pub enum Language {
     Norwegian,
     English,
 }
 
-#[derive(Debug, Deserialize, GraphQLEnum, Clone, PartialEq)]
-#[graphql(description = "Social media I am on")]
+#[derive(Debug, Deserialize, Enum, Description, Clone, PartialEq, Eq, Copy)]
+/// Social media I am on
 pub enum SocialMedia {
     #[graphql(name = "LINKEDIN")]
     LinkedIn,
@@ -21,8 +22,8 @@ pub enum SocialMedia {
     Phone,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "Social media information")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// Social media information
 pub struct Socials {
     website: Social,
     email: Social,
@@ -31,8 +32,8 @@ pub struct Socials {
     github: Social,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "Social media")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// Social media
 pub struct Social {
     kind: SocialMedia,
     name: String,
@@ -40,15 +41,15 @@ pub struct Social {
     title: String,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "Education")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// Education
 pub struct Education {
     university: String,
     degrees: Vec<Degree>,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "Degree")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// Degree
 pub struct Degree {
     title: String,
     university: String,
@@ -58,8 +59,8 @@ pub struct Degree {
     end: i32,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "Experience")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// Experience
 pub struct Experience {
     position: String,
     company: String,
@@ -70,8 +71,8 @@ pub struct Experience {
     technologies: Vec<String>,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "Projects I've made/worked on")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// Projects I've made/worked on
 pub struct Project {
     name: String,
     technologies: Vec<String>,
@@ -81,8 +82,8 @@ pub struct Project {
     website2: Option<Social>,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "Personal skills")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// Personal skills
 pub struct Skills {
     languages: Vec<String>,
     technologies: Vec<String>,
@@ -90,8 +91,8 @@ pub struct Skills {
     personal: Vec<String>,
 }
 
-#[derive(Debug, Deserialize, GraphQLObject, Clone)]
-#[graphql(description = "About me")]
+#[derive(Debug, Deserialize, SimpleObject, Description, Clone)]
+/// About me
 pub struct Me {
     name: String,
     tagline: String,

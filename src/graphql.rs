@@ -1,44 +1,36 @@
 use crate::get_full_url;
 use crate::graphiql::graphiql_source;
 use crate::models::{Language, Me, Social, SocialMedia};
-use actix_web::{web, Error, HttpResponse};
-use juniper::{http::GraphQLRequest, EmptyMutation, FieldResult, RootNode};
-use std::sync::Arc;
+use actix_web::{web, HttpResponse};
+use async_graphql::{EmptyMutation, EmptySubscription, Object, Schema};
+use async_graphql_actix_web::{Request, Response};
 
 pub struct Queries;
 
-#[juniper::object(Context = Context)]
+#[Object]
 impl Queries {
-    fn hello(language: Language) -> String {
+    async fn hello(&self, language: Language) -> String {
         match language {
             Language::English => "Hello! Welcome to my CV-as-a-service!".to_string(),
             Language::Norwegian => "Hei! Velkommen til min CV-as-a-service!".to_string(),
         }
     }
 
-    fn me(language: Language, context: &Context) -> FieldResult<Me> {
-        Ok(match language {
-            Language::English => context.english.clone(),
-            Language::Norwegian => context.norwegian.clone(),
-        })
+    async fn me(&self, language: Language) -> async_graphql::Result<Me> {
+        Ok(Me::new(language)?)
     }
 
-    fn social_media(kind: SocialMedia, context: &Context) -> &Social {
-        context.english.social_media(&kind)
+    async fn social_media(&self, kind: SocialMedia) -> Social {
+        let me = Me::new(Language::English).unwrap();
+        me.social_media(&kind).to_owned()
     }
 
-    fn resume(language: Language) -> String {
+    async fn resume(&self, language: Language) -> String {
         match language {
             Language::English => format!("{}/english", get_full_url()),
             Language::Norwegian => format!("{}/norwegian", get_full_url()),
         }
     }
-}
-
-pub type Schema = RootNode<'static, Queries, EmptyMutation<Context>>;
-
-pub fn create_schema() -> Schema {
-    Schema::new(Queries, EmptyMutation::new())
 }
 
 #[derive(Debug, Clone)]
@@ -47,8 +39,6 @@ pub struct Context {
     norwegian: Me,
 }
 
-impl juniper::Context for Context {}
-
 async fn graphiql() -> HttpResponse {
     let html = graphiql_source(&format!("{}/graphql", get_full_url()));
     HttpResponse::Ok()
@@ -56,21 +46,14 @@ async fn graphiql() -> HttpResponse {
         .body(html)
 }
 
-async fn graphql(
-    context: web::Data<Context>,
-    schema: web::Data<Arc<Schema>>,
-    data: web::Json<GraphQLRequest>,
-) -> Result<HttpResponse, Error> {
-    let res = data.execute(&schema, &context);
-    let json = serde_json::to_string(&res).map_err(Error::from)?;
+type CVSchema = Schema<Queries, EmptyMutation, EmptySubscription>;
 
-    Ok(HttpResponse::Ok()
-        .content_type("application/json")
-        .body(json))
+async fn graphql(schema: web::Data<CVSchema>, req: Request) -> Response {
+    schema.execute(req.into_inner()).await.into()
 }
 
 pub fn register(config: &mut web::ServiceConfig) {
-    let schema = std::sync::Arc::new(create_schema());
+    let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
     let context = Context {
         english: Me::new(Language::English).unwrap(),
         norwegian: Me::new(Language::Norwegian).unwrap(),
