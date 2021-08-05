@@ -1,5 +1,6 @@
 let Prelude =
-      https://prelude.dhall-lang.org/package.dhall sha256:eb693342eb769f782174157eba9b5924cf8ac6793897fc36a31ccbd6f56dafe2
+      https://prelude.dhall-lang.org/package.dhall
+        sha256:a6036bc38d883450598d1de7c98ead113196fe2db02e9733855668b18096f07b
 
 let P = ./../package.dhall
 
