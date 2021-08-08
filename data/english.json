@@ -26,7 +26,25 @@
   "experience": [
     {
       "about": [
-        "Full stack development using React and Firebase"
+        "Developed an application to keep NAV's Kubernetes cluster free from failing applications",
+        "The application is written in Go while interfacing with Kubernetes, Prometheus and InfluxDB",
+        "Lent a hand in projects in NAIS that required frontend experience"
+      ],
+      "company": "NAV IT, NAIS",
+      "end": "Aug 2020",
+      "location": "Oslo",
+      "position": "Summer intern",
+      "start": "Jun 2020",
+      "technologies": [
+        "Go",
+        "Kubernetes",
+        "Prometheus"
+      ]
+    },
+    {
+      "about": [
+        "Full stack development using React and Firebase",
+        "Develop and consult customers on developing what they need, from design to implementation"
       ],
       "company": "IslandGarden",
       "location": "Bergen",
@@ -247,29 +265,6 @@
       ]
     },
     {
-      "about": "Monorepo with automatic publishing of packages for configuring populare frontend tools like ESLint and Prettier.",
-      "github": {
-        "kind": "GitHub",
-        "link": "https://github.com/sondr3/frontend-config",
-        "name": "GitHub",
-        "title": "sondr3/frontend-config"
-      },
-      "name": "Frontendkonfigurasjon",
-      "technologies": [
-        "ESLint",
-        "Prettier",
-        "Renovate",
-        "Stylelint",
-        "TypeScript"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://www.npmjs.com/~sondr3",
-        "name": "npm",
-        "title": "npmjs/sondr3"
-      }
-    },
-    {
       "about": "My CV-as-a-Service with its own GraphQL API that also generates this CV in both english and norwegian.",
       "github": {
         "kind": "GitHub",
@@ -346,6 +341,7 @@
       "Rust",
       "Kotlin",
       "TypeScript/JavaScript",
+      "Go",
       "Python",
       "SQL",
       "Java",
@@ -361,15 +357,17 @@
     ],
     "technologies": [
       "React",
-      "CSS",
-      "HTML",
-      "styled-components",
+      "DevOps",
+      "GraphQL",
+      "REST",
       "Docker",
       "Linux",
       "Git",
-      "DevOps",
-      "GraphQL",
-      "REST"
+      "Kubernetes",
+      "Prometheus",
+      "CSS",
+      "HTML",
+      "styled-components"
     ],
     "workflow": [
       "Domain driven design",
@@ -377,7 +375,9 @@
       "Kanban",
       "GitHub Actions",
       "CI/CD",
-      "project management"
+      "XP",
+      "project management",
+      "pair/mob programming"
     ]
   },
   "socials": {

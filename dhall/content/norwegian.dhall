@@ -53,13 +53,26 @@ let me
           }
         ]
       , experience =
-        [ { position = "Utvikler, deltid"
+        [ { position = "Sommerjobb"
+          , company = "NAV IT, NAIS"
+          , location = "Oslo"
+          , start = "Jun 2020"
+          , end = Some "Aug 2020"
+          , about =
+            [ "Utviklet en løsning for å holde Kubernetesklustre ryddige fra feilende applikasjoner"
+            , "Plattformløsning skrevet i Go, hvor vi brukte Kubernetes, InfluxDB, Prometheus m.m."
+            , "Ga en hjelpende hånd til NAIS på prosjekter som trengte erfaring med frontend"
+            ]
+          , technologies = [ "Go", "Kubernetes", "Prometheus" ]
+          }
+        , { position = "Utvikler, deltid"
           , company = "IslandGarden"
           , location = "Bergen"
           , start = "Okt 2020"
           , end = None Text
           , about =
             [ "Jobber med fullstackutvikling med React og Firebase på flere prosjekter"
+            , "Utvikler og rådgir kunder for utvikling av løsningene deres, fra design til implementasjon"
             ]
           , technologies = [ "TypeScript", "React", "Firebase" ]
           }
@@ -266,25 +279,6 @@ let me
           , website = None P.Social
           , website2 = None P.Social
           }
-        , { name = "Frontendkonfigurasjon"
-          , technologies =
-            [ "ESLint", "Prettier", "Renovate", "Stylelint", "TypeScript" ]
-          , about =
-              "Monorepo med automatisk publisering av pakker for konfigurering av populære frontendverktøy som ESLint og Prettier."
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/sondr3/frontend-config"
-            , title = "sondr3/frontend-config"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "npm"
-            , link = "https://www.npmjs.com/~sondr3"
-            , title = "npmjs/sondr3"
-            }
-          , website2 = None P.Social
-          }
         , { name = "CV-aaS"
           , technologies =
             [ "Rust", "GraphQL", "Dhall", "LaTeX", "Docker", "GitHub Actions" ]
@@ -350,7 +344,9 @@ let me
         ]
       , skills =
             C.skills
-          ⫽ { workflow = C.skills.workflow # [ "prosjektledelse" ]
+          ⫽ { workflow =
+                  C.skills.workflow
+                # [ "prosjektledelse", "par/mobprogrammering" ]
             , personal =
               [ "Pianist"
               , "brettspillentusiast"
