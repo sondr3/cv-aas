@@ -56,8 +56,8 @@ let me
         [ { position = "Summer intern"
           , company = "NAV IT, NAIS"
           , location = "Oslo"
-          , start = "Jun 2020"
-          , end = Some "Aug 2020"
+          , start = "Jun 2021"
+          , end = Some "Aug 2021"
           , about =
             [ "Developed an application to keep NAV's Kubernetes cluster free from failing applications"
             , "The application is written in Go while interfacing with Kubernetes, Prometheus and InfluxDB"

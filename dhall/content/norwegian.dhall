@@ -56,8 +56,8 @@ let me
         [ { position = "Sommerjobb"
           , company = "NAV IT, NAIS"
           , location = "Oslo"
-          , start = "Jun 2020"
-          , end = Some "Aug 2020"
+          , start = "Jun 2021"
+          , end = Some "Aug 2021"
           , about =
             [ "Utviklet en løsning for å holde Kubernetesklustre ryddige fra feilende applikasjoner"
             , "Plattformløsning skrevet i Go, hvor vi brukte Kubernetes, InfluxDB, Prometheus m.m."
