@@ -53,12 +53,27 @@ let me
           }
         ]
       , experience =
-        [ { position = "Developer, part time"
+        [ { position = "Summer intern"
+          , company = "NAV IT, NAIS"
+          , location = "Oslo"
+          , start = "Jun 2020"
+          , end = Some "Aug 2020"
+          , about =
+            [ "Developed an application to keep NAV's Kubernetes cluster free from failing applications"
+            , "The application is written in Go while interfacing with Kubernetes, Prometheus and InfluxDB"
+            , "Lent a hand in projects in NAIS that required frontend experience"
+            ]
+          , technologies = [ "Go", "Kubernetes", "Prometheus" ]
+          }
+        , { position = "Developer, part time"
           , company = "IslandGarden"
           , location = "Bergen"
           , start = "Oct 2020"
           , end = None Text
-          , about = [ "Full stack development using React and Firebase" ]
+          , about =
+            [ "Full stack development using React and Firebase"
+            , "Develop and consult customers on developing what they need, from design to implementation"
+            ]
           , technologies = [ "TypeScript", "React", "Firebase" ]
           }
         , { position = "Summer intern"
@@ -264,25 +279,6 @@ let me
           , website = None P.Social
           , website2 = None P.Social
           }
-        , { name = "Frontendkonfigurasjon"
-          , technologies =
-            [ "ESLint", "Prettier", "Renovate", "Stylelint", "TypeScript" ]
-          , about =
-              "Monorepo with automatic publishing of packages for configuring populare frontend tools like ESLint and Prettier."
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/sondr3/frontend-config"
-            , title = "sondr3/frontend-config"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "npm"
-            , link = "https://www.npmjs.com/~sondr3"
-            , title = "npmjs/sondr3"
-            }
-          , website2 = None P.Social
-          }
         , { name = "CV-aaS"
           , technologies =
             [ "Rust", "GraphQL", "Dhall", "LaTeX", "Docker", "GitHub Actions" ]
@@ -348,7 +344,9 @@ let me
         ]
       , skills =
             C.skills
-          ⫽ { workflow = C.skills.workflow # [ "project management" ]
+          ⫽ { workflow =
+                  C.skills.workflow
+                # [ "project management", "pair/mob programming" ]
             , personal =
               [ "pianist"
               , "board game enthusiast"

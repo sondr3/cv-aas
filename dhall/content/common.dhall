@@ -42,6 +42,7 @@ let languages =
       [ "Rust"
       , "Kotlin"
       , "TypeScript/JavaScript"
+      , "Go"
       , "Python"
       , "SQL"
       , "Java"
@@ -51,19 +52,27 @@ let languages =
 
 let technologies =
       [ "React"
-      , "CSS"
-      , "HTML"
-      , "styled-components"
-      , "Docker"
-      , "Linux"
-      , "Git"
       , "DevOps"
       , "GraphQL"
       , "REST"
+      , "Docker"
+      , "Linux"
+      , "Git"
+      , "Kubernetes"
+      , "Prometheus"
+      , "CSS"
+      , "HTML"
+      , "styled-components"
       ]
 
 let workflow =
-      [ "Domain driven design", "Agile", "Kanban", "GitHub Actions", "CI/CD" ]
+      [ "Domain driven design"
+      , "Agile"
+      , "Kanban"
+      , "GitHub Actions"
+      , "CI/CD"
+      , "XP"
+      ]
 
 let skills = { languages, technologies, workflow }
 
