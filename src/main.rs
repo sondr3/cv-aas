@@ -27,7 +27,9 @@ async fn main() -> io::Result<()> {
             .wrap(middleware::Logger::default())
             .configure(graphql::register)
             .route("/english", web::get().to(english_resume))
+            .route("/engelsk", web::get().to(english_resume))
             .route("/norwegian", web::get().to(norwegian_resume))
+            .route("/norsk", web::get().to(norwegian_resume))
     })
     .bind(get_url())?
     .run()
