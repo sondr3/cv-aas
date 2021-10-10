@@ -12,6 +12,6 @@ echo "Removing old container..."
 docker container rm cv-aas
 
 echo "Redeploying service"
-docker run -itd --restart unless-stopped -p 8080:8080 --name cv-aas ghcr.io/sondr3/cv-aas:latest
+docker run -itd --pull always --restart unless-stopped -p 8080:8080 --name cv-aas ghcr.io/sondr3/cv-aas:latest
 
 echo "And we're live again!"
