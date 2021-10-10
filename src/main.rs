@@ -2,8 +2,8 @@ use async_graphql::{EmptyMutation, EmptySubscription, Schema};
 use axum::{
     handler::{get, post},
     http::header::CONTENT_TYPE,
-    http::HeaderMap,
     http::StatusCode,
+    response::Headers,
     response::IntoResponse,
     AddExtensionLayer, Router,
 };
@@ -18,17 +18,17 @@ use tower_http::{
 };
 
 async fn english_resume() -> impl IntoResponse {
-    let mut headers = HeaderMap::new();
-    headers.insert(CONTENT_TYPE, "application/pdf".parse().unwrap());
-
-    (headers, ENGLISH_RESUME)
+    (
+        Headers(vec![(CONTENT_TYPE, "application/pdf")]),
+        ENGLISH_RESUME,
+    )
 }
 
 async fn norwegian_resume() -> impl IntoResponse {
-    let mut headers = HeaderMap::new();
-    headers.insert(CONTENT_TYPE, "application/pdf".parse().unwrap());
-
-    (headers, NORWEGIAN_RESUME)
+    (
+        Headers(vec![(CONTENT_TYPE, "application/pdf")]),
+        NORWEGIAN_RESUME,
+    )
 }
 
 #[tokio::main]
