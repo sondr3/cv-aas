@@ -67,9 +67,29 @@ jobs:
           toolchain: stable
           override: true
 
+  data_build:
+    name: Convert Dhall to JSON and LaTeX
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: dhall-lang/setup-dhall@v4
+
+      - name: Convert Dhall
+        run: ./scripts/dhall.sh
+
+      - name: Build LaTeX
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: ./scripts/latex.sh
+
+      - name: Check
+        run: ls -la ./data
+
   github_build:
     if: startsWith(github.ref, 'refs/tags/v')
     name: Build release binaries
+    needs: data_build
     strategy:
       fail-fast: false
       matrix:
