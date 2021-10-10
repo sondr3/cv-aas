@@ -92,6 +92,15 @@ jobs:
           target: ${{ matrix.target }}
 
       - uses: Swatinem/rust-cache@v1
+      - uses: dhall-lang/setup-dhall@v4
+
+      - name: Convert Dhall
+        run: ./scripts/dhall.sh
+
+      - name: Build LaTeX
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: ./scripts/latex.sh
 
       - name: Install musl tools
         run: sudo apt-get install -y musl-tools libssl-dev
