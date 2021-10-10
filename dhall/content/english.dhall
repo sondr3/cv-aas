@@ -140,7 +140,6 @@ let me
           , about =
             [ "echo karriere is a student organization that runs the career fair for IT-students in Bergen"
             , "Project lead for the development group where I lead 6+ students in developing our solutions"
-            , "Developing a full-stack solution for managing the career fair and our website"
             ]
           , technologies =
             [ "Kotlin"
