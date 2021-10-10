@@ -1,8 +1,7 @@
 let Prelude =
-      https://prelude.dhall-lang.org/package.dhall
-        sha256:a6036bc38d883450598d1de7c98ead113196fe2db02e9733855668b18096f07b
+      https://prelude.dhall-lang.org/package.dhall sha256:a6036bc38d883450598d1de7c98ead113196fe2db02e9733855668b18096f07b
 
-let P = ./../package.dhall
+let P = ../package.dhall
 
 let comma = Prelude.Text.concatSep ", "
 
@@ -78,13 +77,6 @@ let toEducation =
         \begin{education}
         ${lines (Prelude.List.map P.Education Text universityToTex item)}
         \end{education}
-        ''
-
-let socialsToTex =
-      λ(item : P.Social) →
-        ''
-        \newcommand{\${item.name}Link}{${item.link}}
-        \newcommand{\${item.name}Text}{${item.title}}
         ''
 
 let projectGithub =
