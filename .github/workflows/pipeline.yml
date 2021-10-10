@@ -79,9 +79,11 @@ jobs:
         run: ./scripts/dhall.sh
 
       - name: Build LaTeX
-        uses: xu-cheng/texlive-action/full@v1
+        uses: xu-cheng/texlive-action/small@v1
         with:
-          run: ./scripts/latex.sh
+          run: |
+            tlmgr install polyglossia fontspec url xcolor fullpage geometry fontawesome5 hyperref titlesec array enumitem longtable etoolbox tikz tcolorbox fancyhdr ifthen
+            ./scripts/latex.sh
 
       - name: Check
         run: ls -la ./data
