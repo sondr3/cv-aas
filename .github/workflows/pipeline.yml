@@ -68,16 +68,7 @@ jobs:
   github_build:
     if: startsWith(github.ref, 'refs/tags/v')
     name: Build release binaries
-    strategy:
-      fail-fast: false
-      matrix:
-        target:
-          - x86_64-unknown-linux-musl
-        include:
-          - target: x86_64-unknown-linux-musl
-            os: ubuntu-latest
-            name: cv-aas-x86_64-unknown-linux-musl.tar.gz
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -87,7 +78,7 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-          target: ${{ matrix.target }}
+          target: x86_64-unknown-linux-musl
 
       - uses: Swatinem/rust-cache@v1
       - uses: dhall-lang/setup-dhall@v4
@@ -109,11 +100,11 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --release --target ${{ matrix.target }}
+          args: --release --target x86_64-unknown-linux-musl
 
       - name: Prepare build artifacts
         run: |
-          cd target/${{ matrix.target }}/release
+          cd target/x86_64-unknown-linux-musl/release
           strip cv-aas
           mv cv-aas ../../../
           cd -
@@ -155,14 +146,6 @@ jobs:
           tags: ghcr.io/sondr3/cv-aas:latest,ghcr.io/sondr3/cv-aas:${{ env.TAG }}
           build-args: |
             path=cv-aas
-
-      - name: Create GitHub release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            cv-aas-x86_64-unknown-linux-musl.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #
 #  deploy:
 #    if: startsWith(github.ref, 'refs/tags/v')
