@@ -82,7 +82,7 @@ jobs:
         uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
-            tlmgr install polyglossia fontspec url xcolor fullpage geometry fontawesome5 hyperref titlesec array enumitem longtable etoolbox tikz tcolorbox fancyhdr ifthen
+            tlmgr install fullpage fontawesome5 titlesec array enumitem longtable tikz tcolorbox fancyhdr ifthen
             ./scripts/latex.sh
 
       - name: Check
