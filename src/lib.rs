@@ -12,13 +12,6 @@ static NORWEGIAN_JSON: &str = include_str!("../data/norwegian.json");
 pub static ENGLISH_RESUME: &[u8] = include_bytes!("../data/english.pdf");
 pub static NORWEGIAN_RESUME: &[u8] = include_bytes!("../data/norwegian.pdf");
 
-pub fn get_url() -> String {
-    match option_env!("CI") {
-        Some(_) => "0.0.0.0:8080".to_string(),
-        None => "127.0.0.1:8080".to_string(),
-    }
-}
-
 pub fn get_full_url() -> String {
     match option_env!("CI") {
         Some(_) => "https://cv.eons.io".to_string(),
