@@ -82,7 +82,7 @@ jobs:
         uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
-            tlmgr install fullpage fontawesome5 titlesec array enumitem longtable tikz tcolorbox fancyhdr ifthen
+            tlmgr install preprint fontawesome5 titlesec enumitem tcolorbox environ sourcesanspro
             ./scripts/latex.sh
 
       - name: Check
