@@ -130,10 +130,12 @@ jobs:
     needs: [test, github_build]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Get git tag
         run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
-      - name: Download Linux MUSL artifact
+      - name: Download binary
         uses: actions/download-artifact@v2
         with:
           name: cv-aas
@@ -177,8 +179,8 @@ jobs:
         with:
           files: |
             cv-aas
-            data/SondreNilsenCV.pdf
-            data/SondreNilsenCV-English.pdf
+            SondreNilsenCV.pdf
+            SondreNilsenCV-English.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
