@@ -1,4 +1,4 @@
-let P = ./../package.dhall
+let P = ../package.dhall
 
 let name = { firstName = "Sondre", lastName = "Nilsen" }
 

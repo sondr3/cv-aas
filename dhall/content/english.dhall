@@ -1,8 +1,7 @@
 let Prelude =
-      https://prelude.dhall-lang.org/package.dhall
-        sha256:a6036bc38d883450598d1de7c98ead113196fe2db02e9733855668b18096f07b
+      https://prelude.dhall-lang.org/package.dhall sha256:a6036bc38d883450598d1de7c98ead113196fe2db02e9733855668b18096f07b
 
-let P = ./../package.dhall
+let P = ../package.dhall
 
 let C = ./common.dhall
 
@@ -30,7 +29,7 @@ let me
       , lastName = C.name.lastName
       , tagline = "Algorithms @ UiB | Full stack developer"
       , about =
-          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a part-time developer at Sbanken. I am a hobby project fanatic, there's always one to many project in my head. I care about the student environment at informatics and I'm active in a host of student run organizations and projects. In my spare time I enjoy long runs, long evenings playing board games and a good beer."
+          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a part-time developer at Islandgarden. I am a hobby project fanatic, there's always one to many project in my head. I care about the student environment at informatics and I'm active in a host of student run organizations and projects. In my spare time I enjoy long runs, long evenings playing board games and a good beer."
       , socials = C.socials
       , education =
         [ { university = "University of Bergen"
