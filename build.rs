@@ -9,20 +9,18 @@ fn main() {
     println!("cargo:rerun-if-changed=data/me.jpg");
 
     if Ok("release".to_string()) == env::var("PROFILE") {
-        Command::new("./update.sh")
+        Command::new("./scripts/dhall.sh")
             .stdin(Stdio::null())
             .stderr(Stdio::inherit())
             .stdout(Stdio::inherit())
             .spawn()
             .expect("Could not build PDF and JSON");
     } else {
-        Command::new("touch")
-            .arg("data/english.pdf")
+        Command::new("./scripts/update.sh")
+            .stdin(Stdio::null())
+            .stderr(Stdio::inherit())
+            .stdout(Stdio::inherit())
             .spawn()
-            .unwrap();
-        Command::new("touch")
-            .arg("data/norwegian.pdf")
-            .spawn()
-            .unwrap();
+            .expect("Could not build PDF and JSON");
     }
 }
