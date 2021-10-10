@@ -2,7 +2,6 @@ use crate::errors::Errors;
 use crate::models::{Language, Me};
 
 pub mod errors;
-pub mod graphiql;
 pub mod graphql;
 pub mod models;
 

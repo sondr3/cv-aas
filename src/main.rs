@@ -5,16 +5,17 @@ use axum::{
     http::StatusCode,
     response::Headers,
     response::IntoResponse,
-    AddExtensionLayer, Router,
+    service, AddExtensionLayer, Router,
 };
 use cv_aas::{
-    graphql::{graphql_handler, graphql_playground, Queries},
+    graphql::{graphql_handler, Queries},
     ENGLISH_RESUME, NORWEGIAN_RESUME,
 };
 use std::{convert::Infallible, net::SocketAddr, time::Duration};
 use tower::{BoxError, ServiceBuilder};
 use tower_http::{
-    compression::CompressionLayer, decompression::DecompressionLayer, trace::TraceLayer,
+    compression::CompressionLayer, decompression::DecompressionLayer, services::ServeDir,
+    trace::TraceLayer,
 };
 
 async fn english_resume() -> impl IntoResponse {
@@ -42,7 +43,15 @@ async fn main() -> Result<(), BoxError> {
     let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
 
     let app = Router::new()
-        .route("/", get(graphql_playground))
+        .nest(
+            "/",
+            service::get(ServeDir::new("static")).handle_error(|error: std::io::Error| {
+                Ok::<_, Infallible>((
+                    StatusCode::INTERNAL_SERVER_ERROR,
+                    format!("Unhandled internal error: {}", error),
+                ))
+            }),
+        )
         .route("/graphql", post(graphql_handler))
         .route("/norsk", get(norwegian_resume))
         .route("/norwegian", get(norwegian_resume))

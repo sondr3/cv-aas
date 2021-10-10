@@ -1,11 +1,10 @@
 use crate::{
     get_full_url,
-    graphiql::graphiql_source,
     models::{Language, Me, Social, SocialMedia},
 };
 use async_graphql::{EmptyMutation, EmptySubscription, Object, Schema};
 use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
-use axum::{extract::Extension, response, response::IntoResponse};
+use axum::extract::Extension;
 
 pub struct Queries;
 
@@ -39,8 +38,4 @@ type CVSchema = Schema<Queries, EmptyMutation, EmptySubscription>;
 
 pub async fn graphql_handler(schema: Extension<CVSchema>, req: GraphQLRequest) -> GraphQLResponse {
     schema.execute(req.into_inner()).await.into()
-}
-
-pub async fn graphql_playground() -> impl IntoResponse {
-    response::Html(graphiql_source("/graphql"))
 }
