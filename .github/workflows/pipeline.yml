@@ -115,14 +115,20 @@ jobs:
           name: cv-aas
           path: cv-aas
 
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v2
+        with:
+          name: resumes
+          path: |
+            data/SondreNilsenCV.pdf
+            data/SondreNilsenCV-English.pdf
+
   publish_docker:
     if: startsWith(github.ref, 'refs/tags/v')
     name: Publish Docker image
     needs: [test, github_build]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
       - name: Get git tag
         run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
@@ -146,6 +152,35 @@ jobs:
           tags: ghcr.io/sondr3/cv-aas:latest,ghcr.io/sondr3/cv-aas:${{ env.TAG }}
           build-args: |
             path=cv-aas
+
+  create_release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    name: Publish Docker image
+    needs: [test, github_build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download binary
+        uses: actions/download-artifact@v2
+        with:
+          name: cv-aas
+          path: .
+
+      - name: Download resumes
+        uses: actions/download-artifact@v2
+        with:
+          name: resumes
+          path: .
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            cv-aas
+            data/SondreNilsenCV.pdf
+            data/SondreNilsenCV-English.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
   deploy:
     if: startsWith(github.ref, 'refs/tags/v')
