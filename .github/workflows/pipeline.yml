@@ -8,10 +8,6 @@ on:
     tags:
       - "v*.*.*"
 
-env:
-  docker_image_sha: ghcr.io/sondr3/cv-aas:${{ github.sha }}
-  docker_image_latest: ghcr.io/sondr3/cv-aas:latest
-
 jobs:
   linting:
     name: Lints
@@ -136,6 +132,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Get git tag
+        run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+
       - name: Download Linux MUSL artifact
         uses: actions/download-artifact@v2
         with:
@@ -153,7 +152,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${docker_image_sha},${docker_image_latest}
+          tags: ghcr.io/sondr3/cv-aas:latest,ghcr.io/sondr3/cv-aas:${{ env.TAG }}
           build-args: |
             path=cv-aas
 
