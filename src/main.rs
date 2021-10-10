@@ -1,37 +1,82 @@
-use actix_web::{middleware, web, App, HttpResponse, HttpServer, Result};
-use cv_aas::{get_full_url, get_url, graphql, ENGLISH_RESUME, NORWEGIAN_RESUME};
-use std::io;
+use async_graphql::{EmptyMutation, EmptySubscription, Schema};
+use axum::{
+    handler::{get, post},
+    http::header::CONTENT_TYPE,
+    http::HeaderMap,
+    http::StatusCode,
+    response::IntoResponse,
+    AddExtensionLayer, Router,
+};
+use cv_aas::{
+    graphql::{graphql_handler, graphql_playground, Queries},
+    ENGLISH_RESUME, NORWEGIAN_RESUME,
+};
+use std::{convert::Infallible, net::SocketAddr, time::Duration};
+use tower::{BoxError, ServiceBuilder};
+use tower_http::{
+    compression::CompressionLayer, decompression::DecompressionLayer, trace::TraceLayer,
+};
 
-async fn english_resume() -> Result<HttpResponse> {
-    Ok(HttpResponse::Ok()
-        .content_type("application/pdf")
-        .body(ENGLISH_RESUME))
+async fn english_resume() -> impl IntoResponse {
+    let mut headers = HeaderMap::new();
+    headers.insert(CONTENT_TYPE, "application/pdf".parse().unwrap());
+
+    (headers, ENGLISH_RESUME)
 }
 
-async fn norwegian_resume() -> Result<HttpResponse> {
-    Ok(HttpResponse::Ok()
-        .content_type("application/pdf")
-        .body(NORWEGIAN_RESUME))
+async fn norwegian_resume() -> impl IntoResponse {
+    let mut headers = HeaderMap::new();
+    headers.insert(CONTENT_TYPE, "application/pdf".parse().unwrap());
+
+    (headers, NORWEGIAN_RESUME)
 }
 
-#[actix_rt::main]
-async fn main() -> io::Result<()> {
-    std::env::set_var("RUST_LOG", "actix_web=debug");
-    env_logger::init();
+#[tokio::main]
+async fn main() -> Result<(), BoxError> {
+    if std::env::var("RUST_LOG").is_err() {
+        std::env::set_var("RUST_LOG", "personal_api=debug,tower_http=debug");
+    }
 
-    println!("Starting server on {}", get_full_url());
+    tracing_subscriber::fmt::init();
 
-    // Start http server
-    HttpServer::new(move || {
-        App::new()
-            .wrap(middleware::Logger::default())
-            .configure(graphql::register)
-            .route("/english", web::get().to(english_resume))
-            .route("/engelsk", web::get().to(english_resume))
-            .route("/norwegian", web::get().to(norwegian_resume))
-            .route("/norsk", web::get().to(norwegian_resume))
-    })
-    .bind(get_url())?
-    .run()
-    .await
+    let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
+
+    let app = Router::new()
+        .route("/", get(graphql_playground))
+        .route("/graphql", post(graphql_handler))
+        .route("/norsk", get(norwegian_resume))
+        .route("/norwegian", get(norwegian_resume))
+        .route("/engelsk", get(english_resume))
+        .route("/english", get(english_resume))
+        .layer(
+            ServiceBuilder::new()
+                .timeout(Duration::from_secs(10))
+                .layer(TraceLayer::new_for_http())
+                .layer(CompressionLayer::new())
+                .layer(DecompressionLayer::new())
+                .layer(AddExtensionLayer::new(schema))
+                .into_inner(),
+        )
+        .handle_error(|error: BoxError| {
+            let result = if error.is::<tower::timeout::error::Elapsed>() {
+                Ok(StatusCode::REQUEST_TIMEOUT)
+            } else {
+                Err((
+                    StatusCode::INTERNAL_SERVER_ERROR,
+                    format!("Unhandled internal error: {}", error),
+                ))
+            };
+
+            Ok::<_, Infallible>(result)
+        })
+        .check_infallible();
+
+    let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
+    println!("Listening on http://{}", addr);
+
+    axum::Server::bind(&addr)
+        .serve(app.into_make_service())
+        .await?;
+
+    Ok(())
 }

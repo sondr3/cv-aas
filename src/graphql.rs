@@ -1,9 +1,11 @@
-use crate::get_full_url;
-use crate::graphiql::graphiql_source;
-use crate::models::{Language, Me, Social, SocialMedia};
-use actix_web::{web, HttpResponse};
+use crate::{
+    get_full_url,
+    graphiql::graphiql_source,
+    models::{Language, Me, Social, SocialMedia},
+};
 use async_graphql::{EmptyMutation, EmptySubscription, Object, Schema};
-use async_graphql_actix_web::{Request, Response};
+use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
+use axum::{extract::Extension, response, response::IntoResponse};
 
 pub struct Queries;
 
@@ -33,23 +35,12 @@ impl Queries {
     }
 }
 
-async fn graphiql() -> HttpResponse {
-    let html = graphiql_source(&format!("{}/graphql", get_full_url()));
-    HttpResponse::Ok()
-        .content_type("text/html; charset=utf-8")
-        .body(html)
-}
-
 type CVSchema = Schema<Queries, EmptyMutation, EmptySubscription>;
 
-async fn graphql(schema: web::Data<CVSchema>, req: Request) -> Response {
+pub async fn graphql_handler(schema: Extension<CVSchema>, req: GraphQLRequest) -> GraphQLResponse {
     schema.execute(req.into_inner()).await.into()
 }
 
-pub fn register(config: &mut web::ServiceConfig) {
-    let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
-    config
-        .data(schema)
-        .route("/", web::get().to(graphiql))
-        .route("/graphql", web::post().to(graphql));
+pub async fn graphql_playground() -> impl IntoResponse {
+    response::Html(graphiql_source("/graphql"))
 }
