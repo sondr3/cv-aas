@@ -200,4 +200,4 @@ jobs:
           script: |
             cd cv-aas
             git pull
-            ./deploy.sh
+            ./scripts/deploy.sh
