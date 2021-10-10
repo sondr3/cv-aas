@@ -86,6 +86,9 @@ jobs:
 
       - name: Convert Dhall
         run: ./scripts/dhall.sh
+        env:
+          MY_PHONE: ${{ secrets.MY_PHONE }}
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
 
       - name: Build LaTeX
         uses: xu-cheng/texlive-action/small@v1
