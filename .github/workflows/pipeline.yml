@@ -146,20 +146,20 @@ jobs:
           tags: ghcr.io/sondr3/cv-aas:latest,ghcr.io/sondr3/cv-aas:${{ env.TAG }}
           build-args: |
             path=cv-aas
-#
-#  deploy:
-#    if: startsWith(github.ref, 'refs/tags/v')
-#    name: Deploy
-#    runs-on: ubuntu-latest
-#    needs: github_release_binary
-#    steps:
-#      - name: Deploy application
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USERNAME }}
-#          key: ${{ secrets.KEY }}
-#          script: |
-#            cd cv-aas
-#            git pull
-#            ./deploy.sh
+
+  deploy:
+    if: startsWith(github.ref, 'refs/tags/v')
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: github_release_binary
+    steps:
+      - name: Deploy application
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd cv-aas
+            git pull
+            ./deploy.sh
