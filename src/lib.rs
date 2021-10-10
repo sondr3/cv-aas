@@ -15,7 +15,7 @@ pub static NORWEGIAN_RESUME: &[u8] = include_bytes!("../data/norwegian.pdf");
 pub fn get_full_url() -> String {
     match option_env!("CI") {
         Some(_) => "https://cv.eons.io".to_string(),
-        None => "http://127.0.0.1:8080".to_string(),
+        None => "http://0.0.0.0:8080".to_string(),
     }
 }
 
