@@ -1,17 +1,18 @@
 use async_graphql::{EmptyMutation, EmptySubscription, Schema};
 use axum::{
-    handler::{get, post},
+    error_handling::HandleErrorLayer,
     http::header::CONTENT_TYPE,
     http::StatusCode,
     response::Headers,
     response::IntoResponse,
-    service, AddExtensionLayer, Router,
+    routing::{get, get_service, post},
+    AddExtensionLayer, Router,
 };
 use cv_aas::{
     graphql::{graphql_handler, Queries},
     ENGLISH_RESUME, NORWEGIAN_RESUME,
 };
-use std::{convert::Infallible, net::SocketAddr, time::Duration};
+use std::{net::SocketAddr, time::Duration};
 use tower::{BoxError, ServiceBuilder};
 use tower_http::{
     compression::CompressionLayer, decompression::DecompressionLayer, services::ServeDir,
@@ -32,6 +33,20 @@ async fn norwegian_resume() -> impl IntoResponse {
     )
 }
 
+async fn handle_errors(err: BoxError) -> impl IntoResponse {
+    if err.is::<tower::timeout::error::Elapsed>() {
+        (
+            StatusCode::REQUEST_TIMEOUT,
+            "Request took too long".to_string(),
+        )
+    } else {
+        (
+            StatusCode::INTERNAL_SERVER_ERROR,
+            format!("Unhandled internal error: {}", err),
+        )
+    }
+}
+
 #[tokio::main]
 async fn main() -> Result<(), BoxError> {
     if std::env::var("RUST_LOG").is_err() {
@@ -43,42 +58,28 @@ async fn main() -> Result<(), BoxError> {
     let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
 
     let app = Router::new()
-        .nest(
-            "/",
-            service::get(ServeDir::new("static")).handle_error(|error: std::io::Error| {
-                Ok::<_, Infallible>((
+        .fallback(get_service(ServeDir::new("static")).handle_error(
+            |error: std::io::Error| async move {
+                (
                     StatusCode::INTERNAL_SERVER_ERROR,
                     format!("Unhandled internal error: {}", error),
-                ))
-            }),
-        )
+                )
+            },
+        ))
         .route("/graphql", post(graphql_handler))
         .route("/norsk", get(norwegian_resume))
         .route("/norwegian", get(norwegian_resume))
         .route("/engelsk", get(english_resume))
         .route("/english", get(english_resume))
+        .layer(TraceLayer::new_for_http())
+        .layer(AddExtensionLayer::new(schema))
+        .layer(CompressionLayer::new())
+        .layer(DecompressionLayer::new())
         .layer(
             ServiceBuilder::new()
-                .timeout(Duration::from_secs(10))
-                .layer(TraceLayer::new_for_http())
-                .layer(CompressionLayer::new())
-                .layer(DecompressionLayer::new())
-                .layer(AddExtensionLayer::new(schema))
-                .into_inner(),
-        )
-        .handle_error(|error: BoxError| {
-            let result = if error.is::<tower::timeout::error::Elapsed>() {
-                Ok(StatusCode::REQUEST_TIMEOUT)
-            } else {
-                Err((
-                    StatusCode::INTERNAL_SERVER_ERROR,
-                    format!("Unhandled internal error: {}", error),
-                ))
-            };
-
-            Ok::<_, Infallible>(result)
-        })
-        .check_infallible();
+                .layer(HandleErrorLayer::new(handle_errors))
+                .timeout(Duration::from_secs(10)),
+        );
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
     println!("Listening on http://{}", addr);
