@@ -281,7 +281,7 @@ let me
           , technologies =
             [ "Rust", "GraphQL", "Dhall", "LaTeX", "Docker", "GitHub Actions" ]
           , about =
-              "My CV-as-a-Service with its own GraphQL API that also generates this CV in both english and norwegian."
+              "My CV-as-a-Service with its own GraphQL API that also generates this CV in both English and Norwegian."
           , github =
             { kind = P.SocialKind.GitHub
             , name = "GitHub"

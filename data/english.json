@@ -264,7 +264,7 @@
       ]
     },
     {
-      "about": "My CV-as-a-Service with its own GraphQL API that also generates this CV in both english and norwegian.",
+      "about": "My CV-as-a-Service with its own GraphQL API that also generates this CV in both English and Norwegian.",
       "github": {
         "kind": "GitHub",
         "link": "https://github.com/sondr3/cv-aas",
