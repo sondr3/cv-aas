@@ -114,13 +114,13 @@ jobs:
           cd -
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cv-aas
           path: cv-aas
 
       - name: Upload PDFs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: resumes
           path: |
