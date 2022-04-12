@@ -1,5 +1,5 @@
 [package]
-authors = ["Sondre Nilsen <nilsen.sondre@gmail.com>"]
+authors = ["Sondre Aasemoen <nilsen.sondre@gmail.com>"]
 edition = "2021"
 name = "cv-aas"
 version = "0.8.2"

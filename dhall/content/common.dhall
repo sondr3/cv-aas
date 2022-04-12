@@ -1,6 +1,6 @@
 let P = ../package.dhall
 
-let name = { firstName = "Sondre", lastName = "Nilsen" }
+let name = { firstName = "Sondre", lastName = "Aasemoen" }
 
 let socials
     : P.SocialMedia
