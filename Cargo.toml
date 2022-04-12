@@ -5,14 +5,14 @@ name = "cv-aas"
 version = "0.8.2"
 
 [dependencies]
-async-graphql = "3.0.28"
-async-graphql-axum = "3.0.28"
-axum = "0.4.5"
+async-graphql = "3.0.38"
+async-graphql-axum = "3.0.38"
+axum = "0.5.1"
 serde = { version = "1.0.136", features = ["derive"] }
-serde_json = "1.0.78"
+serde_json = "1.0.79"
 thiserror = "1.0.30"
-tokio = { version = "1.16.1", features = ["full"] }
-tower = { version = "0.4.11", features = ["util", "timeout"] }
-tower-http = { version = "0.2.1", features = ["full"] }
-tracing = "0.1.30"
-tracing-subscriber = "0.3.7"
+tokio = { version = "1.17.0", features = ["full"] }
+tower = { version = "0.4.12", features = ["util", "timeout"] }
+tower-http = { version = "0.2.5", features = ["full"] }
+tracing = "0.1.33"
+tracing-subscriber = "0.3.11"

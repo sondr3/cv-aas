@@ -3,10 +3,9 @@ use axum::{
     error_handling::HandleErrorLayer,
     http::header::CONTENT_TYPE,
     http::StatusCode,
-    response::Headers,
     response::IntoResponse,
     routing::{get, get_service, post},
-    AddExtensionLayer, Router,
+    Router,
 };
 use cv_aas::{
     graphql::{graphql_handler, Queries},
@@ -15,22 +14,16 @@ use cv_aas::{
 use std::{net::SocketAddr, time::Duration};
 use tower::{BoxError, ServiceBuilder};
 use tower_http::{
-    compression::CompressionLayer, decompression::DecompressionLayer, services::ServeDir,
-    trace::TraceLayer,
+    add_extension::AddExtensionLayer, compression::CompressionLayer,
+    decompression::DecompressionLayer, services::ServeDir, trace::TraceLayer,
 };
 
 async fn english_resume() -> impl IntoResponse {
-    (
-        Headers(vec![(CONTENT_TYPE, "application/pdf")]),
-        ENGLISH_RESUME,
-    )
+    ([(CONTENT_TYPE, "application/pdf")], ENGLISH_RESUME)
 }
 
 async fn norwegian_resume() -> impl IntoResponse {
-    (
-        Headers(vec![(CONTENT_TYPE, "application/pdf")]),
-        NORWEGIAN_RESUME,
-    )
+    ([(CONTENT_TYPE, "application/pdf")], NORWEGIAN_RESUME)
 }
 
 async fn handle_errors(err: BoxError) -> impl IntoResponse {
