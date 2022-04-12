@@ -58,6 +58,7 @@ jobs:
   github_build:
     if: startsWith(github.ref, 'refs/tags/v')
     name: Build release binaries
+    needs: [check]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
