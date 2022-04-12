@@ -124,8 +124,8 @@ jobs:
         with:
           name: resumes
           path: |
-            data/SondreNilsenCV.pdf
-            data/SondreNilsenCV-English.pdf
+            data/SondreAasemoenCV.pdf
+            data/SondreAasemoenCV-English.pdf
 
   publish_docker:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -182,11 +182,10 @@ jobs:
         with:
           files: |
             cv-aas
-            SondreNilsenCV.pdf
-            SondreNilsenCV-English.pdf
+            SondreAasemoenCV.pdf
+            SondreAasemoenCV-English.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
   deploy:
     if: startsWith(github.ref, 'refs/tags/v')

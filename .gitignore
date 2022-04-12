@@ -1,6 +1,6 @@
 .env
 .envrc
-data/SondreNilsenCV*.pdf
+data/SondreAasemoenCV*.pdf
 
 ### Created by https://www.gitignore.io
 ### Rust ###
