@@ -18,7 +18,7 @@ jobs:
         with:
           components: rustfmt, clippy
 
-      - uses: Swatinem/rust-cache@v1
+      - uses: Swatinem/rust-cache@v2
 
       - name: build
         run: cargo test --no-run
@@ -47,7 +47,7 @@ jobs:
         with:
           targets: x86_64-unknown-linux-musl
 
-      - uses: Swatinem/rust-cache@v1
+      - uses: Swatinem/rust-cache@v2
       - uses: dhall-lang/setup-dhall@v4
 
       - name: Convert Dhall
