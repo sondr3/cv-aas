@@ -51,7 +51,7 @@ async fn main() -> Result<(), BoxError> {
     let schema = Schema::build(Queries, EmptyMutation, EmptySubscription).finish();
 
     let app = Router::new()
-        .fallback(get_service(ServeDir::new("static")).handle_error(
+        .fallback_service(get_service(ServeDir::new("static")).handle_error(
             |error: std::io::Error| async move {
                 (
                     StatusCode::INTERNAL_SERVER_ERROR,
