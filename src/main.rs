@@ -35,7 +35,7 @@ async fn handle_errors(err: BoxError) -> impl IntoResponse {
     } else {
         (
             StatusCode::INTERNAL_SERVER_ERROR,
-            format!("Unhandled internal error: {}", err),
+            format!("Unhandled internal error: {err}"),
         )
     }
 }
@@ -55,7 +55,7 @@ async fn main() -> Result<(), BoxError> {
             |error: std::io::Error| async move {
                 (
                     StatusCode::INTERNAL_SERVER_ERROR,
-                    format!("Unhandled internal error: {}", error),
+                    format!("Unhandled internal error: {error}"),
                 )
             },
         ))
@@ -75,7 +75,7 @@ async fn main() -> Result<(), BoxError> {
         );
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
-    println!("Listening on http://{}", addr);
+    println!("Listening on http://{addr}");
 
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
