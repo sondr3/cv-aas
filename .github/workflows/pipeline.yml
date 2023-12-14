@@ -102,7 +102,7 @@ jobs:
         run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
       - name: Download binary
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cv-aas
           path: .
@@ -129,13 +129,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download binary
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cv-aas
           path: .
 
       - name: Download resumes
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: resumes
           path: .
