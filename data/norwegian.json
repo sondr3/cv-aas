@@ -1,5 +1,5 @@
 {
-  "about": "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Masterstudent innen algoritmer ved UiB og deltidsutvikler hos IslandGarden. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. Jeg brenner for studentmiljøet på informatikk og er svært aktiv i verv og studentprosjekter. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill og en god øl.",
+  "about": "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Seniorkonsulent hos Sonat med en mastergrad innen algoritmer fra UiB. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill, surdeigsbrød og fermentering og en god øl.",
   "education": [
     {
       "degrees": [
@@ -26,6 +26,27 @@
   "experience": [
     {
       "about": [
+        "Utviklet webapplikasjon for studenter på barneskolen for matte",
+        "Fullstackutvikling, infrastruktur og drift av applikasjoner",
+        "Rådgivning for nyutvikling og modernisering av eksisterende systemer"
+      ],
+      "company": "Sonat Bergen",
+      "location": "Bergen",
+      "position": "Seniorkonsulent",
+      "start": "Jul 2022",
+      "technologies": [
+        "Python",
+        "C\\#",
+        "TypeScript",
+        "Azure",
+        "Pulumi",
+        "IaC",
+        "Docker",
+        "CI"
+      ]
+    },
+    {
+      "about": [
         "Utviklet en løsning for å holde Kubernetesklustre ryddige fra feilende applikasjoner",
         "Plattformløsning skrevet i Go, hvor vi brukte Kubernetes, InfluxDB, Prometheus m.m.",
         "Ga en hjelpende hånd til NAIS på prosjekter som trengte erfaring med frontend"
@@ -38,22 +59,25 @@
       "technologies": [
         "Go",
         "Kubernetes",
-        "Prometheus"
+        "Prometheus",
+        "Google Cloud"
       ]
     },
     {
       "about": [
-        "Jobber med fullstackutvikling med React og Firebase på flere prosjekter",
-        "Utvikler og rådgir kunder for utvikling av løsningene deres, fra design til implementasjon"
+        "Fullstackutvikling med React og Firebase på flere prosjekter",
+        "Utviklet og rådgivning for kunder til utvikling av løsningene deres, fra design til implementasjon"
       ],
       "company": "IslandGarden",
+      "end": "Jun 2022",
       "location": "Bergen",
       "position": "Utvikler, deltid",
       "start": "Okt 2020",
       "technologies": [
         "TypeScript",
         "React",
-        "Firebase"
+        "Firebase",
+        "GitHub"
       ]
     },
     {
@@ -89,7 +113,7 @@
       "position": "Utvikler, deltid",
       "start": "Jan 2019",
       "technologies": [
-        "CSharp",
+        "C\\#",
         "REST",
         "React",
         "TypeScript",
@@ -123,17 +147,18 @@
       "technologies": [
         "Python",
         "Django",
-        "Google Cloud Platform"
+        "Google Cloud"
       ]
     }
   ],
   "extracurricular": [
     {
       "about": [
-        "echo karriere er studentorganisasjonen som drifter karrieredagen for IT-studenter i Bergen",
+        "echo karriere (ITxBergen) er studentorganisasjonen som drifter karrieredagen for IT-studenter i Bergen",
         "Prosjektleder for utviklingsgruppen hvor jeg leder 6+ studenter i utviklingen av løsningene våre"
       ],
-      "company": "echo karriere",
+      "company": "echo karriere (ITxBergen)",
+      "end": "2021",
       "location": "Bergen",
       "position": "Styremedlem, webmaster",
       "start": "2019",
@@ -153,6 +178,7 @@
         "Sørger for at vi har utstyret vi trenger, nye medlemmer blir tatt godt i mot og arrangementene vi holder"
       ],
       "company": "echo makerspace",
+      "end": "2021",
       "location": "Bergen",
       "position": "Styremedlem, leder",
       "start": "2018",
@@ -203,14 +229,14 @@
   "name": "Sondre Aasemoen",
   "projects": [
     {
-      "about": "GitHub-organisasjonen for echo karriere hvor nettsiden, fullstackløsningen og dokumentasjonssiden lever.",
+      "about": "GitHub-organisasjonen for echo karriere (nå ITxBergen) hvor nettsiden, fullstackløsningen og dokumentasjonssiden lever.",
       "github": {
         "kind": "GitHub",
         "link": "https://github.com/echo-karriere",
         "name": "GitHub",
         "title": "echo-karriere"
       },
-      "name": "echo karriere",
+      "name": "echo karriere (ITxBergen)",
       "technologies": [
         "Kotlin",
         "Ktor",
@@ -288,36 +314,6 @@
       }
     },
     {
-      "about": "GitHub-organisasjonen for studenter av studenter ved informatikk på UiB. Vi har samlet og utviklet to nettsider og en Discord-bot for serveren jeg startet for informatikkstudenter.",
-      "github": {
-        "kind": "GitHub",
-        "link": "https://github.com/lesesalen",
-        "name": "GitHub",
-        "title": "lesesalen"
-      },
-      "name": "Lesesalen",
-      "technologies": [
-        "TypeScript",
-        "React",
-        "Gatsby",
-        "styled-components",
-        "Discord",
-        "Docker"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://gummiand.no/",
-        "name": "Website",
-        "title": "gummiand.no"
-      },
-      "website2": {
-        "kind": "Website",
-        "link": "https://lesesalen.com/",
-        "name": "Website",
-        "title": "lesesalen.com"
-      }
-    },
-    {
       "about": "'Er det kaffe igjen?' er et veldig vanlig spørsmål for en student, en kamerat og jeg lagde en IoT-platform med kamera, temperatur- og strømsensor for å svare på spørsmålet om hvor mye og hvor fersk kaffen er.",
       "github": {
         "kind": "GitHub",
@@ -339,20 +335,20 @@
     "languages": [
       "Rust",
       "Kotlin",
+      "Haskell",
       "TypeScript/JavaScript",
       "Go",
       "Python",
       "SQL",
       "Java",
-      "Haskell",
-      "CSharp"
+      "C\\#"
     ],
     "personal": [
       "Pianist",
       "brettspillentusiast",
       "semi-entusiastisk jogger",
       "sertifisert dykker",
-      "stickersamler"
+      "surdeigsbaker"
     ],
     "technologies": [
       "React",
@@ -366,7 +362,9 @@
       "Prometheus",
       "CSS",
       "HTML",
-      "styled-components"
+      "Terraform",
+      "Pulumi",
+      "Azure"
     ],
     "workflow": [
       "Domain driven design",
@@ -375,6 +373,8 @@
       "GitHub Actions",
       "CI/CD",
       "XP",
+      "Azure DevOps",
+      "monorepo",
       "prosjektledelse",
       "par/mobprogrammering"
     ]
@@ -411,7 +411,7 @@
       "title": "www.eons.io"
     }
   },
-  "tagline": "Algoritmer @ UiB | Fullstackutvikler",
+  "tagline": "Seniorkonsulent @ Sonat | Fullstackutvikler",
   "volunteering": [
     {
       "about": [

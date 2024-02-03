@@ -4,9 +4,7 @@ let name = { firstName = "Sondre", lastName = "Aasemoen" }
 
 let socials
     : P.SocialMedia
-    =
-      -- TODO: Add phone/email from environment variables
-      { website =
+    = { website =
         { kind = P.SocialKind.Website
         , name = "Website"
         , link = "https://www.eons.io"
@@ -41,13 +39,13 @@ let socials
 let languages =
       [ "Rust"
       , "Kotlin"
+      , "Haskell"
       , "TypeScript/JavaScript"
       , "Go"
       , "Python"
       , "SQL"
       , "Java"
-      , "Haskell"
-      , "CSharp"
+      , "C\\#"
       ]
 
 let technologies =
@@ -62,7 +60,9 @@ let technologies =
       , "Prometheus"
       , "CSS"
       , "HTML"
-      , "styled-components"
+      , "Terraform"
+      , "Pulumi"
+      , "Azure"
       ]
 
 let workflow =
@@ -72,6 +72,8 @@ let workflow =
       , "GitHub Actions"
       , "CI/CD"
       , "XP"
+      , "Azure DevOps"
+      , "monorepo"
       ]
 
 let skills = { languages, technologies, workflow }

@@ -1,6 +1,6 @@
 let Prelude =
       https://prelude.dhall-lang.org/package.dhall
-        sha256:0fed19a88330e9a8a3fbe1e8442aa11d12e38da51eb12ba8bcb56f3c25d0854a
+        sha256:397ef8d5cf55e576eab4359898f61a4e50058982aaace86268c62418d3027871
 
 let P = ../package.dhall
 
@@ -28,9 +28,9 @@ let me
     = { name = C.name.firstName ++ " " ++ C.name.lastName
       , firstName = C.name.firstName
       , lastName = C.name.lastName
-      , tagline = "Algorithms @ UiB | Full stack developer"
+      , tagline = "Senior consultant @ Sonat | Full stack developer"
       , about =
-          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a part-time developer at Islandgarden. I am a hobby project fanatic, there's always one to many project in my head. I care about the student environment at informatics and I'm active in a host of student run organizations and projects. In my spare time I enjoy long runs, long evenings playing board games and a good beer."
+          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Senior consultant at Sonat with a masters in algorithms from UiB. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy long runs, long evenings playing board games, sourdough baking, fermenting and a good beer."
       , socials = C.socials
       , education =
         [ { university = "University of Bergen"
@@ -53,7 +53,28 @@ let me
           }
         ]
       , experience =
-        [ { position = "Summer intern"
+        [ { position = "Senior Consultant"
+          , company = "Sonat Bergen"
+          , location = "Bergen"
+          , start = "Jul 2022"
+          , end = None Text
+          , about =
+            [ "Developed a web application for math students in primary school"
+            , "Fullstack development, infrastructure and devops"
+            , "Consulting and planning for development and modernization of existing systems"
+            ]
+          , technologies =
+            [ "Python"
+            , "C\\#"
+            , "TypeScript"
+            , "Azure"
+            , "Pulumi"
+            , "IaC"
+            , "Docker"
+            , "CI"
+            ]
+          }
+        , { position = "Summer intern"
           , company = "NAV IT, NAIS"
           , location = "Oslo"
           , start = "Jun 2021"
@@ -63,18 +84,18 @@ let me
             , "The application is written in Go while interfacing with Kubernetes, Prometheus and InfluxDB"
             , "Lent a hand in projects in NAIS that required frontend experience"
             ]
-          , technologies = [ "Go", "Kubernetes", "Prometheus" ]
+          , technologies = [ "Go", "Kubernetes", "Prometheus", "Google Cloud" ]
           }
         , { position = "Developer, part time"
           , company = "IslandGarden"
           , location = "Bergen"
           , start = "Oct 2020"
-          , end = None Text
+          , end = Some "Jun 2022"
           , about =
             [ "Full stack development using React and Firebase"
             , "Develop and consult customers on developing what they need, from design to implementation"
             ]
-          , technologies = [ "TypeScript", "React", "Firebase" ]
+          , technologies = [ "TypeScript", "React", "Firebase", "GitHub" ]
           }
         , { position = "Summer intern"
           , company = "Capra Consulting"
@@ -129,17 +150,17 @@ let me
             [ "Developed a portal and webapplication for the students taking INF100 that enabled them to work on, submit and get automatically graded assignments"
             , "Had ~500 users and ran on Google Cloud Platform with Kubernetes"
             ]
-          , technologies = [ "Python", "Django", "Google Cloud Playform" ]
+          , technologies = [ "Python", "Django", "Google Cloud" ]
           }
         ]
       , extracurricular =
         [ { position = "Board member, webmaster"
-          , company = "echo karriere"
+          , company = "echo karriere (ITxBergen)"
           , location = "Bergen"
           , start = "2019"
-          , end = None Text
+          , end = Some "2021"
           , about =
-            [ "echo karriere is a student organization that runs the career fair for IT-students in Bergen"
+            [ "echo karriere (ITxBergen) is a student organization that runs the career fair for IT-students in Bergen"
             , "Project lead for the development group where I lead 6+ students in developing our solutions"
             ]
           , technologies =
@@ -156,7 +177,7 @@ let me
           , company = "echo makerspace"
           , location = "Bergen"
           , start = "2018"
-          , end = None Text
+          , end = Some "2021"
           , about =
             [ "Founding member through my engagement in echo, became leader in the autumn of 2019"
             , "I make sure we have the equipment we need, that new members are well taken care of and that our events run smoothly"
@@ -221,7 +242,7 @@ let me
           }
         ]
       , projects =
-        [ { name = "echo karriere"
+        [ { name = "echo karriere (ITxBergen)"
           , technologies =
             [ "Kotlin"
             , "Ktor"
@@ -232,7 +253,7 @@ let me
             , "Docker"
             ]
           , about =
-              "GitHub organization for echo karriere where our website, full-stack solution and documentation lives."
+              "GitHub organization for echo karriere (now ITxBergen) where our website, full-stack solution and documentation lives."
           , github =
             { kind = P.SocialKind.GitHub
             , name = "GitHub"
@@ -297,36 +318,6 @@ let me
             }
           , website2 = None P.Social
           }
-        , { name = "Lesesalen"
-          , technologies =
-            [ "TypeScript"
-            , "React"
-            , "Gatsby"
-            , "styled-components"
-            , "Discord"
-            , "Docker"
-            ]
-          , about =
-              "GitHub organization for students by students at informatics, UiB. We have gathered and built two websites as well as a Discord bot for the server I started for the informatics students."
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/lesesalen"
-            , title = "lesesalen"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://gummiand.no/"
-            , title = "gummiand.no"
-            }
-          , website2 = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://lesesalen.com/"
-            , title = "lesesalen.com"
-            }
-          }
         , { name = "MOCCA Operational Controller for Coffee Availability"
           , technologies = [ "JavaScript", "React", "Python", "Arduino", "IoT" ]
           , about =
@@ -347,11 +338,11 @@ let me
                   C.skills.workflow
                 # [ "project management", "pair/mob programming" ]
             , personal =
-              [ "pianist"
+              [ "Pianist"
               , "board game enthusiast"
               , "semi enthusiastic jogger"
               , "certified diver"
-              , "sticker collector"
+              , "sourdough baker"
               ]
             }
       }

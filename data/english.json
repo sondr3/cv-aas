@@ -1,5 +1,5 @@
 {
-  "about": "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a part-time developer at Islandgarden. I am a hobby project fanatic, there's always one to many project in my head. I care about the student environment at informatics and I'm active in a host of student run organizations and projects. In my spare time I enjoy long runs, long evenings playing board games and a good beer.",
+  "about": "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Senior consultant at Sonat with a masters in algorithms from UiB. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy long runs, long evenings playing board games, sourdough baking, fermenting and a good beer.",
   "education": [
     {
       "degrees": [
@@ -26,6 +26,27 @@
   "experience": [
     {
       "about": [
+        "Developed a web application for math students in primary school",
+        "Fullstack development, infrastructure and devops",
+        "Consulting and planning for development and modernization of existing systems"
+      ],
+      "company": "Sonat Bergen",
+      "location": "Bergen",
+      "position": "Senior Consultant",
+      "start": "Jul 2022",
+      "technologies": [
+        "Python",
+        "C\\#",
+        "TypeScript",
+        "Azure",
+        "Pulumi",
+        "IaC",
+        "Docker",
+        "CI"
+      ]
+    },
+    {
+      "about": [
         "Developed an application to keep NAV's Kubernetes cluster free from failing applications",
         "The application is written in Go while interfacing with Kubernetes, Prometheus and InfluxDB",
         "Lent a hand in projects in NAIS that required frontend experience"
@@ -38,7 +59,8 @@
       "technologies": [
         "Go",
         "Kubernetes",
-        "Prometheus"
+        "Prometheus",
+        "Google Cloud"
       ]
     },
     {
@@ -47,13 +69,15 @@
         "Develop and consult customers on developing what they need, from design to implementation"
       ],
       "company": "IslandGarden",
+      "end": "Jun 2022",
       "location": "Bergen",
       "position": "Developer, part time",
       "start": "Oct 2020",
       "technologies": [
         "TypeScript",
         "React",
-        "Firebase"
+        "Firebase",
+        "GitHub"
       ]
     },
     {
@@ -123,17 +147,18 @@
       "technologies": [
         "Python",
         "Django",
-        "Google Cloud Playform"
+        "Google Cloud"
       ]
     }
   ],
   "extracurricular": [
     {
       "about": [
-        "echo karriere is a student organization that runs the career fair for IT-students in Bergen",
+        "echo karriere (ITxBergen) is a student organization that runs the career fair for IT-students in Bergen",
         "Project lead for the development group where I lead 6+ students in developing our solutions"
       ],
-      "company": "echo karriere",
+      "company": "echo karriere (ITxBergen)",
+      "end": "2021",
       "location": "Bergen",
       "position": "Board member, webmaster",
       "start": "2019",
@@ -153,6 +178,7 @@
         "I make sure we have the equipment we need, that new members are well taken care of and that our events run smoothly"
       ],
       "company": "echo makerspace",
+      "end": "2021",
       "location": "Bergen",
       "position": "Board member, leader",
       "start": "2018",
@@ -203,14 +229,14 @@
   "name": "Sondre Aasemoen",
   "projects": [
     {
-      "about": "GitHub organization for echo karriere where our website, full-stack solution and documentation lives.",
+      "about": "GitHub organization for echo karriere (now ITxBergen) where our website, full-stack solution and documentation lives.",
       "github": {
         "kind": "GitHub",
         "link": "https://github.com/echo-karriere",
         "name": "GitHub",
         "title": "echo-karriere"
       },
-      "name": "echo karriere",
+      "name": "echo karriere (ITxBergen)",
       "technologies": [
         "Kotlin",
         "Ktor",
@@ -288,36 +314,6 @@
       }
     },
     {
-      "about": "GitHub organization for students by students at informatics, UiB. We have gathered and built two websites as well as a Discord bot for the server I started for the informatics students.",
-      "github": {
-        "kind": "GitHub",
-        "link": "https://github.com/lesesalen",
-        "name": "GitHub",
-        "title": "lesesalen"
-      },
-      "name": "Lesesalen",
-      "technologies": [
-        "TypeScript",
-        "React",
-        "Gatsby",
-        "styled-components",
-        "Discord",
-        "Docker"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://gummiand.no/",
-        "name": "Website",
-        "title": "gummiand.no"
-      },
-      "website2": {
-        "kind": "Website",
-        "link": "https://lesesalen.com/",
-        "name": "Website",
-        "title": "lesesalen.com"
-      }
-    },
-    {
       "about": "'Is there any coffe left?' is the most common question for a student, a question a friend and I set out to answer once and for all. MOCCA is an IoT platform with a camera, temperature and power sensor that can tell you how much and how fresh the coffee is.",
       "github": {
         "kind": "GitHub",
@@ -339,20 +335,20 @@
     "languages": [
       "Rust",
       "Kotlin",
+      "Haskell",
       "TypeScript/JavaScript",
       "Go",
       "Python",
       "SQL",
       "Java",
-      "Haskell",
-      "CSharp"
+      "C\\#"
     ],
     "personal": [
-      "pianist",
+      "Pianist",
       "board game enthusiast",
       "semi enthusiastic jogger",
       "certified diver",
-      "sticker collector"
+      "sourdough baker"
     ],
     "technologies": [
       "React",
@@ -366,7 +362,9 @@
       "Prometheus",
       "CSS",
       "HTML",
-      "styled-components"
+      "Terraform",
+      "Pulumi",
+      "Azure"
     ],
     "workflow": [
       "Domain driven design",
@@ -375,6 +373,8 @@
       "GitHub Actions",
       "CI/CD",
       "XP",
+      "Azure DevOps",
+      "monorepo",
       "project management",
       "pair/mob programming"
     ]
@@ -411,7 +411,7 @@
       "title": "www.eons.io"
     }
   },
-  "tagline": "Algorithms @ UiB | Full stack developer",
+  "tagline": "Senior consultant @ Sonat | Full stack developer",
   "volunteering": [
     {
       "about": [

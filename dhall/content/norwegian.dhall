@@ -1,6 +1,6 @@
 let Prelude =
       https://prelude.dhall-lang.org/package.dhall
-        sha256:0fed19a88330e9a8a3fbe1e8442aa11d12e38da51eb12ba8bcb56f3c25d0854a
+        sha256:397ef8d5cf55e576eab4359898f61a4e50058982aaace86268c62418d3027871
 
 let P = ../package.dhall
 
@@ -28,9 +28,9 @@ let me
     = { name = C.name.firstName ++ " " ++ C.name.lastName
       , firstName = C.name.firstName
       , lastName = C.name.lastName
-      , tagline = "Algoritmer @ UiB | Fullstackutvikler"
+      , tagline = "Seniorkonsulent @ Sonat | Fullstackutvikler"
       , about =
-          "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Masterstudent innen algoritmer ved UiB og deltidsutvikler hos IslandGarden. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. Jeg brenner for studentmiljøet på informatikk og er svært aktiv i verv og studentprosjekter. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill og en god øl."
+          "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Seniorkonsulent hos Sonat med en mastergrad innen algoritmer fra UiB. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill, surdeigsbrød og fermentering og en god øl."
       , socials = C.socials
       , education =
         [ { university = "Universitetet i Bergen"
@@ -53,7 +53,28 @@ let me
           }
         ]
       , experience =
-        [ { position = "Sommerjobb"
+        [ { position = "Seniorkonsulent"
+          , company = "Sonat Bergen"
+          , location = "Bergen"
+          , start = "Jul 2022"
+          , end = None Text
+          , about =
+            [ "Utviklet webapplikasjon for studenter på barneskolen for matte"
+            , "Fullstackutvikling, infrastruktur og drift av applikasjoner"
+            , "Rådgivning for nyutvikling og modernisering av eksisterende systemer"
+            ]
+          , technologies =
+            [ "Python"
+            , "C\\#"
+            , "TypeScript"
+            , "Azure"
+            , "Pulumi"
+            , "IaC"
+            , "Docker"
+            , "CI"
+            ]
+          }
+        , { position = "Sommerjobb"
           , company = "NAV IT, NAIS"
           , location = "Oslo"
           , start = "Jun 2021"
@@ -63,18 +84,18 @@ let me
             , "Plattformløsning skrevet i Go, hvor vi brukte Kubernetes, InfluxDB, Prometheus m.m."
             , "Ga en hjelpende hånd til NAIS på prosjekter som trengte erfaring med frontend"
             ]
-          , technologies = [ "Go", "Kubernetes", "Prometheus" ]
+          , technologies = [ "Go", "Kubernetes", "Prometheus", "Google Cloud" ]
           }
         , { position = "Utvikler, deltid"
           , company = "IslandGarden"
           , location = "Bergen"
           , start = "Okt 2020"
-          , end = None Text
+          , end = Some "Jun 2022"
           , about =
-            [ "Jobber med fullstackutvikling med React og Firebase på flere prosjekter"
-            , "Utvikler og rådgir kunder for utvikling av løsningene deres, fra design til implementasjon"
+            [ "Fullstackutvikling med React og Firebase på flere prosjekter"
+            , "Utviklet og rådgivning for kunder til utvikling av løsningene deres, fra design til implementasjon"
             ]
-          , technologies = [ "TypeScript", "React", "Firebase" ]
+          , technologies = [ "TypeScript", "React", "Firebase", "GitHub" ]
           }
         , { position = "Sommerjobb"
           , company = "Capra Consulting"
@@ -107,7 +128,7 @@ let me
             , "Utviklet og vedlikeholdt REST APIer i .NET som brukes av flere React webapplikasjoner"
             ]
           , technologies =
-            [ "CSharp", "REST", "React", "TypeScript", "JavaScript" ]
+            [ "C\\#", "REST", "React", "TypeScript", "JavaScript" ]
           }
         , { position = "Gruppeleder INF100"
           , company = "Institutt for informatikk"
@@ -129,17 +150,17 @@ let me
             [ "Utviklet en portal og webapplikasjon for studentene som tar INF100 hvor studentene kunne jobbe på, levere og automatisk få rettet oppgaver"
             , "Hadde ~500 brukere og kjørte på Google Cloud Platform med Kubernetes"
             ]
-          , technologies = [ "Python", "Django", "Google Cloud Platform" ]
+          , technologies = [ "Python", "Django", "Google Cloud" ]
           }
         ]
       , extracurricular =
         [ { position = "Styremedlem, webmaster"
-          , company = "echo karriere"
+          , company = "echo karriere (ITxBergen)"
           , location = "Bergen"
           , start = "2019"
-          , end = None Text
+          , end = Some "2021"
           , about =
-            [ "echo karriere er studentorganisasjonen som drifter karrieredagen for IT-studenter i Bergen"
+            [ "echo karriere (ITxBergen) er studentorganisasjonen som drifter karrieredagen for IT-studenter i Bergen"
             , "Prosjektleder for utviklingsgruppen hvor jeg leder 6+ studenter i utviklingen av løsningene våre"
             ]
           , technologies =
@@ -156,7 +177,7 @@ let me
           , company = "echo makerspace"
           , location = "Bergen"
           , start = "2018"
-          , end = None Text
+          , end = Some "2021"
           , about =
             [ "Grunnleggende styremedlem gjennom mitt engasjenment i echo, ble leder høsten 2019"
             , "Sørger for at vi har utstyret vi trenger, nye medlemmer blir tatt godt i mot og arrangementene vi holder"
@@ -221,7 +242,7 @@ let me
           }
         ]
       , projects =
-        [ { name = "echo karriere"
+        [ { name = "echo karriere (ITxBergen)"
           , technologies =
             [ "Kotlin"
             , "Ktor"
@@ -232,7 +253,7 @@ let me
             , "Docker"
             ]
           , about =
-              "GitHub-organisasjonen for echo karriere hvor nettsiden, fullstackløsningen og dokumentasjonssiden lever."
+              "GitHub-organisasjonen for echo karriere (nå ITxBergen) hvor nettsiden, fullstackløsningen og dokumentasjonssiden lever."
           , github =
             { kind = P.SocialKind.GitHub
             , name = "GitHub"
@@ -297,36 +318,6 @@ let me
             }
           , website2 = None P.Social
           }
-        , { name = "Lesesalen"
-          , technologies =
-            [ "TypeScript"
-            , "React"
-            , "Gatsby"
-            , "styled-components"
-            , "Discord"
-            , "Docker"
-            ]
-          , about =
-              "GitHub-organisasjonen for studenter av studenter ved informatikk på UiB. Vi har samlet og utviklet to nettsider og en Discord-bot for serveren jeg startet for informatikkstudenter."
-          , github =
-            { kind = P.SocialKind.GitHub
-            , name = "GitHub"
-            , link = "https://github.com/lesesalen"
-            , title = "lesesalen"
-            }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://gummiand.no/"
-            , title = "gummiand.no"
-            }
-          , website2 = Some
-            { kind = P.SocialKind.Website
-            , name = "Website"
-            , link = "https://lesesalen.com/"
-            , title = "lesesalen.com"
-            }
-          }
         , { name = "MOCCA Operational Controller for Coffee Availability"
           , technologies = [ "JavaScript", "React", "Python", "Arduino", "IoT" ]
           , about =
@@ -351,7 +342,7 @@ let me
               , "brettspillentusiast"
               , "semi-entusiastisk jogger"
               , "sertifisert dykker"
-              , "stickersamler"
+              , "surdeigsbaker"
               ]
             }
       }
