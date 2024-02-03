@@ -382,7 +382,7 @@
   "socials": {
     "email": {
       "kind": "Email",
-      "link": "sondre@eons.io",
+      "link": "hello@example.org",
       "name": "Email",
       "title": "Email"
     },
@@ -400,7 +400,7 @@
     },
     "phone": {
       "kind": "Phone",
-      "link": "95520928",
+      "link": "81549300",
       "name": "Phone",
       "title": "Phone"
     },

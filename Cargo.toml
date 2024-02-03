@@ -2,7 +2,7 @@
 authors = ["Sondre Aasemoen <nilsen.sondre@gmail.com>"]
 edition = "2021"
 name = "cv-aas"
-version = "0.10.0"
+version = "0.10.1"
 
 [dependencies]
 async-graphql = "5.0.5"

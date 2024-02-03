@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
@@ -48,7 +48,15 @@ jobs:
           targets: x86_64-unknown-linux-musl
 
       - uses: Swatinem/rust-cache@v2
-      - uses: dhall-lang/setup-dhall@v4
+
+      - name: setup Dhall
+        run: |
+          wget https://github.com/dhall-lang/dhall-haskell/releases/download/1.42.0/dhall-1.42.0-x86_64-linux.tar.bz2
+          tar --extract --file dhall-*-x86_64-linux.tar.bz2
+          cp ./bin/dhall /usr/local/bin
+          wget https://github.com/dhall-lang/dhall-haskell/releases/download/1.42.0/dhall-json-1.7.12-x86_64-linux.tar.bz2
+          tar --extract --file dhall-json-*-x86_64-linux.tar.bz2
+          cp ./bin/dhall-to-json /usr/local/bin
 
       - name: Convert Dhall
         run: ./scripts/dhall.sh
@@ -57,9 +65,11 @@ jobs:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
 
       - name: Build LaTeX
-        uses: xu-cheng/texlive-action/small@v2
+        uses: xu-cheng/texlive-action@v2
         with:
+          scheme: small
           run: |
+            tlmgr update --self
             tlmgr install preprint fontawesome5 titlesec enumitem tcolorbox environ sourcesanspro
             ./scripts/latex.sh
 
@@ -67,7 +77,7 @@ jobs:
         run: sudo apt-get install -y musl-tools libssl-dev
 
       - name: Build target
-        run: cargo build--release --target x86_64-unknown-linux-musl
+        run: cargo build --release --target x86_64-unknown-linux-musl
 
       - name: Prepare build artifacts
         run: |
