@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" href="/icon.svg" sizes="any" type="image/svg+xml" />
     <link
@@ -57,8 +57,29 @@
       ReactDOM.render(
         React.createElement(GraphiQL, {
           fetcher: graphQLFetcher,
-          query: `{\n  hello(language: ENGLISH)\n  resume(language: ENGLISH)\n  me(language: ENGLISH) {\n    name\n    tagline\n    about\n  }\n}\n`,
-          response: `{\n  \"data\": {\n    \"hello\": \"Hello! Welcome to my CV-as-a-service!\",\n    \"me\": {\n      \"about\": \"I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Doing my masters in algorithms at UiB alongside being a part-time developer at IslandGarden. I am a hobby project fanatic, there\'s always one to many project in my head. I care about the student environment at informatics and I\'m active in a host of student run organizations and projects. In my spare time I enjoy long runs, long evenings playing board games and a good beer.\",\n      \"name\": \"Sondre Aasemoen\",\n      \"tagline\": \"Algorithms @ UiB | Full stack developer\",\n    },\n    \"resume\": \"https://cv.eons.io/english\",\n  }\n}`,
+          query: `
+{
+  hello(language: ENGLISH)
+  resume(language: ENGLISH)
+  me(language: ENGLISH) {
+    name
+    tagline
+    about
+  }
+}
+`.trim(),
+          response: `
+{
+  "data": {
+    "hello": "Hello! Welcome to my CV-as-a-service!",
+    "resume": "https://cv.eons.io/english",
+    "me": {
+      "name": "Sondre Aasemoen",
+      "tagline": "Senior consultant @ Sonat | Full stack developer",
+      "about": "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Senior consultant at Sonat with a masters in algorithms from UiB. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy long runs, long evenings playing board games, sourdough baking, fermenting and a good beer."
+    }
+  }
+}`.trim(),
         }),
         document.getElementById("graphiql")
       );
