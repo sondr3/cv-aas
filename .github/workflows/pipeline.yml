@@ -70,7 +70,7 @@ jobs:
           scheme: small
           run: |
             tlmgr update --self
-            tlmgr install preprint fontawesome5 titlesec enumitem tcolorbox environ sourcesanspro
+            tlmgr install preprint fontawesome5 titlesec enumitem tcolorbox environ sourcesanspro tikzfill
             ./scripts/latex.sh
 
       - name: Install musl tools
