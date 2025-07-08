@@ -65,7 +65,7 @@ jobs:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
 
       - name: Build LaTeX
-        uses: xu-cheng/texlive-action@v2
+        uses: xu-cheng/texlive-action@v3
         with:
           scheme: small
           run: |
