@@ -65,7 +65,7 @@ jobs:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
 
       - name: Build LaTeX
-        uses: xu-cheng/texlive-action@v2
+        uses: xu-cheng/texlive-action@v3
         with:
           scheme: small
           run: |
@@ -112,7 +112,7 @@ jobs:
         run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
       - name: Download binary
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: cv-aas
           path: .
@@ -139,13 +139,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download binary
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: cv-aas
           path: .
 
       - name: Download resumes
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: resumes
           path: .
