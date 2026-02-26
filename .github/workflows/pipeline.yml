@@ -87,13 +87,13 @@ jobs:
           cd -
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: cv-aas
           path: cv-aas
 
       - name: Upload PDFs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: resumes
           path: |
@@ -112,7 +112,7 @@ jobs:
         run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
       - name: Download binary
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: cv-aas
           path: .
@@ -139,13 +139,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download binary
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: cv-aas
           path: .
 
       - name: Download resumes
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: resumes
           path: .
