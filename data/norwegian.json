@@ -26,9 +26,29 @@
   "experience": [
     {
       "about": [
-        "Utviklet webapplikasjon for studenter på barneskolen for matte",
-        "Fullstackutvikling, infrastruktur og drift av applikasjoner",
-        "Rådgivning for nyutvikling og modernisering av eksisterende systemer"
+        "Primary full stack developer on a SaaS for accounting and banking",
+        "Developed and created a framework agnostic CSS design system and a component library in React",
+        "Worked with roadmapping, refining and creating tasks and issues"
+      ],
+      "company": "Aritma",
+      "location": "Bergen",
+      "position": "Senior Software Developer / Tech Lead",
+      "start": "Aug 2024",
+      "technologies": [
+        "C\\#",
+        "TypeScript",
+        "Azure",
+        "Terraform",
+        "IaC",
+        "Kubernetes",
+        "React"
+      ]
+    },
+    {
+      "about": [
+        "Hovedkonsulent for en tung dataplattformapplikasjon for innlesing av energidata",
+        "Rådgivning for nyutvikling og modernisering av eksisterende systemer",
+        "Utviklet webapplikasjon for studenter på barneskolen for matte"
       ],
       "company": "Sonat Bergen",
       "location": "Bergen",
@@ -229,35 +249,19 @@
   "name": "Sondre Aasemoen",
   "projects": [
     {
-      "about": "GitHub-organisasjonen for echo karriere (nå ITxBergen) hvor nettsiden, fullstackløsningen og dokumentasjonssiden lever.",
+      "about": "En Astro plugin for å automatisk komprimere statiske filer med gzip/brotli/zstd",
       "github": {
         "kind": "GitHub",
-        "link": "https://github.com/echo-karriere",
+        "link": "https://github.com/sondr3/astro-compressor",
         "name": "GitHub",
-        "title": "echo-karriere"
+        "title": "sondr3/astro-compressor"
       },
-      "name": "echo karriere (ITxBergen)",
+      "name": "astro-compressor",
       "technologies": [
-        "Kotlin",
-        "Ktor",
-        "GraphQL",
-        "PostgreSQL",
-        "React",
         "TypeScript",
-        "Docker"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://www.echokarriere.no/",
-        "name": "echo karriere",
-        "title": "echo karriere"
-      },
-      "website2": {
-        "kind": "Website",
-        "link": "https://docs.echokarriere.no/",
-        "name": "echo karriere",
-        "title": "echo karriere docs"
-      }
+        "Astro",
+        "GitHub Actions"
+      ]
     },
     {
       "about": "Hent og list tilgjengelige maler for .gitignore fra APIet til gitignore.io. Alle maler blir cachet lokalt og programmet fungerer på Windows, macOS og Linux. Blir automatisk bygd og publisert på GitHub.",
@@ -334,14 +338,14 @@
   "skills": {
     "languages": [
       "Rust",
-      "Kotlin",
       "Haskell",
-      "TypeScript/JavaScript",
+      "TypeScript",
+      "C\\#",
       "Go",
-      "Python",
       "SQL",
       "Java",
-      "C\\#"
+      "Python",
+      "Kotlin"
     ],
     "personal": [
       "Pianist",
@@ -352,13 +356,13 @@
     ],
     "technologies": [
       "React",
-      "DevOps",
-      "GraphQL",
       "REST",
-      "Docker",
-      "Linux",
       "Git",
       "Kubernetes",
+      "DevOps",
+      "GraphQL",
+      "Docker",
+      "Linux",
       "Prometheus",
       "CSS",
       "HTML",

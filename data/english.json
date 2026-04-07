@@ -26,11 +26,32 @@
   "experience": [
     {
       "about": [
-        "Developed a web application for math students in primary school",
-        "Fullstack development, infrastructure and devops",
-        "Consulting and planning for development and modernization of existing systems"
+        "Primary full stack developer on a SaaS for accounting and banking",
+        "Developed and created a framework agnostic CSS design system and a component library in React",
+        "Worked with roadmapping, refining and creating tasks and issues"
+      ],
+      "company": "Aritma",
+      "location": "Bergen",
+      "position": "Senior Software Developer / Tech Lead",
+      "start": "Aug 2024",
+      "technologies": [
+        "C\\#",
+        "TypeScript",
+        "Azure",
+        "Terraform",
+        "IaC",
+        "Kubernetes",
+        "React"
+      ]
+    },
+    {
+      "about": [
+        "Primary consultant on a data heavy pipeline application for ingestion of data from termal plants",
+        "Consulting and planning for development and modernization of existing systems",
+        "Developed a web application for math students in primary school"
       ],
       "company": "Sonat Bergen",
+      "end": "Jul 2024",
       "location": "Bergen",
       "position": "Senior Consultant",
       "start": "Jul 2022",
@@ -229,35 +250,19 @@
   "name": "Sondre Aasemoen",
   "projects": [
     {
-      "about": "GitHub organization for echo karriere (now ITxBergen) where our website, full-stack solution and documentation lives.",
+      "about": "An Astro plugin to automatically compress static assets with gzip/brotli/zstd",
       "github": {
         "kind": "GitHub",
-        "link": "https://github.com/echo-karriere",
+        "link": "https://github.com/sondr3/astro-compressor",
         "name": "GitHub",
-        "title": "echo-karriere"
+        "title": "sondr3/astro-compressor"
       },
-      "name": "echo karriere (ITxBergen)",
+      "name": "astro-compressor",
       "technologies": [
-        "Kotlin",
-        "Ktor",
-        "GraphQL",
-        "PostgreSQL",
-        "React",
         "TypeScript",
-        "Docker"
-      ],
-      "website": {
-        "kind": "Website",
-        "link": "https://www.echokarriere.no/",
-        "name": "echo karriere",
-        "title": "echo karriere"
-      },
-      "website2": {
-        "kind": "Website",
-        "link": "https://docs.echokarriere.no/",
-        "name": "echo karriere",
-        "title": "echo karriere docs"
-      }
+        "Astro",
+        "GitHub Actions"
+      ]
     },
     {
       "about": "Fetch and list templates for .gitignore from the API for gitignore.io. Alle templates are cached locally and the program works on both Windows, macOS and Linux. It is automatically build and released on GitHub.",
@@ -334,14 +339,14 @@
   "skills": {
     "languages": [
       "Rust",
-      "Kotlin",
       "Haskell",
-      "TypeScript/JavaScript",
+      "TypeScript",
+      "C\\#",
       "Go",
-      "Python",
       "SQL",
       "Java",
-      "C\\#"
+      "Python",
+      "Kotlin"
     ],
     "personal": [
       "Pianist",
@@ -352,13 +357,13 @@
     ],
     "technologies": [
       "React",
-      "DevOps",
-      "GraphQL",
       "REST",
-      "Docker",
-      "Linux",
       "Git",
       "Kubernetes",
+      "DevOps",
+      "GraphQL",
+      "Docker",
+      "Linux",
       "Prometheus",
       "CSS",
       "HTML",

@@ -53,15 +53,35 @@ let me
           }
         ]
       , experience =
-        [ { position = "Senior Consultant"
+        [ { position = "Senior Software Developer / Tech Lead"
+          , company = "Aritma"
+          , location = "Bergen"
+          , start = "Aug 2024"
+          , end = None Text
+          , about =
+            [ "Primary full stack developer on a SaaS for accounting and banking"
+            , "Developed and created a framework agnostic CSS design system and a component library in React"
+            , "Worked with roadmapping, refining and creating tasks and issues"
+            ]
+          , technologies =
+            [ "C\\#"
+            , "TypeScript"
+            , "Azure"
+            , "Terraform"
+            , "IaC"
+            , "Kubernetes"
+            , "React"
+            ]
+          }
+        , { position = "Senior Consultant"
           , company = "Sonat Bergen"
           , location = "Bergen"
           , start = "Jul 2022"
-          , end = None Text
+          , end = Some "Jul 2024"
           , about =
-            [ "Developed a web application for math students in primary school"
-            , "Fullstack development, infrastructure and devops"
+            [ "Primary consultant on a data heavy pipeline application for ingestion of data from termal plants"
             , "Consulting and planning for development and modernization of existing systems"
+            , "Developed a web application for math students in primary school"
             ]
           , technologies =
             [ "Python"
@@ -242,36 +262,18 @@ let me
           }
         ]
       , projects =
-        [ { name = "echo karriere (ITxBergen)"
-          , technologies =
-            [ "Kotlin"
-            , "Ktor"
-            , "GraphQL"
-            , "PostgreSQL"
-            , "React"
-            , "TypeScript"
-            , "Docker"
-            ]
+        [ { name = "astro-compressor"
+          , technologies = [ "TypeScript", "Astro", "GitHub Actions" ]
           , about =
-              "GitHub organization for echo karriere (now ITxBergen) where our website, full-stack solution and documentation lives."
+              "An Astro plugin to automatically compress static assets with gzip/brotli/zstd"
           , github =
             { kind = P.SocialKind.GitHub
             , name = "GitHub"
-            , link = "https://github.com/echo-karriere"
-            , title = "echo-karriere"
+            , link = "https://github.com/sondr3/astro-compressor"
+            , title = "sondr3/astro-compressor"
             }
-          , website = Some
-            { kind = P.SocialKind.Website
-            , name = "echo karriere"
-            , link = "https://www.echokarriere.no/"
-            , title = "echo karriere"
-            }
-          , website2 = Some
-            { kind = P.SocialKind.Website
-            , name = "echo karriere"
-            , link = "https://docs.echokarriere.no/"
-            , title = "echo karriere docs"
-            }
+          , website = None P.Social
+          , website2 = None P.Social
           }
         , { name = "git-ignore"
           , technologies = [ "Rust", "Git", "GitHub Actions" ]

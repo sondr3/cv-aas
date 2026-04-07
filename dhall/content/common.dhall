@@ -38,25 +38,25 @@ let socials
 
 let languages =
       [ "Rust"
-      , "Kotlin"
       , "Haskell"
-      , "TypeScript/JavaScript"
+      , "TypeScript"
+      , "C\\#"
       , "Go"
-      , "Python"
       , "SQL"
       , "Java"
-      , "C\\#"
+      , "Python"
+      , "Kotlin"
       ]
 
 let technologies =
       [ "React"
-      , "DevOps"
-      , "GraphQL"
       , "REST"
-      , "Docker"
-      , "Linux"
       , "Git"
       , "Kubernetes"
+      , "DevOps"
+      , "GraphQL"
+      , "Docker"
+      , "Linux"
       , "Prometheus"
       , "CSS"
       , "HTML"
