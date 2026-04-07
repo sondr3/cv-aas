@@ -30,7 +30,7 @@ let me
       , lastName = C.name.lastName
       , tagline = "Seniorkonsulent @ Sonat | Fullstackutvikler"
       , about =
-          "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Seniorkonsulent hos Sonat med en mastergrad innen algoritmer fra UiB. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill, surdeigsbrød og fermentering og en god øl."
+          "Jeg er en lidenskapelig og dreven fullstackutvikler med et stort hjerte for fri og åpen kildekode og sterkt typede programmeringsspråk. Senior fullstackutvikler hos Aritma med en mastergrad innen algoritmer fra UiB. Hobbyprosjektfanatiker og har alltid ett for mye prosjekt gående samtidig. På fritiden koser jeg meg med å løpe langt, lange kvelder med brettspill, surdeigsbrød og fermentering og en god øl."
       , socials = C.socials
       , education =
         [ { university = "Universitetet i Bergen"
@@ -53,15 +53,16 @@ let me
           }
         ]
       , experience =
-        [ { position = "Senior Software Developer / Tech Lead"
+        [ { position = "Senior Software Engineer / Tech Lead"
           , company = "Aritma"
           , location = "Bergen"
           , start = "Aug 2024"
           , end = None Text
           , about =
-            [ "Primary full stack developer on a SaaS for accounting and banking"
-            , "Developed and created a framework agnostic CSS design system and a component library in React"
-            , "Worked with roadmapping, refining and creating tasks and issues"
+            [ "Primærfullstackutvikler på en SaaS for regnskap, bokføring og bankintegrasjoner"
+            , "Utviklet og laget et rammeverkagnostisk CSS designsystem og et komponentbibliotek i React"
+            , "Jobbet med planlegging, rafinering etc for backlogger og oppgaver"
+            , "Startet en intern fagdag med presentasjoner av og for teknologer"
             ]
           , technologies =
             [ "C\\#"
@@ -82,6 +83,7 @@ let me
             [ "Hovedkonsulent for en tung dataplattformapplikasjon for innlesing av energidata"
             , "Rådgivning for nyutvikling og modernisering av eksisterende systemer"
             , "Utviklet webapplikasjon for studenter på barneskolen for matte"
+            , "Lagde internverktøy for å forbedre timeføring av prosjekter"
             ]
           , technologies =
             [ "Python"

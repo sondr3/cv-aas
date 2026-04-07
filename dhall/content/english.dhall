@@ -30,7 +30,7 @@ let me
       , lastName = C.name.lastName
       , tagline = "Senior consultant @ Sonat | Full stack developer"
       , about =
-          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. Senior consultant at Sonat with a masters in algorithms from UiB. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy long runs, long evenings playing board games, sourdough baking, fermenting and a good beer."
+          "I am a passionate and driven full-stack developer with a passion for open-source and strongly typed programming languages. I'm a senior software engineer at Aritma with a masters in algorithms from UiB. I am a hobby project fanatic, there's always one to many project in my head. In my spare time I enjoy spending time with my partner, dog and two cats, long runs, biking, wood working and lathe projects, long evenings playing board games, sourdough baking, fermenting and a good beer."
       , socials = C.socials
       , education =
         [ { university = "University of Bergen"
@@ -53,7 +53,7 @@ let me
           }
         ]
       , experience =
-        [ { position = "Senior Software Developer / Tech Lead"
+        [ { position = "Senior Software Engineer / Tech Lead"
           , company = "Aritma"
           , location = "Bergen"
           , start = "Aug 2024"
@@ -61,7 +61,8 @@ let me
           , about =
             [ "Primary full stack developer on a SaaS for accounting and banking"
             , "Developed and created a framework agnostic CSS design system and a component library in React"
-            , "Worked with roadmapping, refining and creating tasks and issues"
+            , "Worked with roadmapping, refining and grooming etc for backlogs and tasks"
+            , "Started a internal tech talk day with presentations and showcases for technologists"
             ]
           , technologies =
             [ "C\\#"
@@ -82,6 +83,7 @@ let me
             [ "Primary consultant on a data heavy pipeline application for ingestion of data from termal plants"
             , "Consulting and planning for development and modernization of existing systems"
             , "Developed a web application for math students in primary school"
+            , "Created internal tooling for better project time keeping"
             ]
           , technologies =
             [ "Python"
@@ -144,8 +146,9 @@ let me
           , start = "Jan 2019"
           , end = Some "Oct 2020"
           , about =
-            [ "I work on the landing page for the mobile app on both Android and iOS"
+            [ "I worked on the landing page for the mobile app on both Android and iOS"
             , "Develop and maintenance of REST API's in .NET that is used by several React applications"
+            , "Helped with managing the interal component library"
             ]
           , technologies =
             [ "CSharp", "REST", "React", "TypeScript", "JavaScript" ]
