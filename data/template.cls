@@ -145,9 +145,11 @@
 \newcolumntype{R}[1]{>{\hfill}m{#1}}
 
 % Setup fonts
-\setmainfont{Source Sans Pro Light}[
-  BoldFont = SourceSansPro-Regular,
-  ItalicFont= Source Sans Pro Light Italic]
+\setmainfont{Source Sans 3}[
+  UprightFeatures = {RawFeature={axis={wght=300}}},
+  BoldFeatures = {RawFeature={axis={wght=400}}},
+  ItalicFont = {Source Sans 3},
+  ItalicFeatures = {RawFeature={axis={wght=300}}}]
 
 %New length definition
 \newlength{\fulllength}
